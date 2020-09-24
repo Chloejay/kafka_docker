@@ -127,3 +127,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+confluent-5.3.0/*
+.DS_Store
