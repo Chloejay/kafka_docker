@@ -1,3 +1,5 @@
+#/bin/bash
+
 while read p; do 
     echo Pulling "$p" ..
     echo "------------"
