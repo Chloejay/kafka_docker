@@ -4,10 +4,9 @@ import atexit
 
 from confluent_kafka import Producer
 from create_topic import Topics 
-# set docker for running, what the logic here?
+
 
 if __name__ == "__main__":
-    
     BROKER= "localhost:9092"
     DRIVER_FILE_PREFIX = "./drivers/"
     KAFKA_TOPIC = "tests_001"

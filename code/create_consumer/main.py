@@ -2,7 +2,7 @@ from confluent_kafka import Consumer
 from pprint import pprint 
 
 
-def receive_msgs(topic):
+def receive_msgs(topic, bootstrap_server):
     c = Consumer({
         'bootstrap.servers': bootstrap_server,
         'group.id': 'test(s)',
@@ -39,4 +39,4 @@ if __name__ == "__main__":
     topic="tests"
     
     pprint("Starting Python Consumer.")
-    receive_msgs(topic)
+    receive_msgs(topic, bootstrap_server)
