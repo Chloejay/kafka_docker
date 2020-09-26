@@ -4,13 +4,13 @@ import atexit
 
 from confluent_kafka import Producer
 from create_topic import Topics 
-
+# set docker for running, what the logic here?
 
 if __name__ == "__main__":
     
     BROKER= "localhost:9092"
     DRIVER_FILE_PREFIX = "./drivers/"
-    KAFKA_TOPIC = "drivers"
+    KAFKA_TOPIC = "tests_001"
 
     topic= Topics(BROKER, [KAFKA_TOPIC], 6, 1)
     topic.create_topic()
@@ -51,15 +51,15 @@ if __name__ == "__main__":
     while True:
         line = lines[pos].strip()
         producer.poll(0)
-        
+
         #asynchronous write 
         producer.produce(
             KAFKA_TOPIC,
             key= DRIVER_ID,
             value= line,
             callback= delivery_report)
-        
+
         sleep(1)
         pos = (pos + 1) % len(lines)
-    
+
     producer.close()

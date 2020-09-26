@@ -22,6 +22,6 @@ class Topics:
 
 
 if __name__== "__main__":
-    topic= Topics("localhost:9092", ["drivers"], 6, 1)
+    topic= Topics("localhost:9092", ["tests"], 6, 1)
     topic.create_topic()
 
