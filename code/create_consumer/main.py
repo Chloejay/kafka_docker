@@ -40,7 +40,7 @@ def receive_msgs(topic, bootstrap_server):
 
 if __name__ == "__main__":
     bootstrap_server="localhost:9092"
-    topic="topic_a"
+    topic= "topic_a"
     
     pprint("Starting Python Consumer.")
-    print(receive_msgs(topic, bootstrap_server))
+    receive_msgs(topic, bootstrap_server)
