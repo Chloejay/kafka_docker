@@ -10,7 +10,7 @@ class Topics:
 
 
     def create_topic(self):
-        fs = self.kafka_.create_topics(self.new_topic)
+        fs = self.kafka_.create_topics(self.new_topic, operation_timeout= 60)
         for topic, f in fs.items():
             try:
                 f.result()
@@ -18,10 +18,4 @@ class Topics:
 
             except Exception as e:
                 print("Failed to create topic {}: {}".format(topic, e))
-
-
-
-if __name__== "__main__":
-    topic= Topics("localhost:9092", ["tests"], 6, 1)
-    topic.create_topic()
 

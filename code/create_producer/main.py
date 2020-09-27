@@ -3,13 +3,13 @@ import os
 import atexit
 
 from confluent_kafka import Producer
-from create_topic import Topics 
+from create_topic import Topics
 
 
 if __name__ == "__main__":
     BROKER= "localhost:9092"
     DRIVER_FILE_PREFIX = "./drivers/"
-    KAFKA_TOPIC = "tests_001"
+    KAFKA_TOPIC = "topic_a"
 
     topic= Topics(BROKER, [KAFKA_TOPIC], 6, 1)
     topic.create_topic()
@@ -22,10 +22,13 @@ if __name__ == "__main__":
     config= {
     'bootstrap.servers': BROKER,
     "client.id":"driver.producer",
-    # "key.serializer": "",
-    # "value.serializer":"",
-    'plugin.library.paths': 'monitoring-interceptor',
-    'partitioner': 'murmur2_random'}
+    # 'plugin.library.paths': 'monitoring-interceptor',
+    # "statistics.interval.ms":1000,
+    "api.version.request":"true",
+    "retries":5,
+    'partitioner': 'random',
+    'debug': 'admin,broker, metadata',
+    }
 
     producer = Producer(**config)
 
@@ -36,7 +39,6 @@ if __name__ == "__main__":
             print('Sent Key:%s Value: %s' %(msg.key().decode(), msg.value().decode()))
     
     def exit_handler():
-        """Run this on exit"""
         print("Flushing producer and exiting.")
         producer.flush()
 
@@ -45,20 +47,21 @@ if __name__ == "__main__":
 
     with open(os.path.join(DRIVER_FILE_PREFIX, DRIVER_ID + ".csv")) as f:
         lines = f.readlines()
+    try:
+        pos = 0
+        while True:
+            line = lines[pos].strip()
+            producer.poll(0)
 
-    pos = 0
-    while True:
-        line = lines[pos].strip()
-        producer.poll(0)
-
-        #asynchronous write 
-        producer.produce(
-            KAFKA_TOPIC,
-            key= DRIVER_ID,
-            value= line,
-            callback= delivery_report)
-
-        sleep(1)
-        pos = (pos + 1) % len(lines)
-
-    producer.close()
+            #asynchronous write
+            producer.produce(
+                KAFKA_TOPIC,
+                key= DRIVER_ID,
+                value= line,
+                callback= delivery_report)
+            sleep(1)
+            pos = (pos + 1) % len(lines)
+    except Exception as e:
+        print(str(e))
+    finally:
+        producer.close()

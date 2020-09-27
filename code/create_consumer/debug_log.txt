@@ -1,0 +1,1653 @@
+'Starting Python Consumer.'
+%7|1601180231.853|MEMBERID|rdkafka#consumer-1| [thrd:app]: Group "tests": updating member id "(not-set)" -> ""
+%7|1601180231.853|WAKEUPFD|rdkafka#consumer-1| [thrd:app]: GroupCoordinator: Enabled low-latency ops queue wake-ups
+%7|1601180231.853|BROKER|rdkafka#consumer-1| [thrd:app]: GroupCoordinator: Added new broker with NodeId -1
+%7|1601180231.853|WAKEUPFD|rdkafka#consumer-1| [thrd:app]: localhost:9092/bootstrap: Enabled low-latency ops queue wake-ups
+%7|1601180231.853|BRKMAIN|rdkafka#consumer-1| [thrd::0/internal]: :0/internal: Enter main broker thread
+%7|1601180231.853|BROKER|rdkafka#consumer-1| [thrd:app]: localhost:9092/bootstrap: Added new broker with NodeId -1
+%7|1601180231.853|BRKMAIN|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator: Enter main broker thread
+%7|1601180231.853|BRKMAIN|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Enter main broker thread
+%7|1601180231.853|INIT|rdkafka#consumer-1| [thrd:app]: librdkafka v1.4.0 (0x10400ff) rdkafka#consumer-1 initialized (builtin.features gzip,snappy,ssl,sasl,regex,lz4,sasl_gssapi,sasl_plain,sasl_scram,plugins,zstd,sasl_oauthbearer, STATIC_LINKING GCC GXX PKGCONFIG OSXLD LIBDL PLUGINS ZLIB SSL SASL_CYRUS ZSTD HDRHISTOGRAM SYSLOG SNAPPY SOCKEM SASL_SCRAM SASL_OAUTHBEARER CRC32C_HW, debug 0xfffff)
+%7|1601180231.853|CGRPOP|rdkafka#consumer-1| [thrd:main]: Group "tests" received op SUBSCRIBE (v0) in state init (join state init, v1 vs 0)
+%7|1601180231.853|SUBSCRIBE|rdkafka#consumer-1| [thrd:main]: Group "tests": subscribe to new subscription of 1 topics (join state init)
+%7|1601180231.853|UNSUBSCRIBE|rdkafka#consumer-1| [thrd:main]: Group "tests": unsubscribe from current unset subscription of 0 topics (leave group=no, join state init, v1)
+%7|1601180231.853|GRPLEADER|rdkafka#consumer-1| [thrd:main]: Group "tests": resetting group leader info: unsubscribe
+%7|1601180231.853|REBALANCE|rdkafka#consumer-1| [thrd:main]: Group "tests" is rebalancing in state init (join-state init) without assignment: unsubscribe
+%7|1601180231.853|CGRPJOINSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed join state init -> wait-unassign (v1, state init)
+%7|1601180231.853|UNASSIGN|rdkafka#consumer-1| [thrd:main]: Group "tests": unassign done in state init (join state wait-unassign): without new assignment: unassign (no previous assignment)
+%7|1601180231.853|CGRPJOINSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed join state wait-unassign -> init (v1, state init)
+%7|1601180231.853|CGRPSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed state init -> query-coord (v1, join-state init)
+%7|1601180231.853|BROADCAST|rdkafka#consumer-1| [thrd:main]: Broadcasting state change
+%7|1601180231.853|CONNECT|rdkafka#consumer-1| [thrd:main]: localhost:9092/bootstrap: Selected for cluster connection: coordinator query (broker has 0 connection attempt(s))
+%7|1601180231.853|CGRPQUERY|rdkafka#consumer-1| [thrd:main]: Group "tests": no broker available for coordinator query: intervaled in state query-coord
+%7|1601180231.853|CONNECT|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Received CONNECT op
+%7|1601180231.853|STATE|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Broker changed state INIT -> TRY_CONNECT
+%7|1601180231.853|BROADCAST|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Broadcasting state change
+%7|1601180231.853|CONNECT|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: broker in state TRY_CONNECT connecting
+%7|1601180231.853|STATE|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Broker changed state TRY_CONNECT -> CONNECT
+%7|1601180231.853|BROADCAST|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Broadcasting state change
+%7|1601180231.860|CONNECT|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Connecting to ipv6#[::1]:9092 (plaintext) with socket 11
+%7|1601180231.860|CONNECT|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Connected to ipv6#[::1]:9092
+%7|1601180231.860|CONNECTED|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Connected (#1)
+%7|1601180231.860|FEATURE|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Updated enabled protocol features +ApiVersion to ApiVersion
+%7|1601180231.860|STATE|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Broker changed state CONNECT -> APIVERSION_QUERY
+%7|1601180231.860|BROADCAST|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Broadcasting state change
+%7|1601180231.860|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Sent ApiVersionRequest (v3, 66 bytes @ 0, CorrId 1)
+%7|1601180231.862|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Received ApiVersionResponse (v3, 6 bytes, CorrId 1, rtt 1.80ms)
+%7|1601180231.862|PROTOERR|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Protocol parse failure for ApiVersion v3 at 3/6 (rd_kafka_handle_ApiVersion:1911) (incorrect broker.version.fallback?)
+%7|1601180231.862|PROTOERR|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: ApiArrayCnt -1 out of range
+%7|1601180231.862|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: ApiVersionRequest v3 failed due to UNSUPPORTED_VERSION: retrying with v0
+%7|1601180231.862|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Sent ApiVersionRequest (v0, 21 bytes @ 0, CorrId 2)
+%7|1601180231.864|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Received ApiVersionResponse (v0, 276 bytes, CorrId 2, rtt 1.58ms)
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Broker API support:
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey Produce (0) Versions 0..7
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey Fetch (1) Versions 0..11
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey Offset (2) Versions 0..5
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey Metadata (3) Versions 0..8
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey LeaderAndIsr (4) Versions 0..2
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey StopReplica (5) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey UpdateMetadata (6) Versions 0..5
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey ControlledShutdown (7) Versions 0..2
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey OffsetCommit (8) Versions 0..7
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey OffsetFetch (9) Versions 0..5
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey FindCoordinator (10) Versions 0..2
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey JoinGroup (11) Versions 0..5
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey Heartbeat (12) Versions 0..3
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey LeaveGroup (13) Versions 0..2
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey SyncGroup (14) Versions 0..3
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey DescribeGroups (15) Versions 0..3
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey ListGroups (16) Versions 0..2
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey SaslHandshake (17) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey ApiVersion (18) Versions 0..2
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey CreateTopics (19) Versions 0..3
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey DeleteTopics (20) Versions 0..3
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey DeleteRecords (21) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey InitProducerId (22) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey OffsetForLeaderEpoch (23) Versions 0..3
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey AddPartitionsToTxn (24) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey AddOffsetsToTxn (25) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey EndTxn (26) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey WriteTxnMarkers (27) Versions 0..0
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey TxnOffsetCommit (28) Versions 0..2
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey DescribeAcls (29) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey CreateAcls (30) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey DeleteAcls (31) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey DescribeConfigs (32) Versions 0..2
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey AlterConfigs (33) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey AlterReplicaLogDirs (34) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey DescribeLogDirs (35) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey SaslAuthenticate (36) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey CreatePartitions (37) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey CreateDelegationToken (38) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey RenewDelegationToken (39) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey ExpireDelegationToken (40) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey DescribeDelegationToken (41) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey DeleteGroups (42) Versions 0..1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey Unknown-43? (43) Versions 0..0
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:   ApiKey Unknown-44? (44) Versions 0..0
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature MsgVer1: Produce (2..2) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature MsgVer1: Fetch (2..2) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Enabling feature MsgVer1
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature MsgVer2: Produce (3..3) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature MsgVer2: Fetch (4..4) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Enabling feature MsgVer2
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature ApiVersion: ApiVersion (0..0) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Enabling feature ApiVersion
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature BrokerGroupCoordinator: FindCoordinator (0..0) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Enabling feature BrokerGroupCoordinator
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature BrokerBalancedConsumer: FindCoordinator (0..0) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature BrokerBalancedConsumer: OffsetCommit (1..2) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature BrokerBalancedConsumer: OffsetFetch (1..1) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature BrokerBalancedConsumer: JoinGroup (0..0) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature BrokerBalancedConsumer: SyncGroup (0..0) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature BrokerBalancedConsumer: Heartbeat (0..0) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature BrokerBalancedConsumer: LeaveGroup (0..0) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Enabling feature BrokerBalancedConsumer
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature ThrottleTime: Produce (1..2) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature ThrottleTime: Fetch (1..2) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Enabling feature ThrottleTime
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature Sasl: JoinGroup (0..0) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Enabling feature Sasl
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature SaslHandshake: SaslHandshake (0..0) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Enabling feature SaslHandshake
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature LZ4: FindCoordinator (0..0) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Enabling feature LZ4
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature OffsetTime: Offset (1..1) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Enabling feature OffsetTime
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature IdempotentProducer: InitProducerId (0..0) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Enabling feature IdempotentProducer
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature ZSTD: Produce (7..7) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature ZSTD: Fetch (10..10) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Enabling feature ZSTD
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature SaslAuthReq: SaslHandshake (1..1) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap:  Feature SaslAuthReq: SaslAuthenticate (0..0) supported by broker
+%7|1601180231.864|APIVERSION|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Enabling feature SaslAuthReq
+%7|1601180231.864|FEATURE|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Updated enabled protocol features to MsgVer1,ApiVersion,BrokerBalancedConsumer,ThrottleTime,Sasl,SaslHandshake,BrokerGroupCoordinator,LZ4,OffsetTime,MsgVer2,IdempotentProducer,ZSTD,SaslAuthReq
+%7|1601180231.864|STATE|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Broker changed state APIVERSION_QUERY -> UP
+%7|1601180231.864|BROADCAST|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Broadcasting state change
+%7|1601180231.864|METADATA|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Request metadata for brokers only: connected
+%7|1601180231.865|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Sent MetadataRequest (v2, 25 bytes @ 0, CorrId 3)
+%7|1601180231.867|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: Received MetadataResponse (v2, 57 bytes, CorrId 3, rtt 2.09ms)
+%7|1601180231.867|METADATA|rdkafka#consumer-1| [thrd:main]: localhost:9092/bootstrap: ===== Received metadata: connected =====
+%7|1601180231.867|METADATA|rdkafka#consumer-1| [thrd:main]: localhost:9092/bootstrap: ClusterId: 53rul8jsTYa7axxpKxlzBA, ControllerId: 101
+%7|1601180231.867|METADATA|rdkafka#consumer-1| [thrd:main]: localhost:9092/bootstrap: 1 brokers, 0 topics
+%7|1601180231.867|METADATA|rdkafka#consumer-1| [thrd:main]: localhost:9092/bootstrap:   Broker #0/1: localhost:9092 NodeId 101
+%7|1601180231.867|CLUSTERID|rdkafka#consumer-1| [thrd:main]: localhost:9092/bootstrap: ClusterId update "" -> "53rul8jsTYa7axxpKxlzBA"
+%7|1601180231.867|CONTROLLERID|rdkafka#consumer-1| [thrd:main]: localhost:9092/bootstrap: ControllerId update -1 -> 101
+%7|1601180231.867|BROADCAST|rdkafka#consumer-1| [thrd:main]: Broadcasting state change
+%7|1601180231.867|UPDATE|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/bootstrap: NodeId changed from -1 to 101
+%7|1601180231.867|UPDATE|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Name changed from localhost:9092/bootstrap to localhost:9092/101
+%7|1601180231.867|LEADER|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Mapped 0 partition(s) to broker
+%7|1601180231.867|STATE|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Broker changed state UP -> UPDATE
+%7|1601180231.867|BROADCAST|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Broadcasting state change
+%7|1601180231.867|BROADCAST|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Broadcasting state change
+%7|1601180231.867|STATE|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Broker changed state UPDATE -> UP
+%7|1601180231.867|BROADCAST|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Broadcasting state change
+%7|1601180232.856|CGRPQUERY|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Group "tests": querying for coordinator: intervaled in state query-coord
+%7|1601180232.857|CGRPSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed state query-coord -> wait-coord (v1, join-state init)
+%7|1601180232.857|BROADCAST|rdkafka#consumer-1| [thrd:main]: Broadcasting state change
+%7|1601180232.857|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FindCoordinatorRequest (v2, 29 bytes @ 0, CorrId 4)
+%7|1601180232.979|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FindCoordinatorResponse (v2, 51 bytes, CorrId 4, rtt 122.24ms)
+%7|1601180232.980|CGRPCOORD|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Group "tests" FindCoordinator response error: COORDINATOR_NOT_AVAILABLE: The coordinator is not available.
+%7|1601180232.980|CGRPSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed state wait-coord -> query-coord (v1, join-state init)
+%7|1601180232.980|BROADCAST|rdkafka#consumer-1| [thrd:main]: Broadcasting state change
+%7|1601180233.861|CGRPQUERY|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Group "tests": querying for coordinator: intervaled in state query-coord
+%7|1601180233.861|CGRPSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed state query-coord -> wait-coord (v1, join-state init)
+%7|1601180233.861|BROADCAST|rdkafka#consumer-1| [thrd:main]: Broadcasting state change
+%7|1601180233.861|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FindCoordinatorRequest (v2, 29 bytes @ 0, CorrId 5)
+%7|1601180233.869|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FindCoordinatorResponse (v2, 31 bytes, CorrId 5, rtt 8.47ms)
+%7|1601180233.869|CGRPCOORD|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Group "tests" coordinator is localhost:9092 id 101
+%7|1601180233.869|CGRPCOORD|rdkafka#consumer-1| [thrd:main]: Group "tests" changing coordinator -1 -> 101
+%7|1601180233.869|COORDSET|rdkafka#consumer-1| [thrd:main]: Group "tests" coordinator set to broker localhost:9092/101
+%7|1601180233.869|CGRPSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed state wait-coord -> wait-broker-transport (v1, join-state init)
+%7|1601180233.869|BROADCAST|rdkafka#consumer-1| [thrd:main]: Broadcasting state change
+%7|1601180233.869|NODENAME|rdkafka#consumer-1| [thrd:main]: GroupCoordinator: Broker nodename changed from "" to "localhost:9092"
+%7|1601180233.869|CONNECT|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator: Received CONNECT op
+%7|1601180233.869|STATE|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator: Broker changed state INIT -> TRY_CONNECT
+%7|1601180233.869|BROADCAST|rdkafka#consumer-1| [thrd:GroupCoordinator]: Broadcasting state change
+%7|1601180233.869|CGRPQUERY|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Group "tests": querying for coordinator: intervaled in state wait-broker-transport
+%7|1601180233.869|BROKERFAIL|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator: failed: err: Local: Broker transport failure: (errno: strerror_r(316) failed (ret 22))
+%7|1601180233.869|FAIL|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator: Closing connection due to nodename change (after 0ms in state TRY_CONNECT)
+%7|1601180233.869|STATE|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator: Broker changed state TRY_CONNECT -> DOWN
+%7|1601180233.869|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FindCoordinatorRequest (v2, 29 bytes @ 0, CorrId 6)
+%7|1601180233.869|BROADCAST|rdkafka#consumer-1| [thrd:GroupCoordinator]: Broadcasting state change
+%7|1601180233.869|BUFQ|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Purging bufq with 0 buffers
+%7|1601180233.869|BUFQ|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Purging bufq with 0 buffers
+%7|1601180233.869|BUFQ|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Updating 0 buffers on connection reset
+%7|1601180233.870|STATE|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator: Broker changed state DOWN -> INIT
+%7|1601180233.870|BROADCAST|rdkafka#consumer-1| [thrd:GroupCoordinator]: Broadcasting state change
+%7|1601180233.870|STATE|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator: Broker changed state INIT -> TRY_CONNECT
+%7|1601180233.870|BROADCAST|rdkafka#consumer-1| [thrd:GroupCoordinator]: Broadcasting state change
+%7|1601180233.870|CONNECT|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: broker in state TRY_CONNECT connecting
+%7|1601180233.870|STATE|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator: Broker changed state TRY_CONNECT -> CONNECT
+%7|1601180233.870|BROADCAST|rdkafka#consumer-1| [thrd:GroupCoordinator]: Broadcasting state change
+%7|1601180233.871|CONNECT|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Connecting to ipv6#[::1]:9092 (plaintext) with socket 12
+%7|1601180233.871|CONNECT|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Connected to ipv6#[::1]:9092
+%7|1601180233.871|CONNECTED|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Connected (#1)
+%7|1601180233.871|FEATURE|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Updated enabled protocol features +ApiVersion to ApiVersion
+%7|1601180233.871|STATE|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator: Broker changed state CONNECT -> APIVERSION_QUERY
+%7|1601180233.871|BROADCAST|rdkafka#consumer-1| [thrd:GroupCoordinator]: Broadcasting state change
+%7|1601180233.871|SEND|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Sent ApiVersionRequest (v3, 66 bytes @ 0, CorrId 1)
+%7|1601180233.872|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FindCoordinatorResponse (v2, 31 bytes, CorrId 6, rtt 2.36ms)
+%7|1601180233.872|CGRPCOORD|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Group "tests" coordinator is localhost:9092 id 101
+%7|1601180233.873|RECV|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Received ApiVersionResponse (v3, 6 bytes, CorrId 1, rtt 2.19ms)
+%7|1601180233.873|PROTOERR|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Protocol parse failure for ApiVersion v3 at 3/6 (rd_kafka_handle_ApiVersion:1911) (incorrect broker.version.fallback?)
+%7|1601180233.874|PROTOERR|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: ApiArrayCnt -1 out of range
+%7|1601180233.874|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: ApiVersionRequest v3 failed due to UNSUPPORTED_VERSION: retrying with v0
+%7|1601180233.874|SEND|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Sent ApiVersionRequest (v0, 21 bytes @ 0, CorrId 2)
+%7|1601180233.875|RECV|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Received ApiVersionResponse (v0, 276 bytes, CorrId 2, rtt 1.30ms)
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Broker API support:
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey Produce (0) Versions 0..7
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey Fetch (1) Versions 0..11
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey Offset (2) Versions 0..5
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey Metadata (3) Versions 0..8
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey LeaderAndIsr (4) Versions 0..2
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey StopReplica (5) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey UpdateMetadata (6) Versions 0..5
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey ControlledShutdown (7) Versions 0..2
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey OffsetCommit (8) Versions 0..7
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey OffsetFetch (9) Versions 0..5
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey FindCoordinator (10) Versions 0..2
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey JoinGroup (11) Versions 0..5
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey Heartbeat (12) Versions 0..3
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey LeaveGroup (13) Versions 0..2
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey SyncGroup (14) Versions 0..3
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey DescribeGroups (15) Versions 0..3
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey ListGroups (16) Versions 0..2
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey SaslHandshake (17) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey ApiVersion (18) Versions 0..2
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey CreateTopics (19) Versions 0..3
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey DeleteTopics (20) Versions 0..3
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey DeleteRecords (21) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey InitProducerId (22) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey OffsetForLeaderEpoch (23) Versions 0..3
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey AddPartitionsToTxn (24) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey AddOffsetsToTxn (25) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey EndTxn (26) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey WriteTxnMarkers (27) Versions 0..0
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey TxnOffsetCommit (28) Versions 0..2
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey DescribeAcls (29) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey CreateAcls (30) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey DeleteAcls (31) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey DescribeConfigs (32) Versions 0..2
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey AlterConfigs (33) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey AlterReplicaLogDirs (34) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey DescribeLogDirs (35) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey SaslAuthenticate (36) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey CreatePartitions (37) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey CreateDelegationToken (38) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey RenewDelegationToken (39) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey ExpireDelegationToken (40) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey DescribeDelegationToken (41) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey DeleteGroups (42) Versions 0..1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey Unknown-43? (43) Versions 0..0
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:   ApiKey Unknown-44? (44) Versions 0..0
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature MsgVer1: Produce (2..2) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature MsgVer1: Fetch (2..2) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Enabling feature MsgVer1
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature MsgVer2: Produce (3..3) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature MsgVer2: Fetch (4..4) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Enabling feature MsgVer2
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature ApiVersion: ApiVersion (0..0) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Enabling feature ApiVersion
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature BrokerGroupCoordinator: FindCoordinator (0..0) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Enabling feature BrokerGroupCoordinator
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature BrokerBalancedConsumer: FindCoordinator (0..0) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature BrokerBalancedConsumer: OffsetCommit (1..2) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature BrokerBalancedConsumer: OffsetFetch (1..1) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature BrokerBalancedConsumer: JoinGroup (0..0) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature BrokerBalancedConsumer: SyncGroup (0..0) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature BrokerBalancedConsumer: Heartbeat (0..0) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature BrokerBalancedConsumer: LeaveGroup (0..0) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Enabling feature BrokerBalancedConsumer
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature ThrottleTime: Produce (1..2) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature ThrottleTime: Fetch (1..2) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Enabling feature ThrottleTime
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature Sasl: JoinGroup (0..0) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Enabling feature Sasl
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature SaslHandshake: SaslHandshake (0..0) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Enabling feature SaslHandshake
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature LZ4: FindCoordinator (0..0) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Enabling feature LZ4
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature OffsetTime: Offset (1..1) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Enabling feature OffsetTime
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature IdempotentProducer: InitProducerId (0..0) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Enabling feature IdempotentProducer
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature ZSTD: Produce (7..7) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature ZSTD: Fetch (10..10) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Enabling feature ZSTD
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature SaslAuthReq: SaslHandshake (1..1) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101:  Feature SaslAuthReq: SaslAuthenticate (0..0) supported by broker
+%7|1601180233.875|APIVERSION|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Enabling feature SaslAuthReq
+%7|1601180233.875|FEATURE|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Updated enabled protocol features to MsgVer1,ApiVersion,BrokerBalancedConsumer,ThrottleTime,Sasl,SaslHandshake,BrokerGroupCoordinator,LZ4,OffsetTime,MsgVer2,IdempotentProducer,ZSTD,SaslAuthReq
+%7|1601180233.875|STATE|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator: Broker changed state APIVERSION_QUERY -> UP
+%7|1601180233.875|BROADCAST|rdkafka#consumer-1| [thrd:GroupCoordinator]: Broadcasting state change
+%7|1601180233.875|METADATA|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Request metadata for brokers only: connected
+%7|1601180233.875|SEND|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Sent MetadataRequest (v2, 25 bytes @ 0, CorrId 3)
+%7|1601180233.876|RECV|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Received MetadataResponse (v2, 57 bytes, CorrId 3, rtt 1.38ms)
+%7|1601180233.876|METADATA|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: ===== Received metadata: connected =====
+%7|1601180233.876|METADATA|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: ClusterId: 53rul8jsTYa7axxpKxlzBA, ControllerId: 101
+%7|1601180233.876|METADATA|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: 1 brokers, 0 topics
+%7|1601180233.876|METADATA|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101:   Broker #0/1: localhost:9092 NodeId 101
+%7|1601180233.877|CGRPSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed state wait-broker-transport -> up (v1, join-state init)
+%7|1601180233.877|BROADCAST|rdkafka#consumer-1| [thrd:main]: Broadcasting state change
+%7|1601180233.877|JOIN|rdkafka#consumer-1| [thrd:main]: Group "tests": join with 0 (1) subscribed topic(s)
+%7|1601180233.877|METADATA|rdkafka#consumer-1| [thrd:main]: Hinted cache of 1/1 topic(s) being queried
+%7|1601180233.877|CGRPMETADATA|rdkafka#consumer-1| [thrd:main]: consumer join: metadata for subscription only available for 0/1 topics (-1ms old)
+%7|1601180233.877|METADATA|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Request metadata for 1 topic(s): consumer join
+%7|1601180233.877|JOIN|rdkafka#consumer-1| [thrd:main]: Group "tests": postponing join until up-to-date metadata is available
+%7|1601180233.877|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent MetadataRequest (v2, 34 bytes @ 0, CorrId 7)
+%7|1601180233.879|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received MetadataResponse (v2, 229 bytes, CorrId 7, rtt 1.79ms)
+%7|1601180233.879|METADATA|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: ===== Received metadata (for 1 requested topics): consumer join =====
+%7|1601180233.879|METADATA|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: ClusterId: 53rul8jsTYa7axxpKxlzBA, ControllerId: 101
+%7|1601180233.879|METADATA|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: 1 brokers, 1 topics
+%7|1601180233.879|METADATA|rdkafka#consumer-1| [thrd:main]: localhost:9092/101:   Broker #0/1: localhost:9092 NodeId 101
+%7|1601180233.879|METADATA|rdkafka#consumer-1| [thrd:main]: localhost:9092/101:   Topic #0/1: topic_a with 6 partitions
+%7|1601180233.879|METADATA|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: 1/1 requested topic(s) seen in metadata
+%7|1601180233.879|SUBSCRIPTION|rdkafka#consumer-1| [thrd:main]: Group "tests": effective subscription list changed from 0 to 1 topic(s):
+%7|1601180233.879|SUBSCRIPTION|rdkafka#consumer-1| [thrd:main]:  Topic topic_a with 6 partition(s)
+%7|1601180233.879|REJOIN|rdkafka#consumer-1| [thrd:main]: Group "tests": subscription updated from metadata change: rejoining group
+%7|1601180233.879|GRPLEADER|rdkafka#consumer-1| [thrd:main]: Group "tests": resetting group leader info: Group rejoin
+%7|1601180233.879|REJOIN|rdkafka#consumer-1| [thrd:main]: Group "tests" rejoining in join-state init without an assignment
+%7|1601180233.879|REBALANCE|rdkafka#consumer-1| [thrd:main]: Group "tests" is rebalancing in state up (join-state init) without assignment: group rejoin
+%7|1601180233.879|CGRPJOINSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed join state init -> wait-unassign (v1, state up)
+%7|1601180233.879|UNASSIGN|rdkafka#consumer-1| [thrd:main]: Group "tests": unassign done in state up (join state wait-unassign): without new assignment: unassign (no previous assignment)
+%7|1601180233.879|CGRPJOINSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed join state wait-unassign -> init (v1, state up)
+%7|1601180235.867|JOIN|rdkafka#consumer-1| [thrd:main]: Group "tests": join with 1 (1) subscribed topic(s)
+%7|1601180235.867|CGRPMETADATA|rdkafka#consumer-1| [thrd:main]: consumer join: metadata for subscription is up to date (1988ms old)
+%7|1601180235.867|JOIN|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Joining group "tests" with 1 subscribed topic(s)
+%7|1601180235.867|CGRPJOINSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed join state init -> wait-join (v1, state up)
+%7|1601180235.868|SEND|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Sent JoinGroupRequest (v5, 119 bytes @ 0, CorrId 4)
+%7|1601180235.868|BROADCAST|rdkafka#consumer-1| [thrd:GroupCoordinator]: Broadcasting state change
+%7|1601180235.954|RECV|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Received JoinGroupResponse (v5, 64 bytes, CorrId 4, rtt 85.74ms)
+%7|1601180235.954|JOINGROUP|rdkafka#consumer-1| [thrd:main]: JoinGroup response: GenerationId -1, Protocol , LeaderId , my MemberId rdkafka-c9755a62-58f4-4de6-beb9-b951e76d758a, 0 members in group: Broker: Group member needs a valid member ID
+%7|1601180235.954|REQERR|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: JoinGroupRequest failed: Broker: Group member needs a valid member ID: explicit actions Ignore
+%7|1601180235.954|MEMBERID|rdkafka#consumer-1| [thrd:main]: Group "tests": updating member id "" -> "rdkafka-c9755a62-58f4-4de6-beb9-b951e76d758a"
+%7|1601180235.954|CGRPJOINSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed join state wait-join -> init (v1, state up)
+%7|1601180235.954|JOIN|rdkafka#consumer-1| [thrd:main]: Group "tests": join with 1 (1) subscribed topic(s)
+%7|1601180235.954|CGRPMETADATA|rdkafka#consumer-1| [thrd:main]: consumer join: metadata for subscription is up to date (2074ms old)
+%7|1601180235.954|JOIN|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Joining group "tests" with 1 subscribed topic(s)
+%7|1601180235.954|CGRPJOINSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed join state init -> wait-join (v1, state up)
+%7|1601180235.954|SEND|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Sent JoinGroupRequest (v5, 163 bytes @ 0, CorrId 5)
+%7|1601180235.954|BROADCAST|rdkafka#consumer-1| [thrd:GroupCoordinator]: Broadcasting state change
+%7|1601180236.854|COMMIT|rdkafka#consumer-1| [thrd:main]: OffsetCommit for -1 partition(s): cgrp auto commit timer: returned: Local: No offset stored
+%7|1601180236.854|UNASSIGN|rdkafka#consumer-1| [thrd:main]: Group "tests": unassign done in state up (join state wait-join): without new assignment: OffsetCommit done (__NO_OFFSET)
+%7|1601180239.008|RECV|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Received JoinGroupResponse (v5, 184 bytes, CorrId 5, rtt 3053.56ms)
+%7|1601180239.008|JOINGROUP|rdkafka#consumer-1| [thrd:main]: JoinGroup response: GenerationId 1, Protocol range, LeaderId rdkafka-c9755a62-58f4-4de6-beb9-b951e76d758a (me), my MemberId rdkafka-c9755a62-58f4-4de6-beb9-b951e76d758a, 1 members in group: (no error)
+%7|1601180239.008|JOINGROUP|rdkafka#consumer-1| [thrd:main]: Elected leader for group "tests" with 1 member(s)
+%7|1601180239.008|GRPLEADER|rdkafka#consumer-1| [thrd:main]: Group "tests": resetting group leader info: JoinGroup response clean-up
+%7|1601180239.008|CGRPJOINSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed join state wait-join -> wait-metadata (v1, state up)
+%7|1601180239.008|METADATA|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: Request metadata for 1 topic(s): partition assignor
+%7|1601180239.008|SEND|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Sent MetadataRequest (v2, 34 bytes @ 0, CorrId 6)
+%7|1601180239.012|RECV|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Received MetadataResponse (v2, 229 bytes, CorrId 6, rtt 4.17ms)
+%7|1601180239.012|METADATA|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: ===== Received metadata (for 1 requested topics): partition assignor =====
+%7|1601180239.012|METADATA|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: ClusterId: 53rul8jsTYa7axxpKxlzBA, ControllerId: 101
+%7|1601180239.012|METADATA|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: 1 brokers, 1 topics
+%7|1601180239.012|METADATA|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101:   Broker #0/1: localhost:9092 NodeId 101
+%7|1601180239.012|METADATA|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101:   Topic #0/1: topic_a with 6 partitions
+%7|1601180239.012|METADATA|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: 1/1 requested topic(s) seen in metadata
+%7|1601180239.012|ASSIGN|rdkafka#consumer-1| [thrd:main]: Group "tests" running range assignment for 1 member(s):
+%7|1601180239.012|ASSIGN|rdkafka#consumer-1| [thrd:main]:  Member "rdkafka-c9755a62-58f4-4de6-beb9-b951e76d758a" (me) with 1 subscription(s):
+%7|1601180239.012|ASSIGN|rdkafka#consumer-1| [thrd:main]:   topic_a [-1]
+%7|1601180239.012|ASSIGN|rdkafka#consumer-1| [thrd:main]: range: Topic topic_a with 6 partition(s) and 1 subscribing member(s)
+%7|1601180239.012|ASSIGN|rdkafka#consumer-1| [thrd:main]: range: Member "rdkafka-c9755a62-58f4-4de6-beb9-b951e76d758a": assigned topic topic_a partitions 0..5
+%7|1601180239.012|ASSIGN|rdkafka#consumer-1| [thrd:main]: Group "tests" range assignment for 1 member(s) finished in 0.038ms:
+%7|1601180239.012|ASSIGN|rdkafka#consumer-1| [thrd:main]:  Member "rdkafka-c9755a62-58f4-4de6-beb9-b951e76d758a" (me) assigned 6 partition(s):
+%7|1601180239.012|ASSIGN|rdkafka#consumer-1| [thrd:main]:   topic_a [0]
+%7|1601180239.012|ASSIGN|rdkafka#consumer-1| [thrd:main]:   topic_a [1]
+%7|1601180239.012|ASSIGN|rdkafka#consumer-1| [thrd:main]:   topic_a [2]
+%7|1601180239.012|ASSIGN|rdkafka#consumer-1| [thrd:main]:   topic_a [3]
+%7|1601180239.012|ASSIGN|rdkafka#consumer-1| [thrd:main]:   topic_a [4]
+%7|1601180239.012|ASSIGN|rdkafka#consumer-1| [thrd:main]:   topic_a [5]
+%7|1601180239.012|ASSIGNOR|rdkafka#consumer-1| [thrd:main]: Group "tests": "range" assignor run for 1 member(s)
+%7|1601180239.012|CGRPJOINSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed join state wait-metadata -> wait-sync (v1, state up)
+%7|1601180239.012|SEND|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Sent SyncGroupRequest (v3, 181 bytes @ 0, CorrId 7)
+%7|1601180239.012|BROADCAST|rdkafka#consumer-1| [thrd:GroupCoordinator]: Broadcasting state change
+%7|1601180239.068|RECV|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Received SyncGroupResponse (v3, 57 bytes, CorrId 7, rtt 56.02ms)
+%7|1601180239.068|SYNCGROUP|rdkafka#consumer-1| [thrd:main]: SyncGroup response: Success (47 bytes of MemberState data)
+%7|1601180239.069|ASSIGN|rdkafka#consumer-1| [thrd:main]: Group "tests": delegating assign of 6 partition(s) to application rebalance callback on queue rd_kafka_cgrp_new: new assignment
+%7|1601180239.069|CGRPJOINSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed join state wait-sync -> wait-assign-rebalance_cb (v1, state up)
+%7|1601180239.069|HEARTBEAT|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: Heartbeat for group "tests" generation id 1
+%7|1601180239.069|CGRPOP|rdkafka#consumer-1| [thrd:main]: Group "tests" received op ASSIGN (v0) in state up (join state wait-assign-rebalance_cb, v1 vs 0)
+%7|1601180239.069|ASSIGN|rdkafka#consumer-1| [thrd:main]: Group "tests": new assignment of 6 partition(s) in join state wait-assign-rebalance_cb
+%7|1601180239.069|TOPIC|rdkafka#consumer-1| [thrd:main]: New local topic: topic_a
+%7|1601180239.069|TOPPARNEW|rdkafka#consumer-1| [thrd:main]: NEW topic_a [-1] 0x7ff3b3022400 (at rd_kafka_topic_new0:397)
+%7|1601180239.069|SEND|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Sent HeartbeatRequest (v3, 80 bytes @ 0, CorrId 8)
+%7|1601180239.069|STATE|rdkafka#consumer-1| [thrd:main]: Topic topic_a changed state unknown -> exists
+%7|1601180239.069|PARTCNT|rdkafka#consumer-1| [thrd:main]: Topic topic_a partition count changed from 0 to 6
+%7|1601180239.069|TOPPARNEW|rdkafka#consumer-1| [thrd:main]: NEW topic_a [0] 0x7ff3b6806c00 (at rd_kafka_topic_partition_cnt_update:708)
+%7|1601180239.069|TOPPARNEW|rdkafka#consumer-1| [thrd:main]: NEW topic_a [1] 0x7ff3b6807200 (at rd_kafka_topic_partition_cnt_update:708)
+%7|1601180239.069|TOPPARNEW|rdkafka#consumer-1| [thrd:main]: NEW topic_a [2] 0x7ff3b6807800 (at rd_kafka_topic_partition_cnt_update:708)
+%7|1601180239.069|TOPPARNEW|rdkafka#consumer-1| [thrd:main]: NEW topic_a [3] 0x7ff3b6807e00 (at rd_kafka_topic_partition_cnt_update:708)
+%7|1601180239.069|TOPPARNEW|rdkafka#consumer-1| [thrd:main]: NEW topic_a [4] 0x7ff3b6808400 (at rd_kafka_topic_partition_cnt_update:708)
+%7|1601180239.069|TOPPARNEW|rdkafka#consumer-1| [thrd:main]: NEW topic_a [5] 0x7ff3b6808a00 (at rd_kafka_topic_partition_cnt_update:708)
+%7|1601180239.069|METADATA|rdkafka#consumer-1| [thrd:main]:   Topic topic_a partition 0 Leader 101
+%7|1601180239.069|BRKDELGT|rdkafka#consumer-1| [thrd:main]: topic_a [0]: delegate to broker localhost:9092/101 (rktp 0x7ff3b6806c00, term 0, ref 2)
+%7|1601180239.069|BRKDELGT|rdkafka#consumer-1| [thrd:main]: topic_a [0]: delegating to broker localhost:9092/101 for partition with 0 messages (0 bytes) queued
+%7|1601180239.069|BRKMIGR|rdkafka#consumer-1| [thrd:main]: Migrating topic topic_a [0] 0x7ff3b6806c00 from (none) to localhost:9092/101 (sending PARTITION_JOIN to localhost:9092/101)
+%7|1601180239.069|METADATA|rdkafka#consumer-1| [thrd:main]:   Topic topic_a partition 1 Leader 101
+%7|1601180239.069|BRKDELGT|rdkafka#consumer-1| [thrd:main]: topic_a [1]: delegate to broker localhost:9092/101 (rktp 0x7ff3b6807200, term 0, ref 2)
+%7|1601180239.069|BRKDELGT|rdkafka#consumer-1| [thrd:main]: topic_a [1]: delegating to broker localhost:9092/101 for partition with 0 messages (0 bytes) queued
+%7|1601180239.069|BRKMIGR|rdkafka#consumer-1| [thrd:main]: Migrating topic topic_a [1] 0x7ff3b6807200 from (none) to localhost:9092/101 (sending PARTITION_JOIN to localhost:9092/101)
+%7|1601180239.069|TOPBRK|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [0]: joining broker (rktp 0x7ff3b6806c00, 0 message(s) queued)
+%7|1601180239.069|BROADCAST|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Broadcasting state change
+%7|1601180239.069|TOPBRK|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [1]: joining broker (rktp 0x7ff3b6807200, 0 message(s) queued)
+%7|1601180239.069|BROADCAST|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Broadcasting state change
+%7|1601180239.069|METADATA|rdkafka#consumer-1| [thrd:main]:   Topic topic_a partition 2 Leader 101
+%7|1601180239.069|BRKDELGT|rdkafka#consumer-1| [thrd:main]: topic_a [2]: delegate to broker localhost:9092/101 (rktp 0x7ff3b6807800, term 0, ref 2)
+%7|1601180239.069|BRKDELGT|rdkafka#consumer-1| [thrd:main]: topic_a [2]: delegating to broker localhost:9092/101 for partition with 0 messages (0 bytes) queued
+%7|1601180239.069|BRKMIGR|rdkafka#consumer-1| [thrd:main]: Migrating topic topic_a [2] 0x7ff3b6807800 from (none) to localhost:9092/101 (sending PARTITION_JOIN to localhost:9092/101)
+%7|1601180239.069|METADATA|rdkafka#consumer-1| [thrd:main]:   Topic topic_a partition 3 Leader 101
+%7|1601180239.069|BRKDELGT|rdkafka#consumer-1| [thrd:main]: topic_a [3]: delegate to broker localhost:9092/101 (rktp 0x7ff3b6807e00, term 0, ref 2)
+%7|1601180239.069|BRKDELGT|rdkafka#consumer-1| [thrd:main]: topic_a [3]: delegating to broker localhost:9092/101 for partition with 0 messages (0 bytes) queued
+%7|1601180239.069|BRKMIGR|rdkafka#consumer-1| [thrd:main]: Migrating topic topic_a [3] 0x7ff3b6807e00 from (none) to localhost:9092/101 (sending PARTITION_JOIN to localhost:9092/101)
+%7|1601180239.069|METADATA|rdkafka#consumer-1| [thrd:main]:   Topic topic_a partition 4 Leader 101
+%7|1601180239.069|BRKDELGT|rdkafka#consumer-1| [thrd:main]: topic_a [4]: delegate to broker localhost:9092/101 (rktp 0x7ff3b6808400, term 0, ref 2)
+%7|1601180239.069|BRKDELGT|rdkafka#consumer-1| [thrd:main]: topic_a [4]: delegating to broker localhost:9092/101 for partition with 0 messages (0 bytes) queued
+%7|1601180239.069|BRKMIGR|rdkafka#consumer-1| [thrd:main]: Migrating topic topic_a [4] 0x7ff3b6808400 from (none) to localhost:9092/101 (sending PARTITION_JOIN to localhost:9092/101)
+%7|1601180239.069|METADATA|rdkafka#consumer-1| [thrd:main]:   Topic topic_a partition 5 Leader 101
+%7|1601180239.069|TOPBRK|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [2]: joining broker (rktp 0x7ff3b6807800, 0 message(s) queued)
+%7|1601180239.069|BROADCAST|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Broadcasting state change
+%7|1601180239.069|TOPBRK|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [3]: joining broker (rktp 0x7ff3b6807e00, 0 message(s) queued)
+%7|1601180239.069|BROADCAST|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Broadcasting state change
+%7|1601180239.069|BRKDELGT|rdkafka#consumer-1| [thrd:main]: topic_a [5]: delegate to broker localhost:9092/101 (rktp 0x7ff3b6808a00, term 0, ref 2)
+%7|1601180239.069|BRKDELGT|rdkafka#consumer-1| [thrd:main]: topic_a [5]: delegating to broker localhost:9092/101 for partition with 0 messages (0 bytes) queued
+%7|1601180239.069|TOPBRK|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [4]: joining broker (rktp 0x7ff3b6808400, 0 message(s) queued)
+%7|1601180239.069|BROADCAST|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Broadcasting state change
+%7|1601180239.069|BRKMIGR|rdkafka#consumer-1| [thrd:main]: Migrating topic topic_a [5] 0x7ff3b6808a00 from (none) to localhost:9092/101 (sending PARTITION_JOIN to localhost:9092/101)
+%7|1601180239.069|DESP|rdkafka#consumer-1| [thrd:main]: Setting topic topic_a [0] partition as desired
+%7|1601180239.069|TOPBRK|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [5]: joining broker (rktp 0x7ff3b6808a00, 0 message(s) queued)
+%7|1601180239.069|DESP|rdkafka#consumer-1| [thrd:main]: Setting topic topic_a [1] partition as desired
+%7|1601180239.069|DESP|rdkafka#consumer-1| [thrd:main]: Setting topic topic_a [2] partition as desired
+%7|1601180239.069|DESP|rdkafka#consumer-1| [thrd:main]: Setting topic topic_a [3] partition as desired
+%7|1601180239.069|BROADCAST|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Broadcasting state change
+%7|1601180239.069|DESP|rdkafka#consumer-1| [thrd:main]: Setting topic topic_a [4] partition as desired
+%7|1601180239.069|DESP|rdkafka#consumer-1| [thrd:main]: Setting topic topic_a [5] partition as desired
+%7|1601180239.069|BARRIER|rdkafka#consumer-1| [thrd:main]: Group "tests": rd_kafka_cgrp_assign:2566: new version barrier v2
+%7|1601180239.069|ASSIGN|rdkafka#consumer-1| [thrd:main]: Group "tests": assigning 6 partition(s) in join state wait-assign-rebalance_cb
+%7|1601180239.069|CGRPJOINSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed join state wait-assign-rebalance_cb -> assigned (v2, state up)
+%7|1601180239.069|BARRIER|rdkafka#consumer-1| [thrd:main]: Group "tests": rd_kafka_cgrp_partitions_fetch_start0:1848: new version barrier v3
+%7|1601180239.069|FETCHSTART|rdkafka#consumer-1| [thrd:main]: Group "tests": starting fetchers for 6 assigned partition(s) in join-state assigned (usable_offsets=no, v3, line 2619)
+%7|1601180239.069|FETCHSTART|rdkafka#consumer-1| [thrd:main]: List with 6 partition(s):
+%7|1601180239.069|FETCHSTART|rdkafka#consumer-1| [thrd:main]:  topic_a [0] offset INVALID
+%7|1601180239.069|FETCHSTART|rdkafka#consumer-1| [thrd:main]:  topic_a [1] offset INVALID
+%7|1601180239.069|FETCHSTART|rdkafka#consumer-1| [thrd:main]:  topic_a [2] offset INVALID
+%7|1601180239.069|FETCHSTART|rdkafka#consumer-1| [thrd:main]:  topic_a [3] offset INVALID
+%7|1601180239.069|FETCHSTART|rdkafka#consumer-1| [thrd:main]:  topic_a [4] offset INVALID
+%7|1601180239.069|FETCHSTART|rdkafka#consumer-1| [thrd:main]:  topic_a [5] offset INVALID
+%7|1601180239.069|OFFSET|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: OffsetFetchRequest(v1) for 6/6 partition(s)
+%7|1601180239.069|OFFSET|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: Fetch committed offsets for 6/6 partition(s)
+%7|1601180239.069|SEND|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Sent OffsetFetchRequest (v1, 69 bytes @ 0, CorrId 9)
+%7|1601180239.083|RECV|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Received HeartbeatResponse (v3, 6 bytes, CorrId 8, rtt 13.88ms)
+%7|1601180239.096|RECV|rdkafka#consumer-1| [thrd:GroupCoordinator]: GroupCoordinator/101: Received OffsetFetchResponse (v1, 113 bytes, CorrId 9, rtt 26.30ms)
+%7|1601180239.096|OFFSETFETCH|rdkafka#consumer-1| [thrd:main]: List with 6 partition(s):
+%7|1601180239.096|OFFSETFETCH|rdkafka#consumer-1| [thrd:main]:  topic_a [0] offset INVALID
+%7|1601180239.096|OFFSETFETCH|rdkafka#consumer-1| [thrd:main]:  topic_a [1] offset INVALID
+%7|1601180239.096|OFFSETFETCH|rdkafka#consumer-1| [thrd:main]:  topic_a [2] offset INVALID
+%7|1601180239.096|OFFSETFETCH|rdkafka#consumer-1| [thrd:main]:  topic_a [3] offset INVALID
+%7|1601180239.096|OFFSETFETCH|rdkafka#consumer-1| [thrd:main]:  topic_a [4] offset INVALID
+%7|1601180239.096|OFFSETFETCH|rdkafka#consumer-1| [thrd:main]:  topic_a [5] offset INVALID
+%7|1601180239.096|OFFSET|rdkafka#consumer-1| [thrd:main]: Topic topic_a [0]: setting default offset INVALID
+%7|1601180239.096|OFFSET|rdkafka#consumer-1| [thrd:main]: Topic topic_a [1]: setting default offset INVALID
+%7|1601180239.096|OFFSET|rdkafka#consumer-1| [thrd:main]: Topic topic_a [2]: setting default offset INVALID
+%7|1601180239.096|OFFSET|rdkafka#consumer-1| [thrd:main]: Topic topic_a [3]: setting default offset INVALID
+%7|1601180239.096|OFFSET|rdkafka#consumer-1| [thrd:main]: Topic topic_a [4]: setting default offset INVALID
+%7|1601180239.096|OFFSET|rdkafka#consumer-1| [thrd:main]: Topic topic_a [5]: setting default offset INVALID
+%7|1601180239.096|OFFSETFETCH|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: OffsetFetchResponse: topic_a [0] offset -1, metadata 0 byte(s)
+%7|1601180239.096|OFFSETFETCH|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: OffsetFetchResponse: topic_a [1] offset -1, metadata 0 byte(s)
+%7|1601180239.096|OFFSETFETCH|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: OffsetFetchResponse: topic_a [2] offset -1, metadata 0 byte(s)
+%7|1601180239.096|OFFSETFETCH|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: OffsetFetchResponse: topic_a [3] offset -1, metadata 0 byte(s)
+%7|1601180239.096|OFFSETFETCH|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: OffsetFetchResponse: topic_a [4] offset -1, metadata 0 byte(s)
+%7|1601180239.096|OFFSETFETCH|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: OffsetFetchResponse: topic_a [5] offset -1, metadata 0 byte(s)
+%7|1601180239.096|OFFFETCH|rdkafka#consumer-1| [thrd:main]: GroupCoordinator/101: OffsetFetch for 6/6 partition(s) returned Success
+%7|1601180239.096|BARRIER|rdkafka#consumer-1| [thrd:main]: Group "tests": rd_kafka_cgrp_partitions_fetch_start0:1848: new version barrier v4
+%7|1601180239.096|FETCHSTART|rdkafka#consumer-1| [thrd:main]: Group "tests": starting fetchers for 6 assigned partition(s) in join-state assigned (usable_offsets=yes, v4, line 1780)
+%7|1601180239.096|FETCHSTART|rdkafka#consumer-1| [thrd:main]: List with 6 partition(s):
+%7|1601180239.096|FETCHSTART|rdkafka#consumer-1| [thrd:main]:  topic_a [0] offset INVALID
+%7|1601180239.096|FETCHSTART|rdkafka#consumer-1| [thrd:main]:  topic_a [1] offset INVALID
+%7|1601180239.096|FETCHSTART|rdkafka#consumer-1| [thrd:main]:  topic_a [2] offset INVALID
+%7|1601180239.096|FETCHSTART|rdkafka#consumer-1| [thrd:main]:  topic_a [3] offset INVALID
+%7|1601180239.096|FETCHSTART|rdkafka#consumer-1| [thrd:main]:  topic_a [4] offset INVALID
+%7|1601180239.096|FETCHSTART|rdkafka#consumer-1| [thrd:main]:  topic_a [5] offset INVALID
+%7|1601180239.096|CGRPJOINSTATE|rdkafka#consumer-1| [thrd:main]: Group "tests" changed join state assigned -> started (v4, state up)
+%7|1601180239.096|BARRIER|rdkafka#consumer-1| [thrd:main]: topic_a [0]: rd_kafka_toppar_op_fetch_start:2307: new version barrier v2
+%7|1601180239.096|CONSUMER|rdkafka#consumer-1| [thrd:main]: Start consuming topic_a [0] at offset INVALID (v2)
+%7|1601180239.096|BARRIER|rdkafka#consumer-1| [thrd:main]: topic_a [1]: rd_kafka_toppar_op_fetch_start:2307: new version barrier v2
+%7|1601180239.096|CONSUMER|rdkafka#consumer-1| [thrd:main]: Start consuming topic_a [1] at offset INVALID (v2)
+%7|1601180239.096|BARRIER|rdkafka#consumer-1| [thrd:main]: topic_a [2]: rd_kafka_toppar_op_fetch_start:2307: new version barrier v2
+%7|1601180239.096|CONSUMER|rdkafka#consumer-1| [thrd:main]: Start consuming topic_a [2] at offset INVALID (v2)
+%7|1601180239.096|BARRIER|rdkafka#consumer-1| [thrd:main]: topic_a [3]: rd_kafka_toppar_op_fetch_start:2307: new version barrier v2
+%7|1601180239.096|CONSUMER|rdkafka#consumer-1| [thrd:main]: Start consuming topic_a [3] at offset INVALID (v2)
+%7|1601180239.096|BARRIER|rdkafka#consumer-1| [thrd:main]: topic_a [4]: rd_kafka_toppar_op_fetch_start:2307: new version barrier v2
+%7|1601180239.096|CONSUMER|rdkafka#consumer-1| [thrd:main]: Start consuming topic_a [4] at offset INVALID (v2)
+%7|1601180239.096|BARRIER|rdkafka#consumer-1| [thrd:main]: topic_a [5]: rd_kafka_toppar_op_fetch_start:2307: new version barrier v2
+%7|1601180239.096|CONSUMER|rdkafka#consumer-1| [thrd:main]: Start consuming topic_a [5] at offset INVALID (v2)
+%7|1601180239.096|OP|rdkafka#consumer-1| [thrd:main]: topic_a [0] received op FETCH_START (v2) in fetch-state none (opv1)
+%7|1601180239.096|FETCH|rdkafka#consumer-1| [thrd:main]: Start fetch for topic_a [0] in state none at offset INVALID (v2)
+%7|1601180239.096|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [0] changed fetch state none -> offset-query
+%7|1601180239.096|OFFSET|rdkafka#consumer-1| [thrd:main]: topic_a [0]: offset reset (at offset INVALID) to BEGINNING: no previously committed offset available: Local: No offset stored
+%7|1601180239.096|OFFREQ|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Partition topic_a [0]: querying for logical offset BEGINNING (opv 2)
+%7|1601180239.096|OFFSET|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: OffsetRequest (v0, opv 0) for 1 topic(s) and 1 partition(s)
+%7|1601180239.096|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [0] changed fetch state offset-query -> offset-wait
+%7|1601180239.096|OP|rdkafka#consumer-1| [thrd:main]: topic_a [1] received op FETCH_START (v2) in fetch-state none (opv1)
+%7|1601180239.096|FETCH|rdkafka#consumer-1| [thrd:main]: Start fetch for topic_a [1] in state none at offset INVALID (v2)
+%7|1601180239.096|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [1] changed fetch state none -> offset-query
+%7|1601180239.096|OFFSET|rdkafka#consumer-1| [thrd:main]: topic_a [1]: offset reset (at offset INVALID) to BEGINNING: no previously committed offset available: Local: No offset stored
+%7|1601180239.096|OFFREQ|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Partition topic_a [1]: querying for logical offset BEGINNING (opv 2)
+%7|1601180239.096|OFFSET|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: OffsetRequest (v0, opv 0) for 1 topic(s) and 1 partition(s)
+%7|1601180239.096|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [1] changed fetch state offset-query -> offset-wait
+%7|1601180239.096|OP|rdkafka#consumer-1| [thrd:main]: topic_a [2] received op FETCH_START (v2) in fetch-state none (opv1)
+%7|1601180239.096|FETCH|rdkafka#consumer-1| [thrd:main]: Start fetch for topic_a [2] in state none at offset INVALID (v2)
+%7|1601180239.096|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [2] changed fetch state none -> offset-query
+%7|1601180239.096|OFFSET|rdkafka#consumer-1| [thrd:main]: topic_a [2]: offset reset (at offset INVALID) to BEGINNING: no previously committed offset available: Local: No offset stored
+%7|1601180239.096|OFFREQ|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Partition topic_a [2]: querying for logical offset BEGINNING (opv 2)
+%7|1601180239.096|OFFSET|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: OffsetRequest (v0, opv 0) for 1 topic(s) and 1 partition(s)
+%7|1601180239.096|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent OffsetRequest (v0, 58 bytes @ 0, CorrId 8)
+%7|1601180239.097|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [2] changed fetch state offset-query -> offset-wait
+%7|1601180239.097|OP|rdkafka#consumer-1| [thrd:main]: topic_a [3] received op FETCH_START (v2) in fetch-state none (opv1)
+%7|1601180239.097|FETCH|rdkafka#consumer-1| [thrd:main]: Start fetch for topic_a [3] in state none at offset INVALID (v2)
+%7|1601180239.097|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [3] changed fetch state none -> offset-query
+%7|1601180239.097|OFFSET|rdkafka#consumer-1| [thrd:main]: topic_a [3]: offset reset (at offset INVALID) to BEGINNING: no previously committed offset available: Local: No offset stored
+%7|1601180239.097|OFFREQ|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Partition topic_a [3]: querying for logical offset BEGINNING (opv 2)
+%7|1601180239.097|OFFSET|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: OffsetRequest (v0, opv 0) for 1 topic(s) and 1 partition(s)
+%7|1601180239.097|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent OffsetRequest (v0, 58 bytes @ 0, CorrId 9)
+%7|1601180239.097|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [3] changed fetch state offset-query -> offset-wait
+%7|1601180239.097|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent OffsetRequest (v0, 58 bytes @ 0, CorrId 10)
+%7|1601180239.097|OP|rdkafka#consumer-1| [thrd:main]: topic_a [4] received op FETCH_START (v2) in fetch-state none (opv1)
+%7|1601180239.097|FETCH|rdkafka#consumer-1| [thrd:main]: Start fetch for topic_a [4] in state none at offset INVALID (v2)
+%7|1601180239.097|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [4] changed fetch state none -> offset-query
+%7|1601180239.097|OFFSET|rdkafka#consumer-1| [thrd:main]: topic_a [4]: offset reset (at offset INVALID) to BEGINNING: no previously committed offset available: Local: No offset stored
+%7|1601180239.097|OFFREQ|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Partition topic_a [4]: querying for logical offset BEGINNING (opv 2)
+%7|1601180239.097|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent OffsetRequest (v0, 58 bytes @ 0, CorrId 11)
+%7|1601180239.097|OFFSET|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: OffsetRequest (v0, opv 0) for 1 topic(s) and 1 partition(s)
+%7|1601180239.097|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [4] changed fetch state offset-query -> offset-wait
+%7|1601180239.097|OP|rdkafka#consumer-1| [thrd:main]: topic_a [5] received op FETCH_START (v2) in fetch-state none (opv1)
+%7|1601180239.097|FETCH|rdkafka#consumer-1| [thrd:main]: Start fetch for topic_a [5] in state none at offset INVALID (v2)
+%7|1601180239.097|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [5] changed fetch state none -> offset-query
+%7|1601180239.097|OFFSET|rdkafka#consumer-1| [thrd:main]: topic_a [5]: offset reset (at offset INVALID) to BEGINNING: no previously committed offset available: Local: No offset stored
+%7|1601180239.097|OFFREQ|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Partition topic_a [5]: querying for logical offset BEGINNING (opv 2)
+%7|1601180239.097|OFFSET|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: OffsetRequest (v0, opv 0) for 1 topic(s) and 1 partition(s)
+%7|1601180239.097|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [5] changed fetch state offset-query -> offset-wait
+%7|1601180239.097|CGRPOP|rdkafka#consumer-1| [thrd:main]: Group "tests" received op PARTITION_JOIN in state up (join state started, v4) for topic_a [0]
+%7|1601180239.097|PARTADD|rdkafka#consumer-1| [thrd:main]: Group "tests": add topic_a [0]
+%7|1601180239.097|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent OffsetRequest (v0, 58 bytes @ 0, CorrId 12)
+%7|1601180239.097|CGRPOP|rdkafka#consumer-1| [thrd:main]: Group "tests" received op PARTITION_JOIN in state up (join state started, v4) for topic_a [1]
+%7|1601180239.097|PARTADD|rdkafka#consumer-1| [thrd:main]: Group "tests": add topic_a [1]
+%7|1601180239.097|CGRPOP|rdkafka#consumer-1| [thrd:main]: Group "tests" received op PARTITION_JOIN in state up (join state started, v4) for topic_a [2]
+%7|1601180239.097|PARTADD|rdkafka#consumer-1| [thrd:main]: Group "tests": add topic_a [2]
+%7|1601180239.097|CGRPOP|rdkafka#consumer-1| [thrd:main]: Group "tests" received op PARTITION_JOIN in state up (join state started, v4) for topic_a [3]
+%7|1601180239.097|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent OffsetRequest (v0, 58 bytes @ 0, CorrId 13)
+%7|1601180239.097|PARTADD|rdkafka#consumer-1| [thrd:main]: Group "tests": add topic_a [3]
+%7|1601180239.097|CGRPOP|rdkafka#consumer-1| [thrd:main]: Group "tests" received op PARTITION_JOIN in state up (join state started, v4) for topic_a [4]
+%7|1601180239.097|PARTADD|rdkafka#consumer-1| [thrd:main]: Group "tests": add topic_a [4]
+%7|1601180239.097|CGRPOP|rdkafka#consumer-1| [thrd:main]: Group "tests" received op PARTITION_JOIN in state up (join state started, v4) for topic_a [5]
+%7|1601180239.097|PARTADD|rdkafka#consumer-1| [thrd:main]: Group "tests": add topic_a [5]
+%7|1601180239.136|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received OffsetResponse (v0, 35 bytes, CorrId 8, rtt 39.78ms)
+%7|1601180239.136|OFFSET|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Offset reply for topic topic_a [0] (v2 vs v2)
+%7|1601180239.136|OFFSET|rdkafka#consumer-1| [thrd:main]: Offset BEGINNING request for topic_a [0] returned offset 0 (0)
+%7|1601180239.136|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [0] changed fetch state offset-wait -> active
+%7|1601180239.136|FETCH|rdkafka#consumer-1| [thrd:main]: Partition topic_a [0] start fetching at offset 0
+%7|1601180239.136|WAKEUP|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Wake-up
+%7|1601180239.136|FETCHDEC|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Topic topic_a [0]: fetch decide: updating to version 2 (was 0) at offset 0 (was 0)
+%7|1601180239.136|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [0] in state active at offset 0 (0/100000 msgs, 0/1048576 kb queued, opv 2) is fetchable
+%7|1601180239.136|FETCHADD|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Added topic_a [0] to fetch list (1 entries, opv 2, 0 messages queued): fetchable
+%7|1601180239.136|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [0] at offset 0 (v2)
+%7|1601180239.136|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch 1/1/6 toppar(s)
+%7|1601180239.136|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FetchRequest (v11, 97 bytes @ 0, CorrId 14)
+%7|1601180239.140|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received OffsetResponse (v0, 35 bytes, CorrId 9, rtt 42.96ms)
+%7|1601180239.140|OFFSET|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Offset reply for topic topic_a [1] (v2 vs v2)
+%7|1601180239.140|OFFSET|rdkafka#consumer-1| [thrd:main]: Offset BEGINNING request for topic_a [1] returned offset 0 (0)
+%7|1601180239.140|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [1] changed fetch state offset-wait -> active
+%7|1601180239.140|FETCH|rdkafka#consumer-1| [thrd:main]: Partition topic_a [1] start fetching at offset 0
+%7|1601180239.140|WAKEUP|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Wake-up
+%7|1601180239.140|FETCHDEC|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Topic topic_a [1]: fetch decide: updating to version 2 (was 0) at offset 0 (was 0)
+%7|1601180239.140|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [1] in state active at offset 0 (0/100000 msgs, 0/1048576 kb queued, opv 2) is fetchable
+%7|1601180239.140|FETCHADD|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Added topic_a [1] to fetch list (2 entries, opv 2, 0 messages queued): fetchable
+%7|1601180239.141|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received OffsetResponse (v0, 35 bytes, CorrId 10, rtt 43.98ms)
+%7|1601180239.141|OFFSET|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Offset reply for topic topic_a [2] (v2 vs v2)
+%7|1601180239.141|OFFSET|rdkafka#consumer-1| [thrd:main]: Offset BEGINNING request for topic_a [2] returned offset 0 (0)
+%7|1601180239.141|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [2] changed fetch state offset-wait -> active
+%7|1601180239.141|FETCH|rdkafka#consumer-1| [thrd:main]: Partition topic_a [2] start fetching at offset 0
+%7|1601180239.141|WAKEUP|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Wake-up
+%7|1601180239.141|FETCHDEC|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Topic topic_a [2]: fetch decide: updating to version 2 (was 0) at offset 0 (was 0)
+%7|1601180239.141|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [2] in state active at offset 0 (0/100000 msgs, 0/1048576 kb queued, opv 2) is fetchable
+%7|1601180239.141|FETCHADD|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Added topic_a [2] to fetch list (3 entries, opv 2, 0 messages queued): fetchable
+%7|1601180239.142|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received OffsetResponse (v0, 35 bytes, CorrId 11, rtt 45.71ms)
+%7|1601180239.142|OFFSET|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Offset reply for topic topic_a [3] (v2 vs v2)
+%7|1601180239.142|OFFSET|rdkafka#consumer-1| [thrd:main]: Offset BEGINNING request for topic_a [3] returned offset 0 (0)
+%7|1601180239.142|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [3] changed fetch state offset-wait -> active
+%7|1601180239.142|FETCH|rdkafka#consumer-1| [thrd:main]: Partition topic_a [3] start fetching at offset 0
+%7|1601180239.142|WAKEUP|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Wake-up
+%7|1601180239.142|FETCHDEC|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Topic topic_a [3]: fetch decide: updating to version 2 (was 0) at offset 0 (was 0)
+%7|1601180239.142|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [3] in state active at offset 0 (0/100000 msgs, 0/1048576 kb queued, opv 2) is fetchable
+%7|1601180239.142|FETCHADD|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Added topic_a [3] to fetch list (4 entries, opv 2, 0 messages queued): fetchable
+%7|1601180239.144|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received OffsetResponse (v0, 35 bytes, CorrId 12, rtt 47.36ms)
+%7|1601180239.144|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received OffsetResponse (v0, 35 bytes, CorrId 13, rtt 47.27ms)
+%7|1601180239.144|OFFSET|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Offset reply for topic topic_a [4] (v2 vs v2)
+%7|1601180239.144|OFFSET|rdkafka#consumer-1| [thrd:main]: Offset BEGINNING request for topic_a [4] returned offset 0 (0)
+%7|1601180239.144|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [4] changed fetch state offset-wait -> active
+%7|1601180239.144|FETCH|rdkafka#consumer-1| [thrd:main]: Partition topic_a [4] start fetching at offset 0
+%7|1601180239.144|WAKEUP|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Wake-up
+%7|1601180239.144|FETCHDEC|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Topic topic_a [4]: fetch decide: updating to version 2 (was 0) at offset 0 (was 0)
+%7|1601180239.144|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [4] in state active at offset 0 (0/100000 msgs, 0/1048576 kb queued, opv 2) is fetchable
+%7|1601180239.144|FETCHADD|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Added topic_a [4] to fetch list (5 entries, opv 2, 0 messages queued): fetchable
+%7|1601180239.144|OFFSET|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Offset reply for topic topic_a [5] (v2 vs v2)
+%7|1601180239.144|OFFSET|rdkafka#consumer-1| [thrd:main]: Offset BEGINNING request for topic_a [5] returned offset 0 (0)
+%7|1601180239.144|PARTSTATE|rdkafka#consumer-1| [thrd:main]: Partition topic_a [5] changed fetch state offset-wait -> active
+%7|1601180239.144|FETCH|rdkafka#consumer-1| [thrd:main]: Partition topic_a [5] start fetching at offset 0
+%7|1601180239.144|WAKEUP|rdkafka#consumer-1| [thrd:main]: localhost:9092/101: Wake-up
+%7|1601180239.144|FETCHDEC|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: Topic topic_a [5]: fetch decide: updating to version 2 (was 0) at offset 0 (was 0)
+%7|1601180239.144|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [5] in state active at offset 0 (0/100000 msgs, 0/1048576 kb queued, opv 2) is fetchable
+%7|1601180239.144|FETCHADD|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Added topic_a [5] to fetch list (6 entries, opv 2, 0 messages queued): fetchable
+%7|1601180239.261|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FetchResponse (v11, 13708 bytes, CorrId 14, rtt 124.59ms)
+%7|1601180239.261|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [0] MessageSet size 13639, error "Success", MaxOffset 122, LSO 122, Ver 2/2
+%7|1601180239.262|CONSUME|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Enqueue 122 message(s) (5343 bytes, 122 ops) on topic_a [0] fetch queue (qlen 122, v2, last_offset 121, 0 ctrl msgs, uncompressed)
+%7|1601180239.262|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [0] at offset 122 (v2)
+%7|1601180239.262|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [1] at offset 0 (v2)
+%7|1601180239.262|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [2] at offset 0 (v2)
+%7|1601180239.262|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [3] at offset 0 (v2)
+%7|1601180239.262|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [4] at offset 0 (v2)
+%7|1601180239.262|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [5] at offset 0 (v2)
+%7|1601180239.262|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch 6/6/6 toppar(s)
+%7|1601180239.262|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FetchRequest (v11, 237 bytes @ 0, CorrId 15)
+driver-3 47.60891364555719	-122.3355214803192 0
+driver-3 47.60903649875362	-122.3356333445757 0
+driver-3 47.61003870996846	-122.3365516762371 0
+driver-3 47.61029573806839	-122.3364050007926 0
+driver-3 47.61032671131944	-122.3363081874341 0
+driver-3 47.6106194656126	-122.3357371576971 0
+driver-3 47.61067891872257	-122.335593741088 0
+driver-3 47.61083554540689	-122.3352251769734 0
+driver-3 47.61086618172754	-122.3351659757531 0
+driver-3 47.61114459566473	-122.3344438588279 0
+driver-3 47.61179891556682	-122.3329315000672 0
+driver-3 47.61183806465666	-122.3327879429083 0
+driver-3 47.61206584748379	-122.3322082973153 0
+driver-3 47.61212789833011	-122.3321825234785 0
+driver-3 47.61237604930084	-122.3325097112768 0
+driver-3 47.61237942891717	-122.3325174305953 0
+driver-3 47.61257453612724	-122.3327345289712 0
+driver-3 47.61264472491235	-122.3327641965742 0
+driver-3 47.61277770796049	-122.3328866661553 0
+driver-3 47.61294809180576	-122.3330479534065 0
+driver-3 47.61259260723757	-122.3339175510454 0
+driver-3 47.61256393117235	-122.334126909633 0
+driver-3 47.61257808579472	-122.3341951830926 0
+driver-3 47.61259093717543	-122.334177359002 0
+driver-3 47.61259346558857	-122.3341896561487 0
+driver-3 47.61256427378868	-122.334266987442 0
+driver-3 47.6117587521053	-122.3363360352885 0
+driver-3 47.61175108070379	-122.3363447738106 0
+driver-3 47.61173621048416	-122.3364557271712 0
+driver-3 47.61128071112731	-122.3374204953536 0
+driver-3 47.61128873089417	-122.3374872809685 0
+driver-3 47.61123560205665	-122.3376572591037 0
+driver-3 47.61101711268276	-122.3381709720303 0
+driver-3 47.61084611731726	-122.3384808870258 0
+driver-3 47.61079381468039	-122.33858364716 0
+driver-3 47.61061698971719	-122.3391101532561 0
+driver-3 47.61057442170009	-122.3392934693241 0
+driver-3 47.61055235409689	-122.3393440948613 0
+driver-3 47.61052112015351	-122.3394368190367 0
+driver-3 47.60995994263372	-122.3407195872208 0
+driver-3 47.60990500959542	-122.3407787368643 0
+driver-3 47.60986014313429	-122.3407677695204 0
+driver-3 47.60929940268223	-122.3404746948545 0
+driver-3 47.60908783331939	-122.3402831040944 0
+driver-3 47.60887734356026	-122.340059228575 0
+driver-3 47.60881867543691	-122.3400137448635 0
+driver-3 47.608133535284	-122.3394023658386 0
+driver-3 47.60784761817106	-122.3391606534405 0
+driver-3 47.60711842301673	-122.3385159901743 0
+driver-3 47.60684739892134	-122.3382296692611 0
+driver-3 47.60713596957553	-122.3374735861155 0
+driver-3 47.60718647636169	-122.3373503812302 0
+driver-3 47.60729288449658	-122.337064897441 0
+driver-3 47.60748517262854	-122.3366392979768 0
+driver-3 47.60766629474971	-122.336103407188 0
+driver-3 47.60785670211191	-122.3357132385414 0
+driver-3 47.60813252710938	-122.3350871205665 0
+driver-3 47.60818166389959	-122.3349755131064 0
+driver-3 47.60828360026061	-122.3349754334269 0
+driver-3 47.60832730222702	-122.3350071160914 0
+driver-3 47.60843745226632	-122.3350650182603 0
+driver-3 47.60854058388978	-122.3351035104487 0
+driver-3 47.60868323022443	-122.3353074325785 0
+driver-3 47.60903649875362	-122.3356333445757 0
+driver-3 47.60910689262793	-122.3356962211362 0
+driver-3 47.60882146840945	-122.3354386506091 0
+driver-3 47.60891364555719	-122.3355214803192 0
+driver-3 47.60882146840945	-122.3354386506091 0
+driver-3 47.60891364555719	-122.3355214803192 0
+driver-3 47.60882146840945	-122.3354386506091 0
+driver-3 47.60891364555719	-122.3355214803192 0
+driver-3 47.60990779532717	-122.3363989256622 0
+driver-3 47.61031692585124	-122.3364186664484 0
+driver-3 47.61028486471076	-122.3363873305524 0
+driver-3 47.6105363464343	-122.3359365444782 0
+driver-3 47.6106194656126	-122.3357371576971 0
+driver-3 47.61080244718656	-122.3352952868127 0
+driver-3 47.6108117500723	-122.335277893844 0
+driver-3 47.61110481305898	-122.3345464427719 0
+driver-3 47.61166043549235	-122.3332062739115 0
+driver-3 47.61172806401768	-122.3330720998915 0
+driver-3 47.61190836987266	-122.3325971670239 0
+driver-3 47.61209314471882	-122.3321729231728 0
+driver-3 47.61237545718823	-122.3325032163823 0
+driver-3 47.61238111426029	-122.332509998096 0
+driver-3 47.61256237143135	-122.3327207151332 0
+driver-3 47.61257453612724	-122.3327345289712 0
+driver-3 47.61268813731969	-122.3328030980872 0
+driver-3 47.61288455959458	-122.3329890684826 0
+driver-3 47.61262127703912	-122.3338815319188 0
+driver-3 47.61255732822644	-122.3340652548111 0
+driver-3 47.61257154896021	-122.3341721199903 0
+driver-3 47.61257808579472	-122.3341951830926 0
+driver-3 47.61259642296309	-122.3341741226517 0
+driver-3 47.61259346558857	-122.3341896561487 0
+driver-3 47.61176334617223	-122.3363311242738 0
+driver-3 47.61176306715291	-122.3363312432056 0
+driver-3 47.6117681535604	-122.3363703787936 0
+driver-3 47.61131811565284	-122.3373421336674 0
+driver-3 47.61127974481654	-122.3374774877483 0
+driver-3 47.61128375131781	-122.3375473077744 0
+driver-3 47.61103247056882	-122.3381105777145 0
+driver-3 47.61090589887816	-122.338388867914 0
+driver-3 47.61084611731726	-122.3384808870258 0
+driver-3 47.61063851428113	-122.3390517083356 0
+driver-3 47.61062038898905	-122.339201013902 0
+driver-3 47.61059583483974	-122.3392491571592 0
+driver-3 47.61055235409689	-122.3393440948613 0
+driver-3 47.60997176277405	-122.3406517856646 0
+driver-3 47.60990655862355	-122.3407732838214 0
+driver-3 47.6099052628722	-122.3407778066793 0
+driver-3 47.6094295471072	-122.3405931969136 0
+driver-3 47.60917644710629	-122.3403742392812 0
+driver-3 47.60896054333159	-122.3401141984835 0
+driver-3 47.60892901653958	-122.3400843695276 0
+driver-3 47.60832655733292	-122.3395669601598 0
+driver-3 47.60804268124775	-122.3393156409101 0
+driver-3 47.60728446920039	-122.3386532001729 0
+driver-3 47.60692819561197	-122.3382701154531 0
+driver-3 47.60712568508885	-122.337498863997 0
+driver-3 47.60715242403794	-122.3374319460572 0
+driver-3 47.60722067857995	-122.337275123778 0
+%7|1601180239.271|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FetchResponse (v11, 78941 bytes, CorrId 15, rtt 8.34ms)
+%7|1601180239.271|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [0] MessageSet size 0, error "Success", MaxOffset 122, LSO 122, Ver 2/2
+%7|1601180239.271|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [1] MessageSet size 15768, error "Success", MaxOffset 141, LSO 141, Ver 2/2
+%7|1601180239.271|CONSUME|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Enqueue 141 message(s) (6180 bytes, 141 ops) on topic_a [1] fetch queue (qlen 141, v2, last_offset 140, 0 ctrl msgs, uncompressed)
+%7|1601180239.271|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [2] MessageSet size 16534, error "Success", MaxOffset 148, LSO 148, Ver 2/2
+driver-3 47.60886473705127	-122.3354777920927 1
+driver-3 47.60932797049735	-122.3358963237442 1
+driver-3 47.60939003551002	-122.3359503021764 1
+driver-3 47.60959789451693	-122.3361423508068 1
+driver-3 47.61011644412893	-122.3366242653058 1
+driver-3 47.61014644194833	-122.3366478672968 1
+driver-3 47.6101920967717	-122.3366544324024 1
+%7|1601180239.271|CONSUME|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Enqueue 148 message(s) (6470 bytes, 148 ops) on topic_a [2] fetch queue (qlen 148, v2, last_offset 147, 0 ctrl msgs, uncompressed)
+driver-3 47.61027221690135	-122.3365485436937 1
+%7|1601180239.271|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [3] MessageSet size 20444, error "Success", MaxOffset 183, LSO 183, Ver 2/2
+driver-3 47.61029599824383	-122.3364976040109 1
+driver-3 47.61032123170858	-122.3364215773409 1
+driver-3 47.61029986775662	-122.3364175122939 1
+driver-3 47.61030414436679	-122.3363489711589 1
+driver-3 47.61035194693342	-122.3362675920672 1
+driver-3 47.61070435395787	-122.335528430427 1
+driver-3 47.61080244718656	-122.3352952868127 1
+driver-3 47.61088104677594	-122.3351027461344 1
+driver-3 47.61094875392426	-122.3349355296032 1
+driver-3 47.6109991056732	-122.3348123811618 1
+driver-3 47.61104234504294	-122.3347027745492 1
+driver-3 47.61141867537601	-122.333768545996 1
+driver-3 47.61237545718823	-122.3325032163823 1
+driver-3 47.61239551408659	-122.332538142561 1
+%7|1601180239.271|CONSUME|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Enqueue 183 message(s) (8000 bytes, 183 ops) on topic_a [3] fetch queue (qlen 183, v2, last_offset 182, 0 ctrl msgs, uncompressed)
+driver-3 47.61259643787059	-122.3327563562052 1
+%7|1601180239.271|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [4] MessageSet size 13070, error "Success", MaxOffset 117, LSO 117, Ver 2/2
+driver-3 47.61273105077783	-122.3328432911397 1
+driver-3 47.61299275780121	-122.3331111745989 1
+driver-3 47.61294145256412	-122.3333465128159 1
+driver-3 47.61268034506438	-122.3338746843648 1
+driver-3 47.61256978997552	-122.3340045031319 1
+driver-3 47.6125638360359	-122.3340822985663 1
+%7|1601180239.271|CONSUME|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Enqueue 117 message(s) (5114 bytes, 117 ops) on topic_a [4] fetch queue (qlen 117, v2, last_offset 116, 0 ctrl msgs, uncompressed)
+driver-3 47.61257653384096	-122.3342252718665 1
+%7|1601180239.271|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [5] MessageSet size 12846, error "Success", MaxOffset 115, LSO 115, Ver 2/2
+driver-3 47.61243562857565	-122.3345457779409 1
+driver-3 47.61235180913798	-122.3347540930081 1
+driver-3 47.61229799537758	-122.3348910372119 1
+driver-3 47.6119376155682	-122.3358652939038 1
+driver-3 47.61187260361763	-122.3360109502539 1
+driver-3 47.61177359927592	-122.3362843628704 1
+driver-3 47.61175666665395	-122.3363523808332 1
+driver-3 47.61166061561352	-122.3366209574459 1
+driver-3 47.61154015709371	-122.3368588297509 1
+driver-3 47.61144395669066	-122.3370540579901 1
+driver-3 47.61126643300474	-122.3374448600918 1
+driver-3 47.61126245774673	-122.3374572122495 1
+driver-3 47.61127108075742	-122.3374743051007 1
+driver-3 47.61129694289758	-122.3375075540301 1
+driver-3 47.61120244305145	-122.33772779089 1
+%7|1601180239.271|CONSUME|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Enqueue 115 message(s) (5026 bytes, 115 ops) on topic_a [5] fetch queue (qlen 115, v2, last_offset 114, 0 ctrl msgs, uncompressed)
+driver-3 47.61103385275294	-122.3380816634435 1
+%7|1601180239.271|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [1] at offset 141 (v2)
+%7|1601180239.271|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [2] at offset 148 (v2)
+driver-3 47.6110375111213	-122.3380891449621 1
+%7|1601180239.271|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [3] at offset 183 (v2)
+%7|1601180239.271|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [4] at offset 117 (v2)
+%7|1601180239.271|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [5] at offset 115 (v2)
+%7|1601180239.271|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [0] at offset 122 (v2)
+%7|1601180239.271|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch 6/6/6 toppar(s)
+driver-3 47.61103247056882	-122.3381105777145 1
+%7|1601180239.271|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FetchRequest (v11, 237 bytes @ 0, CorrId 16)
+driver-3 47.61063851428113	-122.3390517083356 1
+driver-3 47.61060941365233	-122.3391244969312 1
+driver-3 47.61060235938937	-122.3391378665304 1
+driver-3 47.61012571359826	-122.3403022669924 1
+driver-3 47.61006659347569	-122.340452090945 1
+driver-3 47.60917644710629	-122.3403742392812 1
+driver-3 47.60898928165032	-122.340176106515 1
+driver-3 47.60859897909462	-122.3398366989556 1
+driver-3 47.60804268124775	-122.3393156409101 1
+driver-3 47.60765727647875	-122.3389852234122 1
+driver-3 47.60692819561197	-122.3382701154531 1
+driver-3 47.60683125814367	-122.338163979274 1
+driver-3 47.60687212838575	-122.3380851862636 1
+driver-3 47.60690633775818	-122.3379863327805 1
+driver-3 47.60713931612045	-122.3374638753949 1
+driver-3 47.60716342262635	-122.337403166126 1
+driver-3 47.60736573290868	-122.3368657073549 1
+driver-3 47.60759430927597	-122.3364020017086 1
+driver-3 47.60765340696994	-122.3362584791924 1
+driver-3 47.60766558427424	-122.3362174576769 1
+driver-3 47.60768133358316	-122.3360765962139 1
+driver-3 47.60773319709253	-122.3359602151217 1
+driver-3 47.60792317163591	-122.3355889661738 1
+driver-3 47.60802180630635	-122.3353513097137 1
+driver-3 47.60821844693938	-122.3349332630915 1
+driver-3 47.60925654696269	-122.3358313934225 1
+driver-3 47.60877968055728	-122.3354013911742 1
+driver-3 47.60877968055728	-122.3354013911742 1
+driver-3 47.60877968055728	-122.3354013911742 1
+driver-3 47.60918184466846	-122.3357639049387 1
+driver-3 47.60925654696269	-122.3358313934225 1
+driver-3 47.60949772661021	-122.3360478767111 1
+driver-3 47.61003870996846	-122.3365516762371 1
+driver-3 47.61008310123069	-122.3365960542914 1
+driver-3 47.61016461213671	-122.3366554270106 1
+driver-3 47.61021966259125	-122.3366479045517 1
+driver-3 47.61023932989993	-122.3366230105041 1
+driver-3 47.61030635072999	-122.3364605124911 1
+driver-3 47.61032123170858	-122.3364215773409 1
+driver-3 47.61028128362128	-122.336398193458 1
+driver-3 47.61030414436679	-122.3363489711589 1
+driver-3 47.61064846539447	-122.335669268234 1
+driver-3 47.61078422990534	-122.3353365623957 1
+driver-3 47.61083554540689	-122.3352251769734 1
+driver-3 47.61088104677594	-122.3351027461344 1
+driver-3 47.61090983019826	-122.3350269878562 1
+driver-3 47.61094875392426	-122.3349355296032 1
+driver-3 47.61130843449187	-122.3340416015657 1
+driver-3 47.61233803822149	-122.3324134327132 1
+driver-3 47.61238613886086	-122.3325316184021 1
+driver-3 47.61256864738833	-122.3327274874003 1
+driver-3 47.61264472491235	-122.3327641965742 1
+driver-3 47.61294809180576	-122.3330479534065 1
+driver-3 47.6130108804178	-122.3331958641943 1
+driver-3 47.61270406341606	-122.3338573132847 1
+driver-3 47.61259260723757	-122.3339175510454 1
+driver-3 47.61256978997552	-122.3340045031319 1
+driver-3 47.61260501194744	-122.3341545962406 1
+driver-3 47.61249900675112	-122.3344132389073 1
+driver-3 47.61243562857565	-122.3345457779409 1
+driver-3 47.61239180008968	-122.33463655172 1
+driver-3 47.61205995545232	-122.3355110398473 1
+driver-3 47.61199561814615	-122.3356889614123 1
+driver-3 47.61179899102243	-122.3361990040805 1
+driver-3 47.6117587521053	-122.3363360352885 1
+driver-3 47.61173621048416	-122.3364557271712 1
+driver-3 47.61161728666762	-122.3367068260666 1
+driver-3 47.61154015709371	-122.3368588297509 1
+driver-3 47.6112960771022	-122.3373982554489 1
+driver-3 47.61128071112731	-122.3374204953536 1
+driver-3 47.61126245774673	-122.3374572122495 1
+driver-3 47.61128873089417	-122.3374872809685 1
+driver-3 47.61126251746631	-122.3375966968493 1
+driver-3 47.61104533759002	-122.338063487424 1
+driver-3 47.61103385275294	-122.3380816634435 1
+driver-3 47.61103898383519	-122.3380950786338 1
+driver-3 47.61065714354854	-122.3389905646423 1
+driver-3 47.61062556455227	-122.3390847596051 1
+driver-3 47.61061698971719	-122.3391101532561 1
+driver-3 47.61018977017274	-122.3401491171971 1
+driver-3 47.61012571359826	-122.3403022669924 1
+driver-3 47.60929940268223	-122.3404746948545 1
+driver-3 47.60898770978125	-122.3401748802722 1
+driver-3 47.60875313737808	-122.3399654430987 1
+driver-3 47.60822961904017	-122.3394857904893 1
+driver-3 47.60784761817106	-122.3391606534405 1
+driver-3 47.60697990444883	-122.3383205646411 1
+driver-3 47.60688171985854	-122.3382508885901 1
+driver-3 47.60684739892134	-122.3382296692611 1
+driver-3 47.60683125814367	-122.338163979274 1
+driver-3 47.60713053784056	-122.3374863221328 1
+driver-3 47.60713931612045	-122.3374638753949 1
+driver-3 47.60729288449658	-122.337064897441 1
+driver-3 47.60910689262793	-122.3356962211362 2
+driver-3 47.61008310123069	-122.3365960542914 2
+driver-3 47.61016461213671	-122.3366554270106 2
+driver-3 47.6101745144118	-122.336653704464 2
+driver-3 47.61021966259125	-122.3366479045517 2
+driver-3 47.61031692585124	-122.3364186664484 2
+driver-3 47.61028486471076	-122.3363873305524 2
+driver-3 47.61058579307506	-122.3358227467164 2
+driver-3 47.61064846539447	-122.335669268234 2
+driver-3 47.61078422990534	-122.3353365623957 2
+driver-3 47.61166043549235	-122.3332062739115 2
+driver-3 47.61207729312559	-122.3321876262511 2
+driver-3 47.61210826653818	-122.3321800396704 2
+driver-3 47.61229619496905	-122.3323615735843 2
+driver-3 47.61237268521783	-122.3324541007279 2
+driver-3 47.61238613886086	-122.3325316184021 2
+driver-3 47.61256237143135	-122.3327207151332 2
+driver-3 47.61256864738833	-122.3327274874003 2
+driver-3 47.61277715967451	-122.3336924519654 2
+driver-3 47.61272552746726	-122.3337771079133 2
+driver-3 47.61270406341606	-122.3338573132847 2
+driver-3 47.61269303853566	-122.3338643755707 2
+driver-3 47.61266379648261	-122.3338869644211 2
+driver-3 47.61255732822644	-122.3340652548111 2
+driver-3 47.61256697939598	-122.3341606395894 2
+driver-3 47.61257293933308	-122.3341863992838 2
+driver-3 47.61259342590278	-122.3341819660938 2
+driver-3 47.61260501194744	-122.3341545962406 2
+driver-3 47.61249900675112	-122.3344132389073 2
+driver-3 47.61224879725894	-122.3350232115001 2
+driver-3 47.61179899102243	-122.3361990040805 2
+driver-3 47.61178767602169	-122.3362484878861 2
+driver-3 47.61176759140145	-122.3363305446262 2
+driver-3 47.6117681535604	-122.3363703787936 2
+driver-3 47.61175728176148	-122.3363989174518 2
+driver-3 47.61134776419203	-122.3372616333093 2
+driver-3 47.61131811565284	-122.3373421336674 2
+driver-3 47.61127974481654	-122.3374774877483 2
+driver-3 47.61112658251007	-122.3378892411222 2
+driver-3 47.61108788946398	-122.3379647855033 2
+driver-3 47.6110364833414	-122.3381018282329 2
+driver-3 47.61094498694357	-122.338303196855 2
+driver-3 47.61081989237446	-122.338509350505 2
+driver-3 47.61062672767998	-122.3391921045267 2
+driver-3 47.61062716802011	-122.3391881950914 2
+driver-3 47.61062038898905	-122.339201013902 2
+driver-3 47.61053579817491	-122.339389494363 2
+driver-3 47.61048958535019	-122.3395177705674 2
+driver-3 47.6104160444905	-122.3397383561637 2
+driver-3 47.61022216126641	-122.3400680654183 2
+driver-3 47.60997176277405	-122.3406517856646 2
+driver-3 47.6099052628722	-122.3407778066793 2
+driver-3 47.60983009235359	-122.3408206335337 2
+driver-3 47.60968684793861	-122.3408326886253 2
+driver-3 47.6094295471072	-122.3405931969136 2
+driver-3 47.60936180849114	-122.3405329673318 2
+driver-3 47.60912871007169	-122.3403313754916 2
+driver-3 47.60898400161221	-122.3401678860759 2
+driver-3 47.60868649586274	-122.3399169253107 2
+driver-3 47.60842007861847	-122.3396595114688 2
+driver-3 47.60794670647306	-122.339235008259 2
+driver-3 47.60737372923478	-122.3387420213656 2
+driver-3 47.60719280211596	-122.3385800913781 2
+driver-3 47.60715242403794	-122.3374319460572 2
+driver-3 47.60722067857995	-122.337275123778 2
+driver-3 47.60725670695007	-122.3371818042082 2
+driver-3 47.60762746873675	-122.3363121201143 2
+driver-3 47.60771459405499	-122.3360886404824 2
+driver-3 47.6078121612533	-122.3358506910265 2
+driver-3 47.60764818833712	-122.3362695832261 2
+driver-3 47.60765791051169	-122.336245306626 2
+driver-3 47.60799258035808	-122.335476124398 2
+driver-3 47.60810135403909	-122.3351599182752 2
+driver-3 47.60825740355145	-122.3349337856876 2
+driver-3 47.60838567671707	-122.3350312050838 2
+driver-3 47.60857559438579	-122.3351184245403 2
+driver-3 47.60857052405917	-122.3351412655226 2
+driver-3 47.60861108238804	-122.3352412214232 2
+driver-3 47.60869232006395	-122.3353153594997 2
+driver-3 47.6087046538951	-122.3353272995542 2
+driver-3 47.60877968055728	-122.3354013911742 2
+driver-3 47.60897315037069	-122.3355757944692 2
+driver-3 47.60897315037069	-122.3355757944692 2
+driver-3 47.60998130470106	-122.3364838458857 2
+driver-3 47.61011644412893	-122.3366242653058 2
+driver-3 47.61014644194833	-122.3366478672968 2
+driver-3 47.6101745144118	-122.336653704464 2
+driver-3 47.61031715977196	-122.3364380859509 2
+driver-3 47.61029599996479	-122.3363962791973 2
+driver-3 47.61049430131006	-122.3360350439845 2
+driver-3 47.61058579307506	-122.3358227467164 2
+driver-3 47.61074666104429	-122.335425407938 2
+driver-3 47.61155331056575	-122.3334629456072 2
+driver-3 47.61193667721163	-122.3325269269973 2
+driver-3 47.61208600970379	-122.3321752793605 2
+driver-3 47.61220287887684	-122.3322481093798 2
+driver-3 47.61229619496905	-122.3323615735843 2
+driver-3 47.61237069338762	-122.3325175760551 2
+driver-3 47.61240780815189	-122.3325504908523 2
+driver-3 47.61239551408659	-122.332538142561 2
+driver-3 47.61282786138609	-122.3335794678725 2
+driver-3 47.61277715967451	-122.3336924519654 2
+driver-3 47.61271708192329	-122.3338173737235 2
+driver-3 47.61270856621731	-122.3338392594128 2
+driver-3 47.6126717129477	-122.333879664571 2
+driver-3 47.61258805613804	-122.3339339501545 2
+driver-3 47.61256393117235	-122.334126909633 2
+driver-3 47.61256697939598	-122.3341606395894 2
+driver-3 47.61258121981417	-122.3341974320928 2
+driver-3 47.61259614392808	-122.3341757389197 2
+driver-3 47.61255523714435	-122.3342966038438 2
+driver-3 47.61235180913798	-122.3347540930081 2
+driver-3 47.61187260361763	-122.3360109502539 2
+driver-3 47.61182635688691	-122.3361239906468 2
+driver-3 47.61177224372899	-122.3363090417934 2
+driver-3 47.61175108070379	-122.3363447738106 2
+driver-3 47.61175666665395	-122.3363523808332 2
+driver-3 47.61144395669066	-122.3370540579901 2
+driver-3 47.611391141079	-122.3371642828286 2
+driver-3 47.61126723222166	-122.3374660740075 2
+driver-3 47.61120244305145	-122.33772779089 2
+driver-3 47.61116669028239	-122.3377999162883 2
+driver-3 47.6110375111213	-122.3380891449621 2
+driver-3 47.61099162230952	-122.3382090271888 2
+driver-3 47.61087321352093	-122.3384467512698 2
+driver-3 47.61059856863608	-122.339145453718 2
+driver-3 47.6106282818376	-122.33919121472 2
+driver-3 47.61062672767998	-122.3391921045267 2
+driver-3 47.61057442170009	-122.3392934693241 2
+driver-3 47.61052112015351	-122.3394368190367 2
+driver-3 47.61048081830153	-122.3395708841708 2
+driver-3 47.61031068074541	-122.3398970062772 2
+driver-3 47.61000023385104	-122.3405864823635 2
+driver-3 47.60991699494988	-122.3407673400903 2
+driver-3 47.60990500959542	-122.3407787368643 2
+driver-3 47.60978875009693	-122.3408540140255 2
+driver-3 47.60956551798283	-122.3407261866 2
+driver-3 47.60949653092825	-122.3406584010319 2
+driver-3 47.6092341879063	-122.3404233282701 2
+driver-3 47.60898779396602	-122.3401754317922 2
+driver-3 47.60881867543691	-122.3400137448635 2
+driver-3 47.60859897909462	-122.3398366989556 2
+driver-3 47.608133535284	-122.3394023658386 2
+driver-3 47.6075749025678	-122.3388804165201 2
+driver-3 47.60737372923478	-122.3387420213656 2
+driver-3 47.60713596957553	-122.3374735861155 2
+driver-3 47.60716342262635	-122.337403166126 2
+driver-3 47.60718647636169	-122.3373503812302 2
+driver-3 47.60918184466846	-122.3357639049387 3
+driver-3 47.60954901056732	-122.3360962329566 3
+driver-3 47.6096585132119	-122.336192623772 3
+driver-3 47.60990779532717	-122.3363989256622 3
+driver-3 47.60998130470106	-122.3364838458857 3
+driver-3 47.61023932989993	-122.3366230105041 3
+driver-3 47.61030635072999	-122.3364605124911 3
+driver-3 47.61031715977196	-122.3364380859509 3
+driver-3 47.61076123967624	-122.3353838848801 3
+driver-3 47.6108117500723	-122.335277893844 3
+driver-3 47.61107700204514	-122.334614458804 3
+driver-3 47.61125074745893	-122.334187215428 3
+driver-3 47.61136076090496	-122.3339092695926 3
+driver-3 47.61160529300539		-122.3333364671732 3
+driver-3 47.61172806401768	-122.3330720998915 3
+driver-3 47.61209314471882	-122.3321729231728 3
+driver-3 47.61216130504196	-122.3322007104107 3
+driver-3 47.61220287887684	-122.3322481093798 3
+driver-3 47.61238111426029	-122.332509998096 3
+driver-3 47.61237069338762	-122.3325175760551 3
+driver-3 47.6123873372142	-122.3325319772761 3
+driver-3 47.61291198638909	-122.3334159106266 3
+driver-3 47.61288430191857	-122.3334687610091 3
+driver-3 47.61282786138609	-122.3335794678725 3
+driver-3 47.61274816627937	-122.3337314935165 3
+driver-3 47.61271708192329	-122.3338173737235 3
+driver-3 47.61262127703912	-122.3338815319188 3
+driver-3 47.61261605398516	-122.3338890741637 3
+driver-3 47.61256259016466	-122.3341417945447 3
+driver-3 47.61247001690554	-122.3344778852566 3
+driver-3 47.61239180008968	-122.33463655172 3
+driver-3 47.61218671945009	-122.3351668326787 3
+driver-3 47.61205995545232	-122.3355110398473 3
+driver-3 47.61177224372899	-122.3363090417934 3
+driver-3 47.61177534731492	-122.3363293757181 3
+driver-3 47.61176306715291	-122.3363312432056 3
+driver-3 47.61170388389863	-122.3365312328062 3
+driver-3 47.61149344466751	-122.3369512337832 3
+driver-3 47.6112960771022	-122.3373982554489 3
+driver-3 47.61126723222166	-122.3374660740075 3
+driver-3 47.61129517691856	-122.3374964388575 3
+driver-3 47.61126251746631	-122.3375966968493 3
+driver-3 47.61103585938019	-122.3380765857983 3
+driver-3 47.61103594701319	-122.3380917764377 3
+driver-3 47.61102870155933	-122.33814208604 3
+driver-3 47.61099162230952	-122.3382090271888 3
+driver-3 47.61090589887816	-122.338388867914 3
+driver-3 47.61087321352093	-122.3384467512698 3
+driver-3 47.61075382543915	-122.3387394516393 3
+driver-3 47.61072422693896	-122.3388055020606 3
+driver-3 47.61070116039234	-122.3388656944689 3
+driver-3 47.610668464527	-122.3389568591983 3
+driver-3 47.61059460963991	-122.3391442364023 3
+driver-3 47.6105987174202	-122.3391454636943 3
+driver-3 47.61059856863608	-122.339145453718 3
+driver-3 47.6106282818376	-122.33919121472 3
+driver-3 47.61059583483974	-122.3392491571592 3
+driver-3 47.61045052824455	-122.3396417829263 3
+driver-3 47.61026398755584	-122.3399833510325 3
+driver-3 47.61015795176377	-122.3402228830398 3
+driver-3 47.61009377268664	-122.3403916675873 3
+driver-3 47.61000023385104	-122.3405864823635 3
+driver-3 47.60996690614132	-122.3406946727468 3
+driver-3 47.60978875009693	-122.3408540140255 3
+driver-3 47.6096281624766	-122.3407873103722 3
+driver-3 47.60956551798283	-122.3407261866 3
+driver-3 47.6090498846625	-122.3402416428131 3
+driver-3 47.6090208648518	-122.3402130412652 3
+driver-3 47.60898624835609	-122.3401748929405 3
+driver-3 47.60898309562342	-122.3401610341532 3
+driver-3 47.60898647406012	-122.3401442707815 3
+driver-3 47.60896054333159	-122.3401141984835 3
+driver-3 47.60851100462982	-122.3397495085758 3
+driver-3 47.60822961904017	-122.3394857904893 3
+driver-3 47.6075749025678	-122.3388804165201 3
+driver-3 47.60700459006609	-122.3383799921424 3
+driver-3 47.60697990444883	-122.3383205646411 3
+driver-3 47.60696297940471	-122.3382799307073 3
+driver-3 47.60695175129183	-122.3378757119604 3
+driver-3 47.60699986245655	-122.3377576447091 3
+driver-3 47.60708744227097	-122.3375863545431 3
+driver-3 47.60711151927104	-122.3375332031794 3
+driver-3 47.60712568508885	-122.337498863997 3
+driver-3 47.60713053784056	-122.3374863221328 3
+driver-3 47.60732780225094	-122.3369589940559 3
+driver-3 47.60740974808994	-122.3367864417434 3
+driver-3 47.60752749477186	-122.3365589302381 3
+driver-3 47.60768223619354	-122.336172003408 3
+driver-3 47.60806367187081	-122.3352503544084 3
+driver-3 47.608474468602	-122.3350908226174 3
+driver-3 47.60856286900631	-122.3351944067291 3
+driver-3 47.60865377470469	-122.335279649032 3
+driver-3 47.60867227871137	-122.3352969468805 3
+driver-3 47.60870240392993	-122.3353255266773 3
+driver-3 47.60882146840945	-122.3354386506091 3
+driver-3 47.60918184466846	-122.3357639049387 3
+driver-3 47.60903649875362	-122.3356333445757 3
+driver-3 47.60903649875362	-122.3356333445757 3
+driver-3 47.60944528393636	-122.3360001091388 3
+driver-3 47.60954901056732	-122.3360962329566 3
+driver-3 47.60974058728765	-122.3362516326282 3
+driver-3 47.60982733301425	-122.3363181609346 3
+driver-3 47.6101920967717	-122.3366544324024 3
+driver-3 47.61027221690135	-122.3365485436937 3
+driver-3 47.61029599824383	-122.3364976040109 3
+driver-3 47.61072971897739	-122.3354639257523 3
+driver-3 47.61079669695632	-122.3353111790036 3
+driver-3 47.6109991056732	-122.3348123811618 3
+driver-3 47.61116573091848	-122.3343938631592 3
+driver-3 47.61125074745893	-122.334187215428 3
+driver-3 47.6114847717705	-122.3336171284166 3
+driver-3 47.61160529300539	-122.3333364671732 3
+driver-3 47.61207729312559	-122.3321876262511 3
+driver-3 47.61210826653818	-122.3321800396704 3
+driver-3 47.61212789833011	-122.3321825234785 3
+driver-3 47.61237268521783	-122.3324541007279 3
+driver-3 47.61236734075101	-122.3325102040498 3
+driver-3 47.61237582019724	-122.3325198088258 3
+driver-3 47.61298456214023	-122.3332740542438 3
+driver-3 47.61294145256412	-122.3333465128159 3
+driver-3 47.61288430191857	-122.3334687610091 3
+driver-3 47.61280056356888	-122.3336392825183 3
+driver-3 47.61274816627937	-122.3337314935165 3
+driver-3 47.61266379648261	-122.3338869644211 3
+driver-3 47.61262527135688	-122.3338791224322 3
+driver-3 47.6125638360359	-122.3340822985663 3
+driver-3 47.6125349190116	-122.3343569531805 3
+driver-3 47.61247001690554	-122.3344778852566 3
+driver-3 47.61229799537758	-122.3348910372119 3
+driver-3 47.61218671945009	-122.3351668326787 3
+driver-3 47.61178767602169	-122.3362484878861 3
+driver-3 47.61177359927592	-122.3362843628704 3
+driver-3 47.61176110621103	-122.3363346189684 3
+driver-3 47.61175728176148	-122.3363989174518 3
+driver-3 47.61158121756492	-122.3367888262189 3
+driver-3 47.61134776419203	-122.3372616333093 3
+driver-3 47.61126643300474	-122.3374448600918 3
+driver-3 47.61128886630301	-122.3374810789834 3
+driver-3 47.61129694289758	-122.3375075540301 3
+driver-3 47.61106158783581	-122.3380265030704 3
+driver-3 47.61103585938019	-122.3380765857983 3
+driver-3 47.6110364833414	-122.3381018282329 3
+driver-3 47.61102870155933	-122.33814208604 3
+driver-3 47.61094498694357	-122.338303196855 3
+driver-3 47.61093047941596	-122.3383398715514 3
+driver-3 47.61079381468039	-122.33858364716 3
+driver-3 47.6107786161316	-122.3386666760693 3
+driver-3 47.61075382543915	-122.3387394516393 3
+driver-3 47.61070116039234	-122.3388656944689 3
+driver-3 47.61060187357129	-122.339144495244 3
+driver-3 47.61059980638032	-122.3391471645015 3
+driver-3 47.61059460963991	-122.3391442364023 3
+driver-3 47.6105987174202	-122.3391454636943 3
+driver-3 47.61062716802011	-122.3391881950914 3
+driver-3 47.61048958535019	-122.3395177705674 3
+driver-3 47.61036576458941	-122.3398225925994 3
+driver-3 47.61022216126641	-122.3400680654183 3
+driver-3 47.61015795176377	-122.3402228830398 3
+driver-3 47.61006659347569	-122.340452090945 3
+driver-3 47.60998096652095	-122.3406207259817 3
+driver-3 47.60986014313429	-122.3407677695204 3
+driver-3 47.6097416300067	-122.3408637302573 3
+driver-3 47.60968684793861	-122.3408326886253 3
+driver-3 47.60912871007169	-122.3403313754916 3
+driver-3 47.60908783331939	-122.3402831040944 3
+driver-3 47.60898928165032	-122.340176106515 3
+driver-3 47.60898624835609	-122.3401748929405 3
+driver-3 47.60898400161221	-122.3401678860759 3
+driver-3 47.60898309562342	-122.3401610341532 3
+driver-3 47.60868649586274	-122.3399169253107 3
+driver-3 47.60842007861847	-122.3396595114688 3
+driver-3 47.60775121374422	-122.3390772958418 3
+driver-3 47.60711842301673	-122.3385159901743 3
+driver-3 47.60705878390965	-122.3384470439203 3
+driver-3 47.60700459006609	-122.3383799921424 3
+driver-3 47.60687212838575	-122.3380851862636 3
+driver-3 47.60690633775818	-122.3379863327805 3
+driver-3 47.60699986245655	-122.3377576447091 3
+driver-3 47.6070499611394	-122.3376720596489 3
+driver-3 47.60708744227097	-122.3375863545431 3
+driver-3 47.60711151927104	-122.3375332031794 3
+driver-3 47.60725670695007	-122.3371818042082 3
+driver-3 47.60732780225094	-122.3369589940559 3
+driver-3 47.60944528393636	-122.3360001091388 4
+driver-3 47.60949772661021	-122.3360478767111 4
+driver-3 47.60982733301425	-122.3363181609346 4
+driver-3 47.61045440710432	-122.3361309274367 4
+driver-3 47.61049430131006	-122.3360350439845 4
+driver-3 47.6105363464343	-122.3359365444782 4
+driver-3 47.61072971897739	-122.3354639257523 4
+driver-3 47.61074666104429	-122.335425407938 4
+driver-3 47.61090983019826	-122.3350269878562 4
+driver-3 47.61110481305898	-122.3345464427719 4
+driver-3 47.61130843449187	-122.3340416015657 4
+driver-3 47.61193667721163	-122.3325269269973 4
+driver-3 47.61208600970379	-122.3321752793605 4
+driver-3 47.61240780815189	-122.3325504908523 4
+driver-3 47.61268813731969	-122.3328030980872 4
+driver-3 47.61288455959458	-122.3329890684826 4
+driver-3 47.61291963408934	-122.333021841176 4
+driver-3 47.61297559262957	-122.3330759664107 4
+driver-3 47.6130108804178	-122.3331958641943 4
+driver-3 47.61298456214023	-122.3332740542438 4
+driver-3 47.61286397453161	-122.3335229179561 4
+driver-3 47.61270856621731	-122.3338392594128 4
+driver-3 47.6126668977716	-122.3338823524455 4
+driver-3 47.61262527135688	-122.3338791224322 4
+driver-3 47.61258121981417	-122.3341974320928 4
+driver-3 47.61259614392808	-122.3341757389197 4
+driver-3 47.61259642296309	-122.3341741226517 4
+driver-3 47.61255523714435	-122.3342966038438 4
+driver-3 47.6125349190116	-122.3343569531805 4
+driver-3 47.61199561814615	-122.3356889614123 4
+driver-3 47.61182635688691	-122.3361239906468 4
+driver-3 47.61176110621103	-122.3363346189684 4
+driver-3 47.61128375131781	-122.3375473077744 4
+driver-3 47.61116669028239	-122.3377999162883 4
+driver-3 47.61106158783581	-122.3380265030704 4
+driver-3 47.61096563080444	-122.33825567627 4
+driver-3 47.61093047941596	-122.3383398715514 4
+driver-3 47.61065714354854	-122.3389905646423 4
+driver-3 47.61060187357129	-122.339144495244 4
+driver-3 47.61059980638032	-122.3391471645015 4
+driver-3 47.61050731759243	-122.3394723407629 4
+driver-3 47.61048081830153	-122.3395708841708 4
+driver-3 47.61031068074541	-122.3398970062772 4
+driver-3 47.60991699494988	-122.3407673400903 4
+driver-3 47.60990655862355	-122.3407732838214 4
+driver-3 47.6097416300067	-122.3408637302573 4
+driver-3 47.60898770978125	-122.3401748802722 4
+driver-3 47.6089934441268	-122.3401729563686 4
+driver-3 47.60892901653958	-122.3400843695276 4
+driver-3 47.60875313737808	-122.3399654430987 4
+driver-3 47.60832655733292	-122.3395669601598 4
+driver-3 47.60775121374422	-122.3390772958418 4
+driver-3 47.60705878390965	-122.3384470439203 4
+driver-3 47.60744025500858	-122.3367299866321 4
+driver-3 47.60755974861706	-122.3364876929359 4
+driver-3 47.60765668431469	-122.3362362842918 4
+driver-3 47.60765012128406	-122.3362653103397 4
+driver-3 47.60765295771913	-122.336258968885 4
+driver-3 47.60766254112091	-122.3362294842396 4
+driver-3 47.60766959968076	-122.3362075088485 4
+driver-3 47.60779024454677	-122.3358474145414 4
+driver-3 47.60868771968443	-122.335311397586 4
+driver-3 47.60886473705127	-122.3354777920927 4
+driver-3 47.60897315037069	-122.3355757944692 4
+driver-3 47.60932797049735	-122.3358963237442 4
+driver-3 47.60939003551002	-122.3359503021764 4
+driver-3 47.6096585132119	-122.336192623772 4
+driver-3 47.61040296073116	-122.3362452559552 4
+driver-3 47.61043058607478	-122.33618975112 4
+driver-3 47.61045440710432	-122.3361309274367 4
+driver-3 47.61067891872257	-122.335593741088 4
+driver-3 47.61070435395787	-122.335528430427 4
+driver-3 47.61086618172754	-122.3351659757531 4
+driver-3 47.61104234504294	-122.3347027745492 4
+driver-3 47.6112003160425	-122.3343111527014 4
+driver-3 47.61186238305444	-122.3327149195344 4
+driver-3 47.61206584748379	-122.3322082973153 4
+driver-3 47.6123873372142	-122.3325319772761 4
+driver-3 47.61259643787059	-122.3327563562052 4
+driver-3 47.61277770796049	-122.3328866661553 4
+driver-3 47.61283072610617	-122.332937618032 4
+driver-3 47.61291963408934	-122.333021841176 4
+driver-3 47.61297559262957	-122.3330759664107 4
+driver-3 47.61299275780121	-122.3331111745989 4
+driver-3 47.61291198638909	-122.3334159106266 4
+driver-3 47.61272552746726	-122.3337771079133 4
+driver-3 47.61268034506438	-122.3338746843648 4
+driver-3 47.6126668977716	-122.3338823524455 4
+driver-3 47.61257293933308	-122.3341863992838 4
+driver-3 47.61259093717543	-122.334177359002 4
+driver-3 47.61259342590278	-122.3341819660938 4
+driver-3 47.61257653384096	-122.3342252718665 4
+driver-3 47.61256427378868	-122.334266987442 4
+driver-3 47.61211547637694	-122.3353369231487 4
+driver-3 47.6119376155682	-122.3358652939038 4
+driver-3 47.61177534731492	-122.3363293757181 4
+driver-3 47.61129517691856	-122.3374964388575 4
+driver-3 47.61123560205665	-122.3376572591037 4
+driver-3 47.61112658251007	-122.3378892411222 4
+driver-3 47.61101711268276	-122.3381709720303 4
+driver-3 47.61096563080444	-122.33825567627 4
+driver-3 47.61067962337498	-122.3389148485338 4
+driver-3 47.61060941365233	-122.3391244969312 4
+driver-3 47.61060235938937	-122.3391378665304 4
+driver-3 47.61053579817491	-122.339389494363 4
+driver-3 47.61050731759243	-122.3394723407629 4
+driver-3 47.6104160444905	-122.3397383561637 4
+driver-3 47.60995994263372	-122.3407195872208 4
+driver-3 47.60993787262149	-122.3407463328069 4
+driver-3 47.60983009235359	-122.3408206335337 4
+driver-3 47.60900243332703	-122.3401955048647 4
+driver-3 47.6089943817175	-122.3401811560849 4
+driver-3 47.60898647406012	-122.3401442707815 4
+driver-3 47.60887734356026	-122.340059228575 4
+driver-3 47.60851100462982	-122.3397495085758 4
+driver-3 47.60794670647306	-122.339235008259 4
+driver-3 47.60719280211596	-122.3385800913781 4
+driver-3 47.60882146840945	-122.3354386506091 5
+driver-3 47.60897315037069	-122.3355757944692 5
+driver-3 47.60925654696269	-122.3358313934225 5
+driver-3 47.60974058728765	-122.3362516326282 5
+driver-3 47.61029599996479	-122.3363962791973 5
+driver-3 47.61028128362128	-122.336398193458 5
+driver-3 47.61040296073116	-122.3362452559552 5
+driver-3 47.61043058607478	-122.33618975112 5
+driver-3 47.61079669695632	-122.3353111790036 5
+driver-3 47.6111248918662	-122.3344938412518 5
+driver-3 47.61116573091848	-122.3343938631592 5
+driver-3 47.6112003160425	-122.3343111527014 5
+driver-3 47.6114847717705	-122.3336171284166 5
+driver-3 47.61155331056575	-122.3334629456072 5
+driver-3 47.61186238305444	-122.3327149195344 5
+driver-3 47.61190836987266	-122.3325971670239 5
+driver-3 47.6122532196397	-122.3323075156973 5
+driver-3 47.61233803822149	-122.3324134327132 5
+driver-3 47.61237879806872	-122.3325190988652 5
+driver-3 47.61236734075101	-122.3325102040498 5
+driver-3 47.61237582019724	-122.3325198088258 5
+driver-3 47.61283072610617	-122.332937618032 5
+driver-3 47.61280056356888	-122.3336392825183 5
+driver-3 47.6126717129477	-122.333879664571 5
+driver-3 47.61258805613804	-122.3339339501545 5
+driver-3 47.61257154896021	-122.3341721199903 5
+driver-3 47.61211547637694	-122.3353369231487 5
+driver-3 47.61176334617223	-122.3363311242738 5
+driver-3 47.61161728666762	-122.3367068260666 5
+driver-3 47.61158121756492	-122.3367888262189 5
+driver-3 47.611391141079	-122.3371642828286 5
+driver-3 47.61128886630301	-122.3374810789834 5
+driver-3 47.61104533759002	-122.338063487424 5
+driver-3 47.61103898383519	-122.3380950786338 5
+driver-3 47.6107786161316	-122.3386666760693 5
+driver-3 47.61067962337498	-122.3389148485338 5
+driver-3 47.61064824592086	-122.3390228810887 5
+driver-3 47.61062556455227	-122.3390847596051 5
+driver-3 47.61036576458941	-122.3398225925994 5
+driver-3 47.61018977017274	-122.3401491171971 5
+driver-3 47.61003123071229	-122.34052347601 5
+driver-3 47.60998096652095	-122.3406207259817 5
+driver-3 47.60993787262149	-122.3407463328069 5
+driver-3 47.60949653092825	-122.3406584010319 5
+driver-3 47.6092341879063	-122.3404233282701 5
+driver-3 47.60900243332703	-122.3401955048647 5
+driver-3 47.6089943817175	-122.3401811560849 5
+driver-3 47.60898779396602	-122.3401754317922 5
+driver-3 47.60747132504626	-122.3388219033905 5
+driver-3 47.60728446920039	-122.3386532001729 5
+driver-3 47.60688171985854	-122.3382508885901 5
+driver-3 47.6070499611394	-122.3376720596489 5
+driver-3 47.60776307901955	-122.3359688949772 5
+driver-3 47.6076416859542	-122.3362152991663 5
+driver-3 47.60765154580752	-122.3361652859498 5
+driver-3 47.60815884241343	-122.3350252752924 5
+driver-3 47.60863710360753	-122.3352650945828 5
+driver-3 47.60867759940026	-122.335301829964 5
+driver-3 47.60869519052452	-122.3353213183663 5
+driver-3 47.60870798217034	-122.3353300977854 5
+driver-3 47.60891364555719	-122.3355214803192 5
+driver-3 47.60886473705127	-122.3354777920927 5
+driver-3 47.60886473705127	-122.3354777920927 5
+driver-3 47.60910689262793	-122.3356962211362 5
+driver-3 47.60886473705127	-122.3354777920927 5
+driver-3 47.60910689262793	-122.3356962211362 5
+driver-3 47.60959789451693	-122.3361423508068 5
+driver-3 47.61029986775662	-122.3364175122939 5
+driver-3 47.61029573806839	-122.3364050007926 5
+driver-3 47.61032671131944	-122.3363081874341 5
+driver-3 47.61035194693342	-122.3362675920672 5
+driver-3 47.61076123967624	-122.3353838848801 5
+driver-3 47.61107700204514	-122.334614458804 5
+driver-3 47.6111248918662	-122.3344938412518 5
+driver-3 47.61114459566473	-122.3344438588279 5
+driver-3 47.61136076090496	-122.3339092695926 5
+driver-3 47.61141867537601	-122.333768545996 5
+driver-3 47.61179891556682	-122.3329315000672 5
+driver-3 47.61183806465666	-122.3327879429083 5
+driver-3 47.61216130504196	-122.3322007104107 5
+driver-3 47.6122532196397	-122.3323075156973 5
+driver-3 47.61237604930084	-122.3325097112768 5
+driver-3 47.61237942891717	-122.3325174305953 5
+driver-3 47.61237879806872	-122.3325190988652 5
+driver-3 47.61273105077783	-122.3328432911397 5
+driver-3 47.61286397453161	-122.3335229179561 5
+driver-3 47.61269303853566	-122.3338643755707 5
+driver-3 47.61261605398516	-122.3338890741637 5
+driver-3 47.61256259016466	-122.3341417945447 5
+driver-3 47.61224879725894	-122.3350232115001 5
+driver-3 47.61176759140145	-122.3363305446262 5
+driver-3 47.61170388389863	-122.3365312328062 5
+driver-3 47.61166061561352	-122.3366209574459 5
+driver-3 47.61149344466751	-122.3369512337832 5
+driver-3 47.61127108075742	-122.3374743051007 5
+driver-3 47.61108788946398	-122.3379647855033 5
+driver-3 47.61103594701319	-122.3380917764377 5
+driver-3 47.61081989237446	-122.338509350505 5
+driver-3 47.61072422693896	-122.3388055020606 5
+driver-3 47.610668464527	-122.3389568591983 5
+driver-3 47.61064824592086	-122.3390228810887 5
+driver-3 47.61045052824455	-122.3396417829263 5
+driver-3 47.61026398755584	-122.3399833510325 5
+driver-3 47.61009377268664	-122.3403916675873 5
+driver-3 47.61003123071229	-122.34052347601 5
+driver-3 47.60996690614132	-122.3406946727468 5
+driver-3 47.6096281624766	-122.3407873103722 5
+driver-3 47.60936180849114	-122.3405329673318 5
+driver-3 47.6090498846625	-122.3402416428131 5
+driver-3 47.6090208648518	-122.3402130412652 5
+driver-3 47.6089934441268	-122.3401729563686 5
+driver-3 47.60765727647875	-122.3389852234122 5
+driver-3 47.60747132504626	-122.3388219033905 5
+driver-3 47.60696297940471	-122.3382799307073 5
+driver-3 47.60695175129183	-122.3378757119604 5
+%7|1601180239.392|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FetchResponse (v11, 279 bytes, CorrId 16, rtt 120.33ms)
+%7|1601180239.392|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [1] MessageSet size 0, error "Success", MaxOffset 141, LSO 141, Ver 2/2
+%7|1601180239.392|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [2] MessageSet size 0, error "Success", MaxOffset 148, LSO 148, Ver 2/2
+%7|1601180239.392|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [3] MessageSet size 0, error "Success", MaxOffset 183, LSO 183, Ver 2/2
+%7|1601180239.392|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [4] MessageSet size 0, error "Success", MaxOffset 117, LSO 117, Ver 2/2
+%7|1601180239.392|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [5] MessageSet size 0, error "Success", MaxOffset 115, LSO 115, Ver 2/2
+%7|1601180239.392|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [0] MessageSet size 0, error "Success", MaxOffset 122, LSO 122, Ver 2/2
+%7|1601180239.392|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [2] at offset 148 (v2)
+%7|1601180239.392|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [3] at offset 183 (v2)
+%7|1601180239.392|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [4] at offset 117 (v2)
+%7|1601180239.392|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [5] at offset 115 (v2)
+%7|1601180239.392|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [0] at offset 122 (v2)
+%7|1601180239.392|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [1] at offset 141 (v2)
+%7|1601180239.392|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch 6/6/6 toppar(s)
+%7|1601180239.392|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FetchRequest (v11, 237 bytes @ 0, CorrId 17)
+%7|1601180239.481|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FetchResponse (v11, 391 bytes, CorrId 17, rtt 89.12ms)
+%7|1601180239.481|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [2] MessageSet size 0, error "Success", MaxOffset 148, LSO 148, Ver 2/2
+%7|1601180239.481|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [3] MessageSet size 0, error "Success", MaxOffset 183, LSO 183, Ver 2/2
+%7|1601180239.481|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [4] MessageSet size 112, error "Success", MaxOffset 118, LSO 118, Ver 2/2
+%7|1601180239.481|CONSUME|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Enqueue 1 message(s) (44 bytes, 1 ops) on topic_a [4] fetch queue (qlen 1, v2, last_offset 117, 0 ctrl msgs, uncompressed)
+%7|1601180239.481|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [5] MessageSet size 0, error "Success", MaxOffset 115, LSO 115, Ver 2/2
+%7|1601180239.481|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [0] MessageSet size 0, error "Success", MaxOffset 122, LSO 122, Ver 2/2
+%7|1601180239.481|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [1] MessageSet size 0, error "Success", MaxOffset 141, LSO 141, Ver 2/2
+%7|1601180239.481|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [3] at offset 183 (v2)
+%7|1601180239.481|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [4] at offset 118 (v2)
+%7|1601180239.481|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [5] at offset 115 (v2)
+%7|1601180239.481|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [0] at offset 122 (v2)
+%7|1601180239.481|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [1] at offset 141 (v2)
+%7|1601180239.481|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [2] at offset 148 (v2)
+%7|1601180239.481|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch 6/6/6 toppar(s)
+driver-3 47.60736573290868	-122.3368657073549 4
+%7|1601180239.481|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FetchRequest (v11, 237 bytes @ 0, CorrId 18)
+%7|1601180239.589|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FetchResponse (v11, 279 bytes, CorrId 18, rtt 108.33ms)
+%7|1601180239.589|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [3] MessageSet size 0, error "Success", MaxOffset 183, LSO 183, Ver 2/2
+%7|1601180239.589|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [4] MessageSet size 0, error "Success", MaxOffset 118, LSO 118, Ver 2/2
+%7|1601180239.589|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [5] MessageSet size 0, error "Success", MaxOffset 115, LSO 115, Ver 2/2
+%7|1601180239.589|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [0] MessageSet size 0, error "Success", MaxOffset 122, LSO 122, Ver 2/2
+%7|1601180239.589|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [1] MessageSet size 0, error "Success", MaxOffset 141, LSO 141, Ver 2/2
+%7|1601180239.589|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [2] MessageSet size 0, error "Success", MaxOffset 148, LSO 148, Ver 2/2
+%7|1601180239.590|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [4] at offset 118 (v2)
+%7|1601180239.590|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [5] at offset 115 (v2)
+%7|1601180239.590|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [0] at offset 122 (v2)
+%7|1601180239.590|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [1] at offset 141 (v2)
+%7|1601180239.590|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [2] at offset 148 (v2)
+%7|1601180239.590|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [3] at offset 183 (v2)
+%7|1601180239.590|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch 6/6/6 toppar(s)
+%7|1601180239.590|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FetchRequest (v11, 237 bytes @ 0, CorrId 19)
+%7|1601180239.694|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FetchResponse (v11, 279 bytes, CorrId 19, rtt 104.53ms)
+%7|1601180239.694|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [4] MessageSet size 0, error "Success", MaxOffset 118, LSO 118, Ver 2/2
+%7|1601180239.694|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [5] MessageSet size 0, error "Success", MaxOffset 115, LSO 115, Ver 2/2
+%7|1601180239.694|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [0] MessageSet size 0, error "Success", MaxOffset 122, LSO 122, Ver 2/2
+%7|1601180239.694|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [1] MessageSet size 0, error "Success", MaxOffset 141, LSO 141, Ver 2/2
+%7|1601180239.694|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [2] MessageSet size 0, error "Success", MaxOffset 148, LSO 148, Ver 2/2
+%7|1601180239.694|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [3] MessageSet size 0, error "Success", MaxOffset 183, LSO 183, Ver 2/2
+%7|1601180239.694|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [5] at offset 115 (v2)
+%7|1601180239.694|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [0] at offset 122 (v2)
+%7|1601180239.694|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [1] at offset 141 (v2)
+%7|1601180239.694|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [2] at offset 148 (v2)
+%7|1601180239.694|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [3] at offset 183 (v2)
+%7|1601180239.694|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [4] at offset 118 (v2)
+%7|1601180239.694|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch 6/6/6 toppar(s)
+%7|1601180239.694|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FetchRequest (v11, 237 bytes @ 0, CorrId 20)
+%7|1601180239.800|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FetchResponse (v11, 279 bytes, CorrId 20, rtt 105.96ms)
+%7|1601180239.800|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [5] MessageSet size 0, error "Success", MaxOffset 115, LSO 115, Ver 2/2
+%7|1601180239.800|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [0] MessageSet size 0, error "Success", MaxOffset 122, LSO 122, Ver 2/2
+%7|1601180239.800|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [1] MessageSet size 0, error "Success", MaxOffset 141, LSO 141, Ver 2/2
+%7|1601180239.800|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [2] MessageSet size 0, error "Success", MaxOffset 148, LSO 148, Ver 2/2
+%7|1601180239.800|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [3] MessageSet size 0, error "Success", MaxOffset 183, LSO 183, Ver 2/2
+%7|1601180239.800|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [4] MessageSet size 0, error "Success", MaxOffset 118, LSO 118, Ver 2/2
+%7|1601180239.800|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [0] at offset 122 (v2)
+%7|1601180239.800|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [1] at offset 141 (v2)
+%7|1601180239.800|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [2] at offset 148 (v2)
+%7|1601180239.800|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [3] at offset 183 (v2)
+%7|1601180239.800|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [4] at offset 118 (v2)
+%7|1601180239.800|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [5] at offset 115 (v2)
+%7|1601180239.800|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch 6/6/6 toppar(s)
+%7|1601180239.800|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FetchRequest (v11, 237 bytes @ 0, CorrId 21)
+%7|1601180239.912|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FetchResponse (v11, 279 bytes, CorrId 21, rtt 111.09ms)
+%7|1601180239.912|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [0] MessageSet size 0, error "Success", MaxOffset 122, LSO 122, Ver 2/2
+%7|1601180239.912|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [1] MessageSet size 0, error "Success", MaxOffset 141, LSO 141, Ver 2/2
+%7|1601180239.912|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [2] MessageSet size 0, error "Success", MaxOffset 148, LSO 148, Ver 2/2
+%7|1601180239.912|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [3] MessageSet size 0, error "Success", MaxOffset 183, LSO 183, Ver 2/2
+%7|1601180239.912|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [4] MessageSet size 0, error "Success", MaxOffset 118, LSO 118, Ver 2/2
+%7|1601180239.912|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [5] MessageSet size 0, error "Success", MaxOffset 115, LSO 115, Ver 2/2
+%7|1601180239.912|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [1] at offset 141 (v2)
+%7|1601180239.912|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [2] at offset 148 (v2)
+%7|1601180239.912|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [3] at offset 183 (v2)
+%7|1601180239.912|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [4] at offset 118 (v2)
+%7|1601180239.912|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [5] at offset 115 (v2)
+%7|1601180239.912|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [0] at offset 122 (v2)
+%7|1601180239.912|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch 6/6/6 toppar(s)
+%7|1601180239.912|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FetchRequest (v11, 237 bytes @ 0, CorrId 22)
+%7|1601180240.016|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FetchResponse (v11, 279 bytes, CorrId 22, rtt 104.76ms)
+%7|1601180240.017|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [1] MessageSet size 0, error "Success", MaxOffset 141, LSO 141, Ver 2/2
+%7|1601180240.017|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [2] MessageSet size 0, error "Success", MaxOffset 148, LSO 148, Ver 2/2
+%7|1601180240.017|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [3] MessageSet size 0, error "Success", MaxOffset 183, LSO 183, Ver 2/2
+%7|1601180240.017|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [4] MessageSet size 0, error "Success", MaxOffset 118, LSO 118, Ver 2/2
+%7|1601180240.017|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [5] MessageSet size 0, error "Success", MaxOffset 115, LSO 115, Ver 2/2
+%7|1601180240.017|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [0] MessageSet size 0, error "Success", MaxOffset 122, LSO 122, Ver 2/2
+%7|1601180240.017|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [2] at offset 148 (v2)
+%7|1601180240.017|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [3] at offset 183 (v2)
+%7|1601180240.017|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [4] at offset 118 (v2)
+%7|1601180240.017|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [5] at offset 115 (v2)
+%7|1601180240.017|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [0] at offset 122 (v2)
+%7|1601180240.017|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [1] at offset 141 (v2)
+%7|1601180240.017|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch 6/6/6 toppar(s)
+%7|1601180240.017|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FetchRequest (v11, 237 bytes @ 0, CorrId 23)
+%7|1601180240.122|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FetchResponse (v11, 279 bytes, CorrId 23, rtt 104.88ms)
+%7|1601180240.122|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [2] MessageSet size 0, error "Success", MaxOffset 148, LSO 148, Ver 2/2
+%7|1601180240.122|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [3] MessageSet size 0, error "Success", MaxOffset 183, LSO 183, Ver 2/2
+%7|1601180240.122|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [4] MessageSet size 0, error "Success", MaxOffset 118, LSO 118, Ver 2/2
+%7|1601180240.122|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [5] MessageSet size 0, error "Success", MaxOffset 115, LSO 115, Ver 2/2
+%7|1601180240.122|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [0] MessageSet size 0, error "Success", MaxOffset 122, LSO 122, Ver 2/2
+%7|1601180240.122|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [1] MessageSet size 0, error "Success", MaxOffset 141, LSO 141, Ver 2/2
+%7|1601180240.122|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [3] at offset 183 (v2)
+%7|1601180240.122|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [4] at offset 118 (v2)
+%7|1601180240.122|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [5] at offset 115 (v2)
+%7|1601180240.122|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [0] at offset 122 (v2)
+%7|1601180240.122|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [1] at offset 141 (v2)
+%7|1601180240.122|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [2] at offset 148 (v2)
+%7|1601180240.122|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch 6/6/6 toppar(s)
+%7|1601180240.122|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FetchRequest (v11, 237 bytes @ 0, CorrId 24)
+%7|1601180240.228|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FetchResponse (v11, 279 bytes, CorrId 24, rtt 106.06ms)
+%7|1601180240.228|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [3] MessageSet size 0, error "Success", MaxOffset 183, LSO 183, Ver 2/2
+%7|1601180240.228|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [4] MessageSet size 0, error "Success", MaxOffset 118, LSO 118, Ver 2/2
+%7|1601180240.228|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [5] MessageSet size 0, error "Success", MaxOffset 115, LSO 115, Ver 2/2
+%7|1601180240.228|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [0] MessageSet size 0, error "Success", MaxOffset 122, LSO 122, Ver 2/2
+%7|1601180240.228|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [1] MessageSet size 0, error "Success", MaxOffset 141, LSO 141, Ver 2/2
+%7|1601180240.228|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [2] MessageSet size 0, error "Success", MaxOffset 148, LSO 148, Ver 2/2
+%7|1601180240.228|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [4] at offset 118 (v2)
+%7|1601180240.228|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [5] at offset 115 (v2)
+%7|1601180240.228|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [0] at offset 122 (v2)
+%7|1601180240.228|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [1] at offset 141 (v2)
+%7|1601180240.228|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [2] at offset 148 (v2)
+%7|1601180240.228|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [3] at offset 183 (v2)
+%7|1601180240.228|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch 6/6/6 toppar(s)
+%7|1601180240.228|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FetchRequest (v11, 237 bytes @ 0, CorrId 25)
+%7|1601180240.334|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FetchResponse (v11, 279 bytes, CorrId 25, rtt 106.29ms)
+%7|1601180240.334|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [4] MessageSet size 0, error "Success", MaxOffset 118, LSO 118, Ver 2/2
+%7|1601180240.334|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [5] MessageSet size 0, error "Success", MaxOffset 115, LSO 115, Ver 2/2
+%7|1601180240.334|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [0] MessageSet size 0, error "Success", MaxOffset 122, LSO 122, Ver 2/2
+%7|1601180240.334|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [1] MessageSet size 0, error "Success", MaxOffset 141, LSO 141, Ver 2/2
+%7|1601180240.334|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [2] MessageSet size 0, error "Success", MaxOffset 148, LSO 148, Ver 2/2
+%7|1601180240.334|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [3] MessageSet size 0, error "Success", MaxOffset 183, LSO 183, Ver 2/2
+%7|1601180240.334|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [5] at offset 115 (v2)
+%7|1601180240.334|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [0] at offset 122 (v2)
+%7|1601180240.334|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [1] at offset 141 (v2)
+%7|1601180240.334|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [2] at offset 148 (v2)
+%7|1601180240.334|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [3] at offset 183 (v2)
+%7|1601180240.334|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [4] at offset 118 (v2)
+%7|1601180240.334|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch 6/6/6 toppar(s)
+%7|1601180240.334|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FetchRequest (v11, 237 bytes @ 0, CorrId 26)
+%7|1601180240.439|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FetchResponse (v11, 279 bytes, CorrId 26, rtt 104.86ms)
+%7|1601180240.439|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [5] MessageSet size 0, error "Success", MaxOffset 115, LSO 115, Ver 2/2
+%7|1601180240.439|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [0] MessageSet size 0, error "Success", MaxOffset 122, LSO 122, Ver 2/2
+%7|1601180240.439|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [1] MessageSet size 0, error "Success", MaxOffset 141, LSO 141, Ver 2/2
+%7|1601180240.439|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [2] MessageSet size 0, error "Success", MaxOffset 148, LSO 148, Ver 2/2
+%7|1601180240.439|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [3] MessageSet size 0, error "Success", MaxOffset 183, LSO 183, Ver 2/2
+%7|1601180240.439|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [4] MessageSet size 0, error "Success", MaxOffset 118, LSO 118, Ver 2/2
+%7|1601180240.439|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [0] at offset 122 (v2)
+%7|1601180240.439|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [1] at offset 141 (v2)
+%7|1601180240.439|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [2] at offset 148 (v2)
+%7|1601180240.439|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [3] at offset 183 (v2)
+%7|1601180240.439|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [4] at offset 118 (v2)
+%7|1601180240.439|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [5] at offset 115 (v2)
+%7|1601180240.439|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch 6/6/6 toppar(s)
+%7|1601180240.439|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FetchRequest (v11, 237 bytes @ 0, CorrId 27)
+%7|1601180240.482|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FetchResponse (v11, 391 bytes, CorrId 27, rtt 42.21ms)
+%7|1601180240.482|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [0] MessageSet size 112, error "Success", MaxOffset 123, LSO 123, Ver 2/2
+%7|1601180240.482|CONSUME|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Enqueue 1 message(s) (44 bytes, 1 ops) on topic_a [0] fetch queue (qlen 1, v2, last_offset 122, 0 ctrl msgs, uncompressed)
+%7|1601180240.482|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [1] MessageSet size 0, error "Success", MaxOffset 141, LSO 141, Ver 2/2
+%7|1601180240.482|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [2] MessageSet size 0, error "Success", MaxOffset 148, LSO 148, Ver 2/2
+%7|1601180240.482|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [3] MessageSet size 0, error "Success", MaxOffset 183, LSO 183, Ver 2/2
+%7|1601180240.482|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [4] MessageSet size 0, error "Success", MaxOffset 118, LSO 118, Ver 2/2
+%7|1601180240.482|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [5] MessageSet size 0, error "Success", MaxOffset 115, LSO 115, Ver 2/2
+%7|1601180240.482|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [1] at offset 141 (v2)
+%7|1601180240.482|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [2] at offset 148 (v2)
+%7|1601180240.482|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [3] at offset 183 (v2)
+%7|1601180240.482|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [4] at offset 118 (v2)
+%7|1601180240.482|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [5] at offset 115 (v2)
+%7|1601180240.482|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [0] at offset 123 (v2)
+%7|1601180240.482|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch 6/6/6 toppar(s)
+driver-3 47.60740974808994	-122.3367864417434 0
+%7|1601180240.482|SEND|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Sent FetchRequest (v11, 237 bytes @ 0, CorrId 28)
+%7|1601180240.587|RECV|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Received FetchResponse (v11, 279 bytes, CorrId 28, rtt 105.64ms)
+%7|1601180240.587|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [1] MessageSet size 0, error "Success", MaxOffset 141, LSO 141, Ver 2/2
+%7|1601180240.587|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [2] MessageSet size 0, error "Success", MaxOffset 148, LSO 148, Ver 2/2
+%7|1601180240.587|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [3] MessageSet size 0, error "Success", MaxOffset 183, LSO 183, Ver 2/2
+%7|1601180240.587|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [4] MessageSet size 0, error "Success", MaxOffset 118, LSO 118, Ver 2/2
+%7|1601180240.587|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [5] MessageSet size 0, error "Success", MaxOffset 115, LSO 115, Ver 2/2
+%7|1601180240.587|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Topic topic_a [0] MessageSet size 0, error "Success", MaxOffset 123, LSO 123, Ver 2/2
+%7|1601180240.587|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [2] at offset 148 (v2)
+%7|1601180240.587|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [3] at offset 183 (v2)
+%7|1601180240.587|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [4] at offset 118 (v2)
+%7|1601180240.587|FETCH|rdkafka#consumer-1| [thrd:localhost:9092/bootstrap]: localhost:9092/101: Fetch topic topic_a [5] at offset 115 (v2)
