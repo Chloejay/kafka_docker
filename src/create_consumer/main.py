@@ -26,7 +26,6 @@ class Base_Consumer:
             partition (int, optional): Defaults to 0.
             offset (int, optional): message next ready to read position. Defaults to 0.
         """
-        
         self.topic= topic
         self.tp= TopicPartition(topic, partition, offset)
         self.consumer = Consumer({
@@ -48,30 +47,23 @@ class Base_Consumer:
         # c.consume(num_messages=1, timeout=30)
         try:
             running = True
+            message_values= list()
             while running:
-                keys= list()
-                values= list() 
-                partitions= list()
-                offsets= list()
                 msg = c.poll(0.1)
-            
                 if msg is None:
                     continue
                 if msg.error():
                     print("Consumer error: {}".format(msg.error()))
                     continue
-                # pprint('Received message: {}'.format(msg.value()))
                 # value_= json.load(msg.value.decode("utf-8"))
-
-                return (pd.DataFrame({"keys":msg.key().decode('utf-8'), 
-                                      "values": msg.value().decode('utf-8'), 
-                                      "partitions": msg.partition(), 
-                                      "offsets":msg.offset()}, 
-                                     index=[0]))
+                msg= msg.value().decode("utf-8")
+                message_values.append(msg)
         except Exception as e:
-            pprint(str(e))
-        # finally:
-            # c.close()
+            pprint(f"Error: {str(e)}")
+        finally:
+            df = pd.DataFrame([sub.split("\t-") for sub in message_values], columns=["lon", "lat"])
+            return df
+            c.close()
             
     # reassign partition
     def partition_assign(self):
@@ -93,15 +85,13 @@ class Consumer1(Base_Consumer):
             # for partition_id in meta.partitions.keys():
                 # part = TopicPartition(name, partition_id)
                 # partitions.append(part)
-
-        # get last committed offsets
+                
         # partitions = self.consumer.committed(partitions)
         # print(partitions)
         
     def get_pos(self, timeout= None):
         low, high = self.consumer.get_watermark_offsets(self.tp, timeout)
         print(low, high)
-
 
     def is_partition_assign(self)-> bool:
         tp = self.consumer.assign([self.tp])
@@ -127,7 +117,7 @@ if __name__ == "__main__":
     BOOTSTRAP_SERVER ="localhost:9092"
     TOPIC= "topic_b"
     SESS_TIMEOUT= 10000
-    GROUP= "testsing_foo"
+    GROUP= "messages"
     RETRIES= 1
     PARTITION=0
     OFFSET =0
