@@ -9,7 +9,7 @@ from create_topic import Topics
 if __name__ == "__main__":
     BROKER= "localhost:9092"
     DRIVER_FILE_PREFIX = "./drivers/"
-    KAFKA_TOPIC = "topic_a"
+    KAFKA_TOPIC = "topic_b"
 
     topic= Topics(BROKER, [KAFKA_TOPIC], 6, 1)
     topic.create_topic()
@@ -24,10 +24,10 @@ if __name__ == "__main__":
     "client.id":"driver.producer",
     # 'plugin.library.paths': 'monitoring-interceptor',
     # "statistics.interval.ms":1000,
-    "api.version.request":"true",
-    "retries":5,
+    "api.version.request": True,
+    "retries":5, #only relevant if acks !=0
     'partitioner': 'random',
-    'debug': 'admin,broker, metadata',
+    'debug': 'admin,broker, metadata', #all
     }
 
     producer = Producer(**config)
@@ -51,9 +51,9 @@ if __name__ == "__main__":
         pos = 0
         while True:
             line = lines[pos].strip()
-            producer.poll(0)
+            producer.poll(0) #receive metadata from broker
 
-            #asynchronous write
+            #asynchronous
             producer.produce(
                 KAFKA_TOPIC,
                 key= DRIVER_ID,
