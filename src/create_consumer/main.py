@@ -28,6 +28,8 @@ class Base_Consumer:
         """
         self.topic= topic
         self.tp= TopicPartition(topic, partition, offset)
+        self._assigned_partition= list() 
+        self._revoked_partition= list() 
         self.consumer = Consumer({
         "bootstrap.servers": bootstrap_server,
         "group.id": group,
@@ -40,21 +42,21 @@ class Base_Consumer:
         "retries":retries,
         "debug":"all"
         })
-        
-    # TODO
-    class ConsumerRebalanceListener:
-        def __init__(self):
-            pass 
-        def on_assign(self):
-            pass 
-        def on_revoke(self):
-            pass
+    
+    # TODO rebalance assign and revoke callback 
+    def get_assign_partition(self):
+        pass
+    
+    def get_revoke_partition(self):
+        pass
 
     def receive_msgs(self):
         c = self.consumer
         need_assign_listen= False
         if need_assign_listen:
-            c.subscribe([self.topic], self.on_assign)
+            c.subscribe([self.topic], 
+                        on_assign(c, self._assigned_partition), 
+                        on_revoke(c, self._revoked_partition))
         c.subscribe([self.topic])
         # c.consume(num_messages=1, timeout=30)
         try:
@@ -66,7 +68,7 @@ class Base_Consumer:
             while running:
                 msg = c.poll(0.1)
                 if msg is None:
-                    break
+                    continue
                 if msg.error():
                     print("Consumer error: {}".format(msg.error()))
                     continue
@@ -82,10 +84,12 @@ class Base_Consumer:
         except Exception as e:
             pprint(f"Error: {str(e)}")
         finally:
-            # return pd.DataFrame([sub.split("\t-") for sub in message_values], columns=["lon", "lat"])
-            return pd.DataFrame({"keys": keys, "values":message_values, "partitions": partitions, "offsets":offsets})
+            return pd.DataFrame({"keys": keys, 
+                                 "lon_val":[v.split("\t-")[0] for v in message_values], 
+                                 "lat_val":[v.split("\t-")[1] for v in message_values], 
+                                 "partitions": partitions, 
+                                 "offsets":offsets})
             c.close()
-
 
 class Consumer1(Base_Consumer):
     def __init__(self, topic, bootstrap_server, sess_timeout, retries, group, partition, offset):
@@ -133,7 +137,7 @@ if __name__ == "__main__":
     BOOTSTRAP_SERVER ="localhost:9092"
     TOPIC= "topic_b"
     SESS_TIMEOUT= 10000
-    GROUP= "messages_recheck"
+    GROUP= "msg_group_one"
     RETRIES= 1
     PARTITION=0
     OFFSET =0
