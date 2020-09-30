@@ -31,17 +31,17 @@ class Base_Consumer:
         self._assigned_partition= list() 
         self._revoked_partition= list() 
         self.consumer = Consumer({
-        "bootstrap.servers": bootstrap_server,
-        "group.id": group,
-        "default.topic.config":{"auto.offset.reset": "earliest"},
-        "api.version.request": True,
-        "session.timeout.ms":sess_timeout,
-        "enable.auto.commit": True,
-        "enable.auto.offset.store": True,
-        # "partition.assignment.strategy":"range", #default
-        "retries":retries,
-        "debug":"all"
-        })
+            "bootstrap.servers": bootstrap_server,
+            "group.id": group,
+            "default.topic.config":{"auto.offset.reset": "earliest"},
+            "api.version.request": True,
+            "session.timeout.ms":sess_timeout,
+            "enable.auto.commit": True,
+            "enable.auto.offset.store": True,
+            "partition.assignment.strategy":"range", #default
+            "retries":retries,
+            "debug":"all"
+            })
     
     # TODO rebalance assign and revoke callback 
     def get_assign_partition(self):
@@ -58,13 +58,13 @@ class Base_Consumer:
                         on_assign(c, self._assigned_partition), 
                         on_revoke(c, self._revoked_partition))
         c.subscribe([self.topic])
-        # c.consume(num_messages=1, timeout=30)
+        message_values= list()
+        offsets= list()
+        keys= list() 
+        partitions= list()
+        running = True
+        
         try:
-            running = True
-            message_values= list()
-            offsets= list()
-            keys= list() 
-            partitions= list()
             while running:
                 msg = c.poll(0.1)
                 if msg is None:
@@ -72,7 +72,6 @@ class Base_Consumer:
                 if msg.error():
                     print("Consumer error: {}".format(msg.error()))
                     continue
-                # value_= json.load(msg.value.decode("utf-8"))
                 value_= msg.value().decode("utf-8")
                 key_= msg.key().decode("utf-8")
                 partition_= msg.partition()
@@ -125,12 +124,13 @@ class Consumer1(Base_Consumer):
     def _more_config(self):
         pass
 
-
 def main(topic: str, bootstrap_server: str, timeout:int, group: str, retries: int, partition: int, offset: int)-> str:
     consumer_one= Base_Consumer(topic, bootstrap_server, timeout, retries, group)
+    consumer_two= Base_Consumer(topic, bootstrap_server, timeout, retries, group)
     (consumer_one.receive_msgs()).to_csv("tests.csv", index= False)
     run_time = count_run_time(consumer_one.receive_msgs)
     return f"Total cost time: {run_time}"
+
 
 
 if __name__ == "__main__":
@@ -138,7 +138,7 @@ if __name__ == "__main__":
     TOPIC= "topic_b"
     SESS_TIMEOUT= 10000
     GROUP= "msg_group_one"
-    RETRIES= 1
+    RETRIES= 5
     PARTITION=0
     OFFSET =0
     pprint("Starting Python Consumer.")
