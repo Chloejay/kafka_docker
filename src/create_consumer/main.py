@@ -14,7 +14,7 @@ def count_run_time(msg_f: Callable)-> Union[int, float]:
 
 class Base_Consumer:
     def __init__(self, topic: str, bootstrap_server: str, sess_timeout: int, retries: int, 
-                 group: str, partition: int=0, offset: int= 0)-> None:
+                 group: str, partition: int=0, offset: int= 0, listener= None)-> None:
         """
         Config Consumer properties, 
         Args:
@@ -40,34 +40,52 @@ class Base_Consumer:
         "retries":retries,
         "debug":"all"
         })
+        
+    # TODO
+    class ConsumerRebalanceListener:
+        def __init__(self):
+            pass 
+        def on_assign(self):
+            pass 
+        def on_revoke(self):
+            pass
 
     def receive_msgs(self):
         c = self.consumer
+        need_assign_listen= False
+        if need_assign_listen:
+            c.subscribe([self.topic], self.on_assign)
         c.subscribe([self.topic])
         # c.consume(num_messages=1, timeout=30)
         try:
             running = True
             message_values= list()
+            offsets= list()
+            keys= list() 
+            partitions= list()
             while running:
                 msg = c.poll(0.1)
                 if msg is None:
-                    continue
+                    break
                 if msg.error():
                     print("Consumer error: {}".format(msg.error()))
                     continue
                 # value_= json.load(msg.value.decode("utf-8"))
-                msg= msg.value().decode("utf-8")
-                message_values.append(msg)
+                value_= msg.value().decode("utf-8")
+                key_= msg.key().decode("utf-8")
+                partition_= msg.partition()
+                offset_= msg.offset()
+                message_values.append(value_)
+                keys.append(key_)
+                partitions.append(partition_)
+                offsets.append(offset_)
         except Exception as e:
             pprint(f"Error: {str(e)}")
         finally:
-            df = pd.DataFrame([sub.split("\t-") for sub in message_values], columns=["lon", "lat"])
-            return df
+            # return pd.DataFrame([sub.split("\t-") for sub in message_values], columns=["lon", "lat"])
+            return pd.DataFrame({"keys": keys, "values":message_values, "partitions": partitions, "offsets":offsets})
             c.close()
-            
-    # reassign partition
-    def partition_assign(self):
-        pass
+
 
 class Consumer1(Base_Consumer):
     def __init__(self, topic, bootstrap_server, sess_timeout, retries, group, partition, offset):
@@ -109,15 +127,13 @@ def main(topic: str, bootstrap_server: str, timeout:int, group: str, retries: in
     (consumer_one.receive_msgs()).to_csv("tests.csv", index= False)
     run_time = count_run_time(consumer_one.receive_msgs)
     return f"Total cost time: {run_time}"
-    
-
 
 
 if __name__ == "__main__":
     BOOTSTRAP_SERVER ="localhost:9092"
     TOPIC= "topic_b"
     SESS_TIMEOUT= 10000
-    GROUP= "messages"
+    GROUP= "messages_recheck"
     RETRIES= 1
     PARTITION=0
     OFFSET =0
