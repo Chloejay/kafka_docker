@@ -54,16 +54,19 @@ class Base_Consumer:
         c = self.consumer
         need_assign_listen= False
         if need_assign_listen:
-            c.subscribe([self.topic], 
-                        on_assign(c, self._assigned_partition), 
-                        on_revoke(c, self._revoked_partition))
+            try:
+                c.subscribe([self.topic, 
+                            on_assign= on_assign(c, self._assigned_partition),
+                            on_revoke= on_revoke(c, self._revoked_partition)
+                            ])
+            except KafkaException as e:
+                pprint(e)
         c.subscribe([self.topic])
         message_values= list()
         offsets= list()
         keys= list() 
         partitions= list()
         running = True
-        
         try:
             while running:
                 msg = c.poll(0.1)
