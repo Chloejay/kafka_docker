@@ -14,7 +14,8 @@ def count_run_time(msg_f: Callable)-> Union[int, float]:
 
 class Base_Consumer:
     def __init__(self, topic: str, bootstrap_server: str, sess_timeout: int, retries: int, 
-                 group: str, partition: int=0, offset: int= 0, listener= None)-> None:
+                 group: str, partition: int=0, offset: int= 0, listener= None, 
+                 assign: bool= True)-> None:
         """
         Config Consumer properties, 
         Args:
@@ -28,8 +29,7 @@ class Base_Consumer:
         """
         self.topic= topic
         self.tp= TopicPartition(topic, partition, offset)
-        self._assigned_partition= list() 
-        self._revoked_partition= list() 
+        self.need_assign_= assign
         self.consumer = Consumer({
             "bootstrap.servers": bootstrap_server,
             "group.id": group,
@@ -37,31 +37,33 @@ class Base_Consumer:
             "api.version.request": True,
             "session.timeout.ms":sess_timeout,
             "enable.auto.commit": True,
+            "auto.commit.interval.ms": 5000,
             "enable.auto.offset.store": True,
+            'topic.metadata.refresh.interval.ms': 20000,
             "partition.assignment.strategy":"range", #default
             "retries":retries,
             "debug":"all"
             })
-    
-    # TODO rebalance assign and revoke callback 
-    def get_assign_partition(self):
-        pass
-    
-    def get_revoke_partition(self):
-        pass
 
+    # def get_partitions_(self, partition_id):
+        # part = TopicPartition(self.topic, partition_id)
+        # partitions = self.consumer.committed([part])
+        # return partitions
+        
+    def _rebalance_partition(self):
+        c= self.consumer
+        c.assign([self.tp])
+            
     def receive_msgs(self):
         c = self.consumer
-        need_assign_listen= False
-        if need_assign_listen:
+        if self.need_assign_:
             try:
-                c.subscribe([self.topic, 
-                            on_assign= on_assign(c, self._assigned_partition),
-                            on_revoke= on_revoke(c, self._revoked_partition)
-                            ])
+                # TODO rebalance
+                c.subscribe([self.topic], on_assign= self._rebalance_partition) #rebalance
             except KafkaException as e:
                 pprint(e)
         c.subscribe([self.topic])
+        
         message_values= list()
         offsets= list()
         keys= list() 
@@ -69,17 +71,18 @@ class Base_Consumer:
         running = True
         try:
             while running:
-                msg = c.poll(0.1)
+                msg = c.poll(10)
                 if msg is None:
-                    continue
+                    # continue
+                    break
                 if msg.error():
                     print("Consumer error: {}".format(msg.error()))
                     continue
-                value_= msg.value().decode("utf-8")
+                payload_= msg.value().decode("utf-8")
                 key_= msg.key().decode("utf-8")
                 partition_= msg.partition()
                 offset_= msg.offset()
-                message_values.append(value_)
+                message_values.append(payload_)
                 keys.append(key_)
                 partitions.append(partition_)
                 offsets.append(offset_)
@@ -103,15 +106,6 @@ class Consumer1(Base_Consumer):
     def get_topics(self):
         topics= self.consumer.list_topics(topic= self.topic) 
         return topics
-
-        # partitions = []
-        # for name, meta  in topics.topics.items():
-            # for partition_id in meta.partitions.keys():
-                # part = TopicPartition(name, partition_id)
-                # partitions.append(part)
-                
-        # partitions = self.consumer.committed(partitions)
-        # print(partitions)
         
     def get_pos(self, timeout= None):
         low, high = self.consumer.get_watermark_offsets(self.tp, timeout)
@@ -124,13 +118,10 @@ class Consumer1(Base_Consumer):
             return True
         raise KafkaException(f"partition: {self.partition} at offset: {self.offset} is empty.")
 
-    def _more_config(self):
-        pass
-
 def main(topic: str, bootstrap_server: str, timeout:int, group: str, retries: int, partition: int, offset: int)-> str:
     consumer_one= Base_Consumer(topic, bootstrap_server, timeout, retries, group)
-    consumer_two= Base_Consumer(topic, bootstrap_server, timeout, retries, group)
-    (consumer_one.receive_msgs()).to_csv("tests.csv", index= False)
+    # consumer_two= Base_Consumer(topic, bootstrap_server, timeout, retries, group)
+    (consumer_one.receive_msgs()).to_csv("tests1.csv", index= False)
     run_time = count_run_time(consumer_one.receive_msgs)
     return f"Total cost time: {run_time}"
 
@@ -139,10 +130,10 @@ def main(topic: str, bootstrap_server: str, timeout:int, group: str, retries: in
 if __name__ == "__main__":
     BOOTSTRAP_SERVER ="localhost:9092"
     TOPIC= "topic_b"
-    SESS_TIMEOUT= 10000
-    GROUP= "msg_group_one"
+    SESS_TIMEOUT= 20000
+    GROUP= "msg_group_fuck"
     RETRIES= 5
-    PARTITION=0
-    OFFSET =0
+    PARTITION=2
+    OFFSET =1000
     pprint("Starting Python Consumer.")
     pprint(main(TOPIC, BOOTSTRAP_SERVER, SESS_TIMEOUT, GROUP, RETRIES, PARTITION, OFFSET))
