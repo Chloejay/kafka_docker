@@ -9,7 +9,7 @@ from create_topic import Topics
 if __name__ == "__main__":
     BROKER= "localhost:9092"
     DRIVER_FILE_PREFIX = "./drivers/"
-    KAFKA_TOPIC = "topic_b"
+    KAFKA_TOPIC = "topic_"
 
     topic= Topics(BROKER, [KAFKA_TOPIC], 6, 1)
     topic.create_topic()
@@ -27,7 +27,7 @@ if __name__ == "__main__":
     "api.version.request": True,
     "retries":5, #only relevant if acks !=0
     'partitioner': 'random',
-    'debug': 'admin,broker, metadata', #all
+    'debug': 'admin,broker, metadata',
     }
 
     producer = Producer(**config)

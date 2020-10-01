@@ -2,20 +2,19 @@ from confluent_kafka import Consumer, TopicPartition, KafkaError, KafkaException
 from pprint import pprint
 import pandas as pd 
 from time import time 
-from typing import Callable, Union, Any, List
+from typing import Callable, Union, Any, List, Text
 import json
 
 
 def count_run_time(msg_f: Callable)-> Union[int, float]:
-    start= time()
+    start = time()
     msg_f()
-    cost= time()- start 
+    cost = time()- start 
     return cost 
 
 class Base_Consumer:
     def __init__(self, topic: str, bootstrap_server: str, sess_timeout: int, retries: int, 
-                 group: str, partition: int=0, offset: int= 0, listener= None, 
-                 assign: bool= True)-> None:
+                 group: str, partition: int=0, offset: int= 0, assign: bool= False)-> None:
         """
         Config Consumer properties, 
         Args:
@@ -28,16 +27,17 @@ class Base_Consumer:
             offset (int, optional): message next ready to read position. Defaults to 0.
         """
         self.topic= topic
-        self.tp= TopicPartition(topic, partition, offset)
         self.need_assign_= assign
         self.consumer = Consumer({
             "bootstrap.servers": bootstrap_server,
             "group.id": group,
-            "default.topic.config":{"auto.offset.reset": "earliest"},
+            "default.topic.config":{
+                "auto.offset.reset": "earliest",
+                "acks":1},
             "api.version.request": True,
             "session.timeout.ms":sess_timeout,
             "enable.auto.commit": True,
-            "auto.commit.interval.ms": 5000,
+            "auto.commit.interval.ms": 10000,
             "enable.auto.offset.store": True,
             'topic.metadata.refresh.interval.ms': 20000,
             "partition.assignment.strategy":"range", #default
@@ -45,21 +45,28 @@ class Base_Consumer:
             "debug":"all"
             })
 
-    # def get_partitions_(self, partition_id):
-        # part = TopicPartition(self.topic, partition_id)
-        # partitions = self.consumer.committed([part])
-        # return partitions
+    def get_partitions_(self, partition_id: int)-> dict:
+        part = TopicPartition(self.topic, partition_id)
+        partitions = self.consumer.committed([part])
+        pprint(f"Current Partition: {partition_id} - {partitions}")
+        return partitions
         
-    def _rebalance_partition(self):
-        c= self.consumer
-        c.assign([self.tp])
-            
-    def receive_msgs(self):
+    def get_topics(self)-> str:
+        return self.consumer.list_topics(self.topic)
+    # TODO
+    def _on_assign(self, consumer:dict, partitions:int)-> Text:
+        consumer= self.consumer
+        assigns = [TopicPartition(self.topic, partitions, 0)]
+        # consumer.assign(assigns)
+        pprint(f"Assign is starting {consumer.assign(assigns)}")
+    
+    def receive_msgs(self)-> Union[Text, pd.DataFrame]:
+        running = True
         c = self.consumer
         if self.need_assign_:
             try:
-                # TODO rebalance
-                c.subscribe([self.topic], on_assign= self._rebalance_partition) #rebalance
+                c.subscribe([self.topic], on_assign= self._on_assign)
+                pprint("Rebalance ...")
             except KafkaException as e:
                 pprint(e)
         c.subscribe([self.topic])
@@ -68,13 +75,11 @@ class Base_Consumer:
         offsets= list()
         keys= list() 
         partitions= list()
-        running = True
         try:
             while running:
                 msg = c.poll(10)
                 if msg is None:
-                    # continue
-                    break
+                    continue
                 if msg.error():
                     print("Consumer error: {}".format(msg.error()))
                     continue
@@ -86,8 +91,12 @@ class Base_Consumer:
                 keys.append(key_)
                 partitions.append(partition_)
                 offsets.append(offset_)
+                
         except Exception as e:
             pprint(f"Error: {str(e)}")
+        except:
+            running= False
+            print("Error pooling messages")
         finally:
             return pd.DataFrame({"keys": keys, 
                                  "lon_val":[v.split("\t-")[0] for v in message_values], 
@@ -102,14 +111,6 @@ class Consumer1(Base_Consumer):
         self.offset = offset
         self.tp_= TopicPartition(topic, partition)
         super().__init__(topic, bootstrap_server, sess_timeout, retries, group)
-        
-    def get_topics(self):
-        topics= self.consumer.list_topics(topic= self.topic) 
-        return topics
-        
-    def get_pos(self, timeout= None):
-        low, high = self.consumer.get_watermark_offsets(self.tp, timeout)
-        print(low, high)
 
     def is_partition_assign(self)-> bool:
         tp = self.consumer.assign([self.tp])
@@ -118,22 +119,22 @@ class Consumer1(Base_Consumer):
             return True
         raise KafkaException(f"partition: {self.partition} at offset: {self.offset} is empty.")
 
+
 def main(topic: str, bootstrap_server: str, timeout:int, group: str, retries: int, partition: int, offset: int)-> str:
-    consumer_one= Base_Consumer(topic, bootstrap_server, timeout, retries, group)
-    # consumer_two= Base_Consumer(topic, bootstrap_server, timeout, retries, group)
-    (consumer_one.receive_msgs()).to_csv("tests1.csv", index= False)
+    c1= Base_Consumer(topic, bootstrap_server, timeout, retries, group)
+    (c1.receive_msgs()).to_csv("tests2.csv", index= False)
     run_time = count_run_time(consumer_one.receive_msgs)
     return f"Total cost time: {run_time}"
 
 
-
 if __name__ == "__main__":
     BOOTSTRAP_SERVER ="localhost:9092"
-    TOPIC= "topic_b"
+    TOPIC= "topic_"
     SESS_TIMEOUT= 20000
-    GROUP= "msg_group_fuck"
+    GROUP= "msg_group"
     RETRIES= 5
     PARTITION=2
-    OFFSET =1000
+    OFFSET = 1
+    # REASSIGN = True
     pprint("Starting Python Consumer.")
     pprint(main(TOPIC, BOOTSTRAP_SERVER, SESS_TIMEOUT, GROUP, RETRIES, PARTITION, OFFSET))
