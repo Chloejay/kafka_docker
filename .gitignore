@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 confluent-5.3.0/*
 .DS_Store
+troubleshoot.md
