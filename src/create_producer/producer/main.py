@@ -58,7 +58,7 @@ def produce(topic):
     finally:
         producer.close()
 
-def main(topic, partition, replica):
+def main(topic: str, partition: int, replica: int):
     KAFKA_TOPIC = topic
     topic= Topics(BROKER, [KAFKA_TOPIC], partition, replica)
     topic.create_topic()
