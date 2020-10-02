@@ -4,6 +4,7 @@ import pandas as pd
 from time import time 
 from typing import Callable, Union, Any, List, Text
 import json
+import confluent_kafka
 
 
 def count_run_time(msg_f: Callable)-> Union[int, float]:
@@ -11,10 +12,10 @@ def count_run_time(msg_f: Callable)-> Union[int, float]:
     msg_f()
     cost = time()- start 
     return cost 
-
+    
 class Base_Consumer:
-    def __init__(self, topic: str, bootstrap_server: str, sess_timeout: int, retries: int, 
-                 group: str, partition: int=0, offset: int= 0, assign: bool= False)-> None:
+    def __init__(self, topic: str, bootstrap_server: str, sess_timeout: int, 
+                 retries: int, group_id: str, assign: bool)-> None:
         """
         Config Consumer properties, 
         Args:
@@ -30,13 +31,13 @@ class Base_Consumer:
         self.need_assign_= assign
         self.consumer = Consumer({
             "bootstrap.servers": bootstrap_server,
-            "group.id": group,
+            "group.id": group_id,
             "default.topic.config":{
                 "auto.offset.reset": "earliest",
-                "acks":1},
+                "acks":1}, #EOS
             "api.version.request": True,
             "session.timeout.ms":sess_timeout,
-            "enable.auto.commit": True,
+            "enable.auto.commit": False,
             "auto.commit.interval.ms": 10000,
             "enable.auto.offset.store": True,
             'topic.metadata.refresh.interval.ms': 20000,
@@ -53,20 +54,13 @@ class Base_Consumer:
         
     def get_topics(self)-> str:
         return self.consumer.list_topics(self.topic)
-    # TODO
-    def _on_assign(self, consumer:dict, partitions:int)-> Text:
-        consumer= self.consumer
-        assigns = [TopicPartition(self.topic, partitions, 0)]
-        # consumer.assign(assigns)
-        pprint(f"Assign is starting {consumer.assign(assigns)}")
-    
+
     def receive_msgs(self)-> Union[Text, pd.DataFrame]:
         running = True
         c = self.consumer
         if self.need_assign_:
             try:
-                c.subscribe([self.topic], on_assign= self._on_assign)
-                pprint("Rebalance ...")
+                c.subscribe([self.topic], on_assign= on_assign)
             except KafkaException as e:
                 pprint(e)
         c.subscribe([self.topic])
@@ -87,6 +81,8 @@ class Base_Consumer:
                 key_= msg.key().decode("utf-8")
                 partition_= msg.partition()
                 offset_= msg.offset()
+                pprint(f"Receive messages: {payload_}: {offset_}")
+                
                 message_values.append(payload_)
                 keys.append(key_)
                 partitions.append(partition_)
@@ -105,12 +101,18 @@ class Base_Consumer:
                                  "offsets":offsets})
             c.close()
 
+def on_assign(consumer:dict, partitions:List[int])-> Text:
+    for p in partitions:
+        p.offset= 200 # confluent_kafka.OFFSET_END
+    pprint(f"Assign: {partitions}")
+    consumer.assign(partitions)
+    
 class Consumer1(Base_Consumer):
-    def __init__(self, topic, bootstrap_server, sess_timeout, retries, group, partition, offset):
+    def __init__(self, topic, bootstrap_server, sess_timeout, retries, group, assign):
         self.partition= partition
         self.offset = offset
         self.tp_= TopicPartition(topic, partition)
-        super().__init__(topic, bootstrap_server, sess_timeout, retries, group)
+        super().__init__(topic, bootstrap_server, sess_timeout, retries, group, assign)
 
     def is_partition_assign(self)-> bool:
         tp = self.consumer.assign([self.tp])
@@ -120,21 +122,20 @@ class Consumer1(Base_Consumer):
         raise KafkaException(f"partition: {self.partition} at offset: {self.offset} is empty.")
 
 
-def main(topic: str, bootstrap_server: str, timeout:int, group: str, retries: int, partition: int, offset: int)-> str:
-    c1= Base_Consumer(topic, bootstrap_server, timeout, retries, group)
-    (c1.receive_msgs()).to_csv("tests2.csv", index= False)
+def main(topic: str, bootstrap_server: str, timeout:int, group: str, retries: int, assign: bool)-> str:
+    c1= Base_Consumer(topic, bootstrap_server, timeout, retries, group, assign)
+    c1.receive_msgs().to_csv("tests2.csv", index= False)
     run_time = count_run_time(consumer_one.receive_msgs)
     return f"Total cost time: {run_time}"
 
 
 if __name__ == "__main__":
+    
     BOOTSTRAP_SERVER ="localhost:9092"
     TOPIC= "topic_"
     SESS_TIMEOUT= 20000
-    GROUP= "msg_group"
+    GROUP_ID= "msg_offset_test2"
     RETRIES= 5
-    PARTITION=2
-    OFFSET = 1
-    # REASSIGN = True
+    REASSIGN = True
     pprint("Starting Python Consumer.")
-    pprint(main(TOPIC, BOOTSTRAP_SERVER, SESS_TIMEOUT, GROUP, RETRIES, PARTITION, OFFSET))
+    pprint(main(TOPIC, BOOTSTRAP_SERVER, SESS_TIMEOUT, GROUP_ID, RETRIES, REASSIGN))
