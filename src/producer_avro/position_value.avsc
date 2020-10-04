@@ -3,10 +3,12 @@
     "name": "Value",
     "fields": [
         {"name": "latitude", 
-        "type": "double", 
+        "type": ["null", "double"], 
+        "default":"",
         "doc": "the lat of the value"},
         {"name": "longitude", 
-        "type": "double", 
+        "type": ["null", "double"], 
+        "default":"",
         "doc": "the lon of the value"}
     ]
 }
