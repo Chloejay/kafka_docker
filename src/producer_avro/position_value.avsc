@@ -1,0 +1,12 @@
+{"namespace": "clients.avro",
+    "type": "record",
+    "name": "Value",
+    "fields": [
+        {"name": "latitude", 
+        "type": "double", 
+        "doc": "the lat of the value"},
+        {"name": "longitude", 
+        "type": "double", 
+        "doc": "the lon of the value"}
+    ]
+}
