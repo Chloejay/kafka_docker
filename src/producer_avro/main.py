@@ -42,22 +42,21 @@ while True:
     latitude = line.split(",")[0].strip()
     longitude = line.split(",")[1].strip()
     value = {"latitude" : float(latitude), "longitude" : float(longitude)}
-    print(key,value)
-    
-    producer.produce(
-        topic=KAFKA_TOPIC,
-        value=value,
-        key=key,
-        callback= lambda err, msg: print("Sent Key:{} Value:{}".format(key, value) if err is None else err),
-        )
-    sleep(1)
-    pos = (pos + 1) % len(lines)
-    
-    producer.close()
-
+    try:
+        producer.produce(
+            topic=KAFKA_TOPIC,
+            value=value,
+            key=key,
+            callback= lambda err, msg: print("Sent Key:{} Value:{}".format(key, value) if err is None else err),
+            )
+        sleep(1)
+        pos = (pos + 1) % len(lines)
+    except Exception as e:
+        print(f"Failed to produce message. Error: {e}")
+        break
 
 
 # kafka-avro-console-consumer --bootstrap-server localhost:9092 \
 #  --property schema.registry.url=http://localhost:8081 \
-#  --topic driver-positions-pyavro --property print.key=true \
+#  --topic driver-test --property print.key=true \
 #  --from-beginning
