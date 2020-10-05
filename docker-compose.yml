@@ -22,7 +22,7 @@ services:
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092 #where to connect to broker form other application
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
       KAFKA_DELETE_TOPIC_ENABLE: "true"
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1 #only have one broker
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1 
       KAFKA_METRIC_REPORTERS: "io.confluent.metrics.reporter.ConfluentMetricsReporter"
       CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: "kafka:9092"
 
@@ -35,7 +35,7 @@ services:
       - 8081:8081
     environment:
       SCHEMA_REGISTRY_HOST_NAME: localhost
-      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: localhost:2181 #zookeeper:2181
+      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: zookeeper:2181 #zookeeper:2181
       SCHEMA_REGISTRY_LISTENERS: http://localhost:8081
       SCHEMA_REGISTRY_DEBUG: "true"
   
@@ -101,7 +101,7 @@ services:
       CONTROL_CENTER_STREAMS_NUM_STREAM_THREADS: 1
       CONTROL_CENTER_STREAMS_CONSUMER_REQUEST_TIMEOUT_MS: "960032"
       CONTROL_CENTER_SCHEMA_REGISTRY_URL: "http://localhost:8081"
-      CONTROL_CENTER_CONNECT_CLUSTER: "connect:8083"
+      CONTROL_CENTER_CONNECT_CLUSTER: "localhost:8083"
 
   ksql-server:
     image: "confluentinc/cp-ksql-server:5.3.0"
@@ -117,7 +117,7 @@ services:
       KSQL_APPLICATION_ID: "using-ksql"
       KSQL_LISTENERS: "http://0.0.0.0:8088"
       KSQL_CACHE_MAX_BYTES_BUFFERING: 0
-      KSQL_KSQL_SCHEMA_REGISTRY_URL: "http://schema-registry:8081"
+      KSQL_KSQL_SCHEMA_REGISTRY_URL: "http://localhost:8081"
       KSQL_PRODUCER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor"
       KSQL_CONSUMER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor"
       KSQL_KSQL_SERVER_UI_ENABLED: "false"
