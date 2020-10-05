@@ -8,19 +8,18 @@ from confluent_kafka import Producer
 from create_topic import Topics
 
 BROKER= "localhost:9092"
-DRIVER_FILE_PREFIX = "./drivers/"
+DRIVER_FILE_PREFIX = "src/create_producer/drivers/"
 DRIVER_ID = os.getenv("DRIVER_ID", f"driver-{random.randint(1,3)}")
 
 # ==== https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md ====
 config= {
 'bootstrap.servers': BROKER,
 "client.id":"driver.producer",
-# 'plugin.library.paths': 'monitoring-interceptor',
 # "statistics.interval.ms":1000,
 "api.version.request": True,
 "retries":5,  #only relevant if acks !=0
 'partitioner': 'random',
-'debug': 'admin,broker, metadata',
+'debug': "all",
 }
 
 producer = Producer(**config)
@@ -38,7 +37,7 @@ def exit_handler():
 # ==== https://docs.python.org/3/library/atexit.html====
 atexit.register(exit_handler)
 
-def produce(topic):
+def produce_(topic):
     with open(os.path.join(DRIVER_FILE_PREFIX, DRIVER_ID + ".csv")) as f:
         lines = f.readlines()
     try:
@@ -51,12 +50,13 @@ def produce(topic):
                 key= DRIVER_ID,
                 value= line,
                 callback= delivery_report)
-            sleep(3)
+            sleep(1)
             pos = (pos + 1) % len(lines)
+            
     except Exception as e:
         print(str(e))
-    finally:
-        producer.close()
+    producer.close()
+
 
 def main(topic: str, partition: int, replica: int):
     KAFKA_TOPIC = topic
@@ -64,5 +64,4 @@ def main(topic: str, partition: int, replica: int):
     topic.create_topic()
     print(f"Create topics {KAFKA_TOPIC}")
     print(f"Starting Python producer. {KAFKA_TOPIC}")
-    
-    produce(KAFKA_TOPIC)
+    produce_(KAFKA_TOPIC)

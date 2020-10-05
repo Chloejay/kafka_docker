@@ -6,21 +6,21 @@ import random
 from confluent_kafka import avro
 from confluent_kafka.avro import AvroProducer
 
-
-DRIVER_FILE_PREFIX = "./drivers/"
+BASE_PATH = "src/producer_avro/"
+DRIVER_FILE_PREFIX = os.path.join(BASE_PATH, "drivers")
 KAFKA_TOPIC = "topic_test"
 DRIVER_ID = os.getenv("DRIVER_ID", f"driver-{random.randint(1,3)}")
 print("Starting Python Avro producer.")
 
-value_schema = avro.load("position_value.avsc")
-key_schema = avro.load("position_key.avsc")
+value_schema = avro.load(os.path.join(BASE_PATH,"position_value.avsc"))
+key_schema = avro.load(os.path.join(BASE_PATH, "position_key.avsc"))
 
 producer = AvroProducer(
     {'bootstrap.servers': 'localhost:9092',
     'partitioner': 'murmur2_random',
     "api.version.request": True,
     'schema.registry.url': 'http://localhost:8081',
-    # "debug":"all"
+    "debug":"all"
     }, 
     default_key_schema=key_schema, 
     default_value_schema=value_schema)
