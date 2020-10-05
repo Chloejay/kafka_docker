@@ -18,7 +18,7 @@ key_schema = avro.load(os.path.join(BASE_PATH, "position_key.avsc"))
 producer = AvroProducer(
     {'bootstrap.servers': 'localhost:9092',
     'partitioner': 'murmur2_random',
-    "api.version.request": True,
+    "api.version.request": False,
     'schema.registry.url': 'http://localhost:8081',
     "debug":"all"
     }, 
