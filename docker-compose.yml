@@ -18,11 +18,12 @@ services:
     networks:
       - confluent
     ports:
+      - 9092:9092
       - 29092:29092
     environment:
       KAFKA_BROKER_ID: 101
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092, CONNECTIONS_FROM_HOST://localhost:29092 #where to connect to broker form other application
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092, CONNECTIONS_FROM_HOST://localhost:29092 
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONNECTIONS_FROM_HOST:PLAINTEXT
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
       KAFKA_DELETE_TOPIC_ENABLE: "true"
@@ -31,7 +32,7 @@ services:
       CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: "kafka:9092"
 
   schema-registry:
-    image: confluentinc/cp-schema-registry:5.5.0-1-ubi8
+    image: confluentinc/cp-schema-registry
     restart: always
     hostname: schema-registry
     networks:
@@ -41,10 +42,10 @@ services:
     environment:
       SCHEMA_REGISTRY_HOST_NAME: schema-registry
       SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: zookeeper:2181
-      # SCHEMA_REGISTRY_LISTENERS: http://schema-registry:8081
-      SCHEMA_REGISTRY_LISTENERS: 0.0.0.0:8081
+      SCHEMA_REGISTRY_LISTENERS: http://schema-registry:8081
+      # SCHEMA_REGISTRY_LISTENERS: 0.0.0.0:8081
       SCHEMA_REGISTRY_DEBUG: "true"
-  
+
   kafka-rest:
     image: confluentinc/cp-kafka-rest
     hostname: kafka-rest
@@ -91,7 +92,7 @@ services:
   control-center:
     image: confluentinc/cp-enterprise-control-center
     restart: always 
-    hostname: localhost
+    hostname: control-center
     networks:
       - confluent
     ports:

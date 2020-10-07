@@ -19,7 +19,7 @@ key_schema = avro.load(os.path.join(BASE_PATH, "position_key.avsc"))
 producer = AvroProducer(
     {'bootstrap.servers': 'localhost:29092',
     'partitioner': 'murmur2_random',
-    # "api.version.request": True,
+    "api.version.request": True,
     'schema.registry.url': 'http://localhost:8081',
     "debug":"all"
     }, 
@@ -59,7 +59,7 @@ while True:
         break
 
 
-# kafka-avro-console-consumer --bootstrap-server localhost:9092 \
+# kafka-avro-console-consumer --bootstrap-server localhost:29092 \
 #  --property schema.registry.url=http://localhost:8081 \
 #  --topic driver-test --property print.key=true \
 #  --from-beginning
