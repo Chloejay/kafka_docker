@@ -1,25 +1,29 @@
 version: "3.5"
 services:
   zookeeper:
-    image: confluentinc/cp-zookeeper:5.3.0
+    image: confluentinc/cp-zookeeper
+    restart: always 
     hostname: zookeeper
     networks:
       - confluent
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
+      ZOOKEEPER_SYNC_LIMIT: 2
 
   kafka:
-    image: "confluentinc/cp-enterprise-kafka:5.3.0"
-    hostname: localhost
+    image: confluentinc/cp-enterprise-kafka
+    restart: always 
+    hostname: kafka
     networks:
       - confluent
     ports:
-      - 9092:9092
+      - 29092:29092
     environment:
       KAFKA_BROKER_ID: 101
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092 #where to connect to broker form other application
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092, CONNECTIONS_FROM_HOST://localhost:29092 #where to connect to broker form other application
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,CONNECTIONS_FROM_HOST:PLAINTEXT
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "false"
       KAFKA_DELETE_TOPIC_ENABLE: "true"
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1 
@@ -27,40 +31,41 @@ services:
       CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: "kafka:9092"
 
   schema-registry:
-    image: "confluentinc/cp-schema-registry:5.3.0"
-    hostname: localhost
+    image: confluentinc/cp-schema-registry:5.5.0-1-ubi8
+    restart: always
+    hostname: schema-registry
     networks:
       - confluent
     ports:
       - 8081:8081
     environment:
-      SCHEMA_REGISTRY_HOST_NAME: localhost
-      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: zookeeper:2181 #zookeeper:2181
-      SCHEMA_REGISTRY_LISTENERS: http://localhost:8081
+      SCHEMA_REGISTRY_HOST_NAME: schema-registry
+      SCHEMA_REGISTRY_KAFKASTORE_CONNECTION_URL: zookeeper:2181
+      # SCHEMA_REGISTRY_LISTENERS: http://schema-registry:8081
+      SCHEMA_REGISTRY_LISTENERS: 0.0.0.0:8081
       SCHEMA_REGISTRY_DEBUG: "true"
   
   kafka-rest:
-    image: "confluentinc/cp-kafka-rest:5.3.0"
-    hostname: localhost 
+    image: confluentinc/cp-kafka-rest
+    hostname: kafka-rest
     networks:
       - confluent 
     ports:
       - 8082:8082
     environment:
-      KAFKA_REST_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_REST_LISTENERS: http://localhost:8082
-      KAFKA_REST_SCHEMA_REGISTRY_URL: http://localhost:8081
+      KAFKA_REST_LISTENERS: http://kafka-rest:8082
+      KAFKA_REST_SCHEMA_REGISTRY_URL: http://schema-registry:8081
 
   connect:
-    image: confluentinc/cp-kafka-connect:5.3.0
-    hostname: localhost
+    image: confluentinc/cp-kafka-connect
+    hostname: connect
     restart: always
     ports:
       - "8083:8083"
     networks:
       - confluent
     environment:
-      CONNECT_BOOTSTRAP_SERVERS: localhost:9092
+      CONNECT_BOOTSTRAP_SERVERS: kafka:9092
       CONNECT_REST_PORT: 8083
       CONNECT_GROUP_ID: "connect"
       CONNECT_CONFIG_STORAGE_TOPIC: "connect-config"
@@ -72,11 +77,11 @@ services:
       CONNECT_STATUS_STORAGE_REPLICATION_FACTOR: 1
       CONNECT_KEY_CONVERTER: "io.confluent.connect.avro.AvroConverter"
       CONNECT_VALUE_CONVERTER: "io.confluent.connect.avro.AvroConverter"
-      CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: "http://localhost:8081"
-      CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: "http://localhost:8081"
+      CONNECT_KEY_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+      CONNECT_VALUE_CONVERTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
       CONNECT_INTERNAL_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
       CONNECT_INTERNAL_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
-      CONNECT_REST_ADVERTISED_HOST_NAME: "localhost"
+      CONNECT_REST_ADVERTISED_HOST_NAME: "connect"
       CONNECT_PLUGIN_PATH: /usr/share/java
       CONNECT_LOG4J_ROOT_LOGLEVEL: INFO
       CONNECT_LOG4J_LOGGERS: org.reflections=ERROR
@@ -84,14 +89,15 @@ services:
       CONNECT_CONSUMER_INTERCEPTOR_CLASSES: io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor
 
   control-center:
-    image: confluentinc/cp-enterprise-control-center:5.3.0
+    image: confluentinc/cp-enterprise-control-center
+    restart: always 
     hostname: localhost
     networks:
       - confluent
     ports:
       - "9021:9021"
     environment:
-      CONTROL_CENTER_BOOTSTRAP_SERVERS: localhost:9092
+      CONTROL_CENTER_BOOTSTRAP_SERVERS: kafka:9092
       CONTROL_CENTER_ZOOKEEPER_CONNECT: zookeeper:2181
       CONTROL_CENTER_REPLICATION_FACTOR: 1
       CONTROL_CENTER_MONITORING_INTERCEPTOR_TOPIC_REPLICATION: 1
@@ -100,11 +106,12 @@ services:
       CONTROL_CENTER_METRICS_TOPIC_REPLICATION: 1
       CONTROL_CENTER_STREAMS_NUM_STREAM_THREADS: 1
       CONTROL_CENTER_STREAMS_CONSUMER_REQUEST_TIMEOUT_MS: "960032"
-      CONTROL_CENTER_SCHEMA_REGISTRY_URL: "http://localhost:8081"
-      CONTROL_CENTER_CONNECT_CLUSTER: "localhost:8083"
+      CONTROL_CENTER_SCHEMA_REGISTRY_URL: http://schema-registry:8081
+      CONTROL_CENTER_CONNECT_CLUSTER: "connect:8083"
 
   ksql-server:
-    image: "confluentinc/cp-ksql-server:5.3.0"
+    image: confluentinc/cp-ksql-server
+    restart: always 
     hostname: ksql-server
     ports:
       - "8088:8088"
@@ -117,7 +124,7 @@ services:
       KSQL_APPLICATION_ID: "using-ksql"
       KSQL_LISTENERS: "http://0.0.0.0:8088"
       KSQL_CACHE_MAX_BYTES_BUFFERING: 0
-      KSQL_KSQL_SCHEMA_REGISTRY_URL: "http://localhost:8081"
+      KSQL_KSQL_SCHEMA_REGISTRY_URL: "http://schema-registry:8081"
       KSQL_PRODUCER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor"
       KSQL_CONSUMER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor"
       KSQL_KSQL_SERVER_UI_ENABLED: "false"

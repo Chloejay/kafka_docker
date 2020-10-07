@@ -1,7 +1,8 @@
 from time import sleep
 import os
 import atexit
-import random 
+import random
+import traceback
 
 from confluent_kafka import avro
 from confluent_kafka.avro import AvroProducer
@@ -18,7 +19,7 @@ key_schema = avro.load(os.path.join(BASE_PATH, "position_key.avsc"))
 producer = AvroProducer(
     {'bootstrap.servers': 'localhost:9092',
     'partitioner': 'murmur2_random',
-    "api.version.request": True,
+    # "api.version.request": True,
     'schema.registry.url': 'http://localhost:8081',
     "debug":"all"
     }, 
@@ -53,6 +54,8 @@ while True:
         pos = (pos + 1) % len(lines)
     except Exception as e:
         print(f"Failed to produce message. Error: {e}")
+        traceback.print_tb(e.__traceback__)
+        
         break
 
 

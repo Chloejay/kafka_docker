@@ -1,4 +1,5 @@
-{"namespace": "clients.avro",
+{
+    "namespace": "clients.avro",
     "type": "record",
     "name": "Value",
     "fields": [

@@ -1,7 +1,7 @@
 from main import * 
 
 if __name__ == "__main__":
-    BOOTSTRAP_SERVER ="localhost:9092"
+    BOOTSTRAP_SERVER ="localhost:29092"
     TOPIC= ["topic_test_2"]
     SESS_TIMEOUT= 20000
     GROUP_ID= "msg_more_consumer"
