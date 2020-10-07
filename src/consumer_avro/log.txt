@@ -347,5 +347,4 @@ Key:{'key': 'driver-1'} Value:{'latitude': 47.61978060512575, 'longitude': -122.
 Key:{'key': 'driver-1'} Value:{'latitude': 47.6197783034883, 'longitude': -122.3531356285259} [partition 1]
 Key:{'key': 'driver-1'} Value:{'latitude': 47.61977737749859, 'longitude': -122.3530708941767} [partition 1]
 Key:{'key': 'driver-1'} Value:{'latitude': 47.61976495921748, 'longitude': -122.3530217257671} [partition 1]
-Message deserialization failed for <cimpl.Message object at 0x10bf641b0>: Message deserialization failed for message at topic_test [2] offset 0: message does not start with magic byte
 Closing consumer.

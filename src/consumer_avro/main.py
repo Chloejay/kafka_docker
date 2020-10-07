@@ -1,10 +1,7 @@
-"Python Avro Consumer"
 from confluent_kafka.avro import AvroConsumer
 from confluent_kafka.avro.serializer import SerializerError
 
 KAFKA_TOPIC = "topic_test"
-
-print("Starting Python Avro Consumer.")
 consumer = AvroConsumer({
     'bootstrap.servers': 'localhost:29092',
     'group.id': 'python-consumer-avro',
@@ -14,27 +11,29 @@ consumer = AvroConsumer({
 
 consumer.subscribe([KAFKA_TOPIC])
 
-try:
+def consume():
     while True:
         try:
-            msg = consumer.poll(1.0)
+            msg = consumer.poll(100)
+            if msg is None:
+                continue
+            if msg.error():
+                print("Consumer error: {}".format(msg.error()))
+                continue
+            return ("Key:{} Value:{} [partition {}]".format(
+                msg.key(),
+                msg.value(),
+                msg.partition()
+            ))
+        except KeyboardInterrupt:
+            pass
         except SerializerError as ex:
             print("Message deserialization failed for {}: {}".format(msg, ex))
             break
 
-        if msg is None:
-            continue
-        if msg.error():
-            print("Consumer error: {}".format(msg.error()))
-            continue
-
-        print("Key:{} Value:{} [partition {}]".format(
-            msg.key(),
-            msg.value(),
-            msg.partition()
-        ))
-except KeyboardInterrupt:
-    pass
-finally:
     print("Closing consumer.")
     consumer.close()
+
+if __name__== "__main__":
+    print("Starting Python Avro Consumer.")
+    print(consume())
