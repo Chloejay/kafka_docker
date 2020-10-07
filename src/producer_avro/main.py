@@ -17,7 +17,7 @@ value_schema = avro.load(os.path.join(BASE_PATH,"position_value.avsc"))
 key_schema = avro.load(os.path.join(BASE_PATH, "position_key.avsc"))
 
 producer = AvroProducer(
-    {'bootstrap.servers': 'localhost:9092',
+    {'bootstrap.servers': 'localhost:29092',
     'partitioner': 'murmur2_random',
     # "api.version.request": True,
     'schema.registry.url': 'http://localhost:8081',
