@@ -19,7 +19,8 @@ consumer.subscribe([KAFKA_TOPIC])
 def consume():
     try:
         keys_= list() 
-        values_= list()
+        values_lat= list()
+        values_lon= list()
         partitions_= list()
         while True:
             try:
@@ -29,8 +30,9 @@ def consume():
                 if msg.error():
                     print("Consumer error: {}".format(msg.error()))
                     continue
-                keys_.append(msg.key())
-                values_.append(msg.value())
+                keys_.append(msg.key().get("key"))
+                values_lat.append(msg.value().get("latitude"))
+                values_lon.append(msg.value().get("longitude"))
                 partitions_.append(msg.partition())
             except SerializerError as e:
                 print("Message deserialization failed for {}: {}".format(msg, e))
@@ -40,7 +42,8 @@ def consume():
         print("Error", e)
     finally:
         return pd.DataFrame({"avro_consumer_keys":keys_, 
-                             "avro_consumer_values":values_, 
+                             "avro_consumer_lat":values_lat, 
+                             "avro_consumer_lon":values_lon,
                              "avro_consumer_partitions":partitions_})
         print("Closing consumer.")
         consumer.close()
@@ -48,4 +51,4 @@ def consume():
 
 if __name__== "__main__":
     print("Starting Python Avro Consumer.")
-    consume().to_csv(os.path.join("src/consumer_avro", "avro_consumer.csv"), index= False)
+    consume().to_csv(os.path.join("src/consumer_avro", "avro_consumer1.csv"), index= False)
