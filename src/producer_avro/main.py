@@ -9,7 +9,7 @@ from confluent_kafka.avro import AvroProducer
 
 BASE_PATH = "src/producer_avro/"
 DRIVER_FILE_PREFIX = os.path.join(BASE_PATH, "drivers")
-KAFKA_TOPIC = "topic_test"
+KAFKA_TOPIC = "topic_test" 
 DRIVER_ID = os.getenv("DRIVER_ID", f"driver-{random.randint(1,3)}")
 print("Starting Python Avro producer.")
 
@@ -34,7 +34,6 @@ atexit.register(exit_handler)
 
 with open(os.path.join(DRIVER_FILE_PREFIX, DRIVER_ID + ".csv")) as f:
     lines = f.readlines()
-
 pos = 0
 while True:
     line = lines[pos]

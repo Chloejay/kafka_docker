@@ -1,0 +1,256 @@
+librdkafka v1.5.0 (0x10500ff) rdkafka#producer-1 initialized (builtin.features gzip,snappy,ssl,sasl,regex,lz4,sasl_gssapi,sasl_plain,sasl_scram,plugins,zstd,sasl_oauthbearer, STATIC_LINKING GCC GXX PKGCONFIG OSXLD LIBDL PLUGINS STATIC_LIB_zlib ZLIB SSL SASL_CYRUS STATIC_LIB_libzstd ZSTD HDRHISTOGRAM SYSLOG SNAPPY SOCKEM SASL_SCRAM SASL_OAUTHBEARER CRC32C_HW, debug 0xfffff)
+%7|1602078601.736|CONNECT|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Received CONNECT op
+%7|1602078601.736|STATE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Broker changed state INIT -> TRY_CONNECT
+%7|1602078601.736|BROADCAST|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: Broadcasting state change
+%7|1602078601.736|CONNECT|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: broker in state TRY_CONNECT connecting
+%7|1602078601.736|STATE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Broker changed state TRY_CONNECT -> CONNECT
+%7|1602078601.736|BROADCAST|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: Broadcasting state change
+%7|1602078601.737|CONNECT|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Connecting to ipv4#127.0.0.1:29092 (plaintext) with socket 9
+%7|1602078601.737|CONNECT|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Connected to ipv4#127.0.0.1:29092
+%7|1602078601.737|CONNECTED|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Connected (#1)
+%7|1602078601.737|FEATURE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Updated enabled protocol features +ApiVersion to ApiVersion
+%7|1602078601.737|STATE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Broker changed state CONNECT -> APIVERSION_QUERY
+%7|1602078601.737|BROADCAST|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: Broadcasting state change
+%7|1602078601.738|SEND|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Sent ApiVersionRequest (v3, 66 bytes @ 0, CorrId 1)
+%7|1602078601.745|RECV|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Received ApiVersionResponse (v3, 358 bytes, CorrId 1, rtt 6.89ms)
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Broker API support:
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey Produce (0) Versions 0..8
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey Fetch (1) Versions 0..11
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey Offset (2) Versions 0..5
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey Metadata (3) Versions 0..9
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey LeaderAndIsr (4) Versions 0..4
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey StopReplica (5) Versions 0..3
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey UpdateMetadata (6) Versions 0..6
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey ControlledShutdown (7) Versions 0..3
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey OffsetCommit (8) Versions 0..8
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey OffsetFetch (9) Versions 0..7
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey FindCoordinator (10) Versions 0..3
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey JoinGroup (11) Versions 0..7
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey Heartbeat (12) Versions 0..4
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey LeaveGroup (13) Versions 0..4
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey SyncGroup (14) Versions 0..5
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey DescribeGroups (15) Versions 0..5
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey ListGroups (16) Versions 0..4
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey SaslHandshake (17) Versions 0..1
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey ApiVersion (18) Versions 0..3
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey CreateTopics (19) Versions 0..5
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey DeleteTopics (20) Versions 0..4
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey DeleteRecords (21) Versions 0..2
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey InitProducerId (22) Versions 0..3
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey OffsetForLeaderEpoch (23) Versions 0..3
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey AddPartitionsToTxn (24) Versions 0..1
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey AddOffsetsToTxn (25) Versions 0..1
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey EndTxn (26) Versions 0..1
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey WriteTxnMarkers (27) Versions 0..0
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey TxnOffsetCommit (28) Versions 0..3
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey DescribeAcls (29) Versions 0..2
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey CreateAcls (30) Versions 0..2
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey DeleteAcls (31) Versions 0..2
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey DescribeConfigs (32) Versions 0..3
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey AlterConfigs (33) Versions 0..1
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey AlterReplicaLogDirs (34) Versions 0..1
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey DescribeLogDirs (35) Versions 0..2
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey SaslAuthenticate (36) Versions 0..2
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey CreatePartitions (37) Versions 0..2
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey CreateDelegationToken (38) Versions 0..2
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey RenewDelegationToken (39) Versions 0..2
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey ExpireDelegationToken (40) Versions 0..2
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey DescribeDelegationToken (41) Versions 0..2
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey DeleteGroups (42) Versions 0..2
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey Unknown-43? (43) Versions 0..2
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey Unknown-44? (44) Versions 0..1
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey Unknown-45? (45) Versions 0..0
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey Unknown-46? (46) Versions 0..0
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey Unknown-47? (47) Versions 0..0
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey Unknown-48? (48) Versions 0..0
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:   ApiKey Unknown-49? (49) Versions 0..0
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature MsgVer1: Produce (2..2) supported by broker
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature MsgVer1: Fetch (2..2) supported by broker
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Enabling feature MsgVer1
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature MsgVer2: Produce (3..3) supported by broker
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature MsgVer2: Fetch (4..4) supported by broker
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Enabling feature MsgVer2
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature ApiVersion: ApiVersion (0..0) supported by broker
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Enabling feature ApiVersion
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature BrokerGroupCoordinator: FindCoordinator (0..0) supported by broker
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Enabling feature BrokerGroupCoordinator
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature BrokerBalancedConsumer: FindCoordinator (0..0) supported by broker
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature BrokerBalancedConsumer: OffsetCommit (1..2) supported by broker
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature BrokerBalancedConsumer: OffsetFetch (1..1) supported by broker
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature BrokerBalancedConsumer: JoinGroup (0..0) supported by broker
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature BrokerBalancedConsumer: SyncGroup (0..0) supported by broker
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature BrokerBalancedConsumer: Heartbeat (0..0) supported by broker
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature BrokerBalancedConsumer: LeaveGroup (0..0) supported by broker
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Enabling feature BrokerBalancedConsumer
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature ThrottleTime: Produce (1..2) supported by broker
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature ThrottleTime: Fetch (1..2) supported by broker
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Enabling feature ThrottleTime
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature Sasl: JoinGroup (0..0) supported by broker
+%7|1602078601.745|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Enabling feature Sasl
+%7|1602078601.746|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature SaslHandshake: SaslHandshake (0..0) supported by broker
+%7|1602078601.746|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Enabling feature SaslHandshake
+%7|1602078601.746|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature LZ4: FindCoordinator (0..0) supported by broker
+%7|1602078601.746|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Enabling feature LZ4
+%7|1602078601.746|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature OffsetTime: Offset (1..1) supported by broker
+%7|1602078601.746|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Enabling feature OffsetTime
+%7|1602078601.746|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature IdempotentProducer: InitProducerId (0..0) supported by broker
+%7|1602078601.746|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Enabling feature IdempotentProducer
+%7|1602078601.746|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature ZSTD: Produce (7..7) supported by broker
+%7|1602078601.746|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature ZSTD: Fetch (10..10) supported by broker
+%7|1602078601.746|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Enabling feature ZSTD
+%7|1602078601.746|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature SaslAuthReq: SaslHandshake (1..1) supported by broker
+%7|1602078601.746|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap:  Feature SaslAuthReq: SaslAuthenticate (0..0) supported by broker
+%7|1602078601.746|APIVERSION|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Enabling feature SaslAuthReq
+%7|1602078601.746|FEATURE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Updated enabled protocol features to MsgVer1,ApiVersion,BrokerBalancedConsumer,ThrottleTime,Sasl,SaslHandshake,BrokerGroupCoordinator,LZ4,OffsetTime,MsgVer2,IdempotentProducer,ZSTD,SaslAuthReq
+localhost:29092/bootstrap: Updated enabled protocol features to MsgVer1,ApiVersion,BrokerBalancedConsumer,ThrottleTime,Sasl,SaslHandshake,BrokerGroupCoordinator,LZ4,OffsetTime,MsgVer2,IdempotentProducer,ZSTD,SaslAuthReq
+%7|1602078601.746|STATE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Broker changed state APIVERSION_QUERY -> UP
+%7|1602078601.746|BROADCAST|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: Broadcasting state change
+%7|1602078601.746|METADATA|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Request metadata for brokers only: connected
+%7|1602078601.746|SEND|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Sent MetadataRequest (v4, 26 bytes @ 0, CorrId 2)
+%7|1602078601.751|RECV|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: Received MetadataResponse (v4, 61 bytes, CorrId 2, rtt 4.70ms)
+%7|1602078601.751|METADATA|rdkafka#producer-1| [thrd:main]: localhost:29092/bootstrap: ===== Received metadata: connected =====
+%7|1602078601.751|METADATA|rdkafka#producer-1| [thrd:main]: localhost:29092/bootstrap: ClusterId: 5thnAd8fR-qQmGl8iR5PKg, ControllerId: 101
+%7|1602078601.751|METADATA|rdkafka#producer-1| [thrd:main]: localhost:29092/bootstrap: 1 brokers, 0 topics
+%7|1602078601.751|METADATA|rdkafka#producer-1| [thrd:main]: localhost:29092/bootstrap:   Broker #0/1: localhost:29092 NodeId 101
+%7|1602078601.751|CLUSTERID|rdkafka#producer-1| [thrd:main]: localhost:29092/bootstrap: ClusterId update "" -> "5thnAd8fR-qQmGl8iR5PKg"
+%7|1602078601.751|CONTROLLERID|rdkafka#producer-1| [thrd:main]: localhost:29092/bootstrap: ControllerId update -1 -> 101
+%7|1602078601.751|BROADCAST|rdkafka#producer-1| [thrd:main]: Broadcasting state change
+%7|1602078601.751|UPDATE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/bootstrap: NodeId changed from -1 to 101
+%7|1602078601.751|UPDATE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Name changed from localhost:29092/bootstrap to localhost:29092/101
+%7|1602078601.751|LEADER|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Mapped 0 partition(s) to broker
+%7|1602078601.751|STATE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Broker changed state UP -> UPDATE
+%7|1602078601.751|BROADCAST|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: Broadcasting state change
+%7|1602078601.751|BROADCAST|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: Broadcasting state change
+%7|1602078601.751|STATE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Broker changed state UPDATE -> UP
+%7|1602078601.751|BROADCAST|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: Broadcasting state change
+%7|1602078602.096|TOPIC|rdkafka#producer-1| [thrd:app]: New local topic: topic_test
+%7|1602078602.096|TOPPARNEW|rdkafka#producer-1| [thrd:app]: NEW topic_test [-1] 0x7f8544302830 (at rd_kafka_topic_new0:441)
+%7|1602078602.736|NOINFO|rdkafka#producer-1| [thrd:main]: Topic topic_test metadata information unknown
+%7|1602078602.736|NOINFO|rdkafka#producer-1| [thrd:main]: Topic topic_test partition count is zero: should refresh metadata
+%7|1602078602.736|METADATA|rdkafka#producer-1| [thrd:main]: Requesting metadata for 1/1 topics: refresh unavailable topics
+%7|1602078602.737|METADATA|rdkafka#producer-1| [thrd:main]: localhost:29092/101: Request metadata for 1 topic(s): refresh unavailable topics
+%7|1602078602.737|SEND|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Sent MetadataRequest (v4, 38 bytes @ 0, CorrId 3)
+%7|1602078602.743|RECV|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Received MetadataResponse (v4, 236 bytes, CorrId 3, rtt 5.93ms)
+%7|1602078602.743|METADATA|rdkafka#producer-1| [thrd:main]: localhost:29092/101: ===== Received metadata (for 1 requested topics): refresh unavailable topics =====
+%7|1602078602.743|METADATA|rdkafka#producer-1| [thrd:main]: localhost:29092/101: ClusterId: 5thnAd8fR-qQmGl8iR5PKg, ControllerId: 101
+%7|1602078602.743|METADATA|rdkafka#producer-1| [thrd:main]: localhost:29092/101: 1 brokers, 1 topics
+%7|1602078602.743|METADATA|rdkafka#producer-1| [thrd:main]: localhost:29092/101:   Broker #0/1: localhost:29092 NodeId 101
+%7|1602078602.743|METADATA|rdkafka#producer-1| [thrd:main]: localhost:29092/101:   Topic #0/1: topic_test with 6 partitions
+%7|1602078602.743|STATE|rdkafka#producer-1| [thrd:main]: Topic topic_test changed state unknown -> exists
+%7|1602078602.743|PARTCNT|rdkafka#producer-1| [thrd:main]: Topic topic_test partition count changed from 0 to 6
+%7|1602078602.743|TOPPARNEW|rdkafka#producer-1| [thrd:main]: NEW topic_test [0] 0x7f8541e58420 (at rd_kafka_topic_partition_cnt_update:750)
+%7|1602078602.743|TOPPARNEW|rdkafka#producer-1| [thrd:main]: NEW topic_test [1] 0x7f8541e57c10 (at rd_kafka_topic_partition_cnt_update:750)
+%7|1602078602.743|TOPPARNEW|rdkafka#producer-1| [thrd:main]: NEW topic_test [2] 0x7f8541e59fa0 (at rd_kafka_topic_partition_cnt_update:750)
+%7|1602078602.743|TOPPARNEW|rdkafka#producer-1| [thrd:main]: NEW topic_test [3] 0x7f8541e5a390 (at rd_kafka_topic_partition_cnt_update:750)
+%7|1602078602.743|TOPPARNEW|rdkafka#producer-1| [thrd:main]: NEW topic_test [4] 0x7f8541e5a780 (at rd_kafka_topic_partition_cnt_update:750)
+%7|1602078602.743|TOPPARNEW|rdkafka#producer-1| [thrd:main]: NEW topic_test [5] 0x7f8541e5ab70 (at rd_kafka_topic_partition_cnt_update:750)
+%7|1602078602.743|METADATA|rdkafka#producer-1| [thrd:main]:   Topic topic_test partition 0 Leader 101
+%7|1602078602.743|BRKDELGT|rdkafka#producer-1| [thrd:main]: topic_test [0]: delegate to broker localhost:29092/101 (rktp 0x7f8541e58420, term 0, ref 2)
+%7|1602078602.743|BRKDELGT|rdkafka#producer-1| [thrd:main]: topic_test [0]: delegating to broker localhost:29092/101 for partition with 0 messages (0 bytes) queued
+%7|1602078602.743|BRKMIGR|rdkafka#producer-1| [thrd:main]: Migrating topic topic_test [0] 0x7f8541e58420 from (none) to localhost:29092/101 (sending PARTITION_JOIN to localhost:29092/101)
+%7|1602078602.743|METADATA|rdkafka#producer-1| [thrd:main]:   Topic topic_test partition 1 Leader 101
+%7|1602078602.743|BRKDELGT|rdkafka#producer-1| [thrd:main]: topic_test [1]: delegate to broker localhost:29092/101 (rktp 0x7f8541e57c10, term 0, ref 2)
+%7|1602078602.743|BRKDELGT|rdkafka#producer-1| [thrd:main]: topic_test [1]: delegating to broker localhost:29092/101 for partition with 0 messages (0 bytes) queued
+%7|1602078602.743|BRKMIGR|rdkafka#producer-1| [thrd:main]: Migrating topic topic_test [1] 0x7f8541e57c10 from (none) to localhost:29092/101 (sending PARTITION_JOIN to localhost:29092/101)
+%7|1602078602.743|METADATA|rdkafka#producer-1| [thrd:main]:   Topic topic_test partition 2 Leader 101
+%7|1602078602.743|BRKDELGT|rdkafka#producer-1| [thrd:main]: topic_test [2]: delegate to broker localhost:29092/101 (rktp 0x7f8541e59fa0, term 0, ref 2)
+%7|1602078602.743|BRKDELGT|rdkafka#producer-1| [thrd:main]: topic_test [2]: delegating to broker localhost:29092/101 for partition with 0 messages (0 bytes) queued
+%7|1602078602.743|BRKMIGR|rdkafka#producer-1| [thrd:main]: Migrating topic topic_test [2] 0x7f8541e59fa0 from (none) to localhost:29092/101 (sending PARTITION_JOIN to localhost:29092/101)
+%7|1602078602.743|METADATA|rdkafka#producer-1| [thrd:main]:   Topic topic_test partition 3 Leader 101
+%7|1602078602.743|BRKDELGT|rdkafka#producer-1| [thrd:main]: topic_test [3]: delegate to broker localhost:29092/101 (rktp 0x7f8541e5a390, term 0, ref 2)
+%7|1602078602.743|TOPBRK|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Topic topic_test [0]: joining broker (rktp 0x7f8541e58420, 0 message(s) queued)
+%7|1602078602.743|FETCHADD|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Added topic_test [0] to active list (1 entries, opv 0, 0 messages queued): joining
+%7|1602078602.743|BROADCAST|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: Broadcasting state change
+%7|1602078602.743|TOPBRK|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Topic topic_test [1]: joining broker (rktp 0x7f8541e57c10, 0 message(s) queued)
+%7|1602078602.743|BRKDELGT|rdkafka#producer-1| [thrd:main]: topic_test [3]: delegating to broker localhost:29092/101 for partition with 0 messages (0 bytes) queued
+%7|1602078602.743|FETCHADD|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Added topic_test [1] to active list (2 entries, opv 0, 0 messages queued): joining
+%7|1602078602.743|BRKMIGR|rdkafka#producer-1| [thrd:main]: Migrating topic topic_test [3] 0x7f8541e5a390 from (none) to localhost:29092/101 (sending PARTITION_JOIN to localhost:29092/101)
+%7|1602078602.743|METADATA|rdkafka#producer-1| [thrd:main]:   Topic topic_test partition 4 Leader 101
+%7|1602078602.743|BRKDELGT|rdkafka#producer-1| [thrd:main]: topic_test [4]: delegate to broker localhost:29092/101 (rktp 0x7f8541e5a780, term 0, ref 2)
+%7|1602078602.743|BRKDELGT|rdkafka#producer-1| [thrd:main]: topic_test [4]: delegating to broker localhost:29092/101 for partition with 0 messages (0 bytes) queued
+%7|1602078602.743|BROADCAST|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: Broadcasting state change
+%7|1602078602.743|TOPBRK|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Topic topic_test [2]: joining broker (rktp 0x7f8541e59fa0, 0 message(s) queued)
+%7|1602078602.743|BRKMIGR|rdkafka#producer-1| [thrd:main]: Migrating topic topic_test [4] 0x7f8541e5a780 from (none) to localhost:29092/101 (sending PARTITION_JOIN to localhost:29092/101)
+%7|1602078602.743|METADATA|rdkafka#producer-1| [thrd:main]:   Topic topic_test partition 5 Leader 101
+%7|1602078602.743|BRKDELGT|rdkafka#producer-1| [thrd:main]: topic_test [5]: delegate to broker localhost:29092/101 (rktp 0x7f8541e5ab70, term 0, ref 2)
+%7|1602078602.743|BRKDELGT|rdkafka#producer-1| [thrd:main]: topic_test [5]: delegating to broker localhost:29092/101 for partition with 0 messages (0 bytes) queued
+%7|1602078602.743|BRKMIGR|rdkafka#producer-1| [thrd:main]: Migrating topic topic_test [5] 0x7f8541e5ab70 from (none) to localhost:29092/101 (sending PARTITION_JOIN to localhost:29092/101)
+%7|1602078602.743|FETCHADD|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Added topic_test [2] to active list (3 entries, opv 0, 0 messages queued): joining
+%7|1602078602.743|BROADCAST|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: Broadcasting state change
+%7|1602078602.743|PARTCNT|rdkafka#producer-1| [thrd:main]: Partitioning 1 unassigned messages in topic topic_test to 6 partitions
+%7|1602078602.743|TOPBRK|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Topic topic_test [3]: joining broker (rktp 0x7f8541e5a390, 0 message(s) queued)
+%7|1602078602.743|UAS|rdkafka#producer-1| [thrd:main]: 1/1 messages were partitioned in topic topic_test
+%7|1602078602.743|FETCHADD|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Added topic_test [3] to active list (4 entries, opv 0, 0 messages queued): joining
+%7|1602078602.743|BROADCAST|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: Broadcasting state change
+%7|1602078602.743|TOPBRK|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Topic topic_test [4]: joining broker (rktp 0x7f8541e5a780, 0 message(s) queued)
+%7|1602078602.743|FETCHADD|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Added topic_test [4] to active list (5 entries, opv 0, 0 messages queued): joining
+%7|1602078602.743|BROADCAST|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: Broadcasting state change
+%7|1602078602.743|TOPBRK|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Topic topic_test [5]: joining broker (rktp 0x7f8541e5ab70, 0 message(s) queued)
+%7|1602078602.743|FETCHADD|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Added topic_test [5] to active list (6 entries, opv 0, 0 messages queued): joining
+%7|1602078602.743|BROADCAST|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: Broadcasting state change
+%7|1602078602.743|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (1 added from partition queue)
+%7|1602078602.743|METADATA|rdkafka#producer-1| [thrd:main]: localhost:29092/101: 1/1 requested topic(s) seen in metadata
+%7|1602078602.744|PRODUCE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: Produce MessageSet with 1 message(s) (105 bytes, ApiVersion 7, MsgVersion 2, MsgId 0, BaseSeq -1, PID{Invalid}, uncompressed)
+%7|1602078602.744|SEND|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Sent ProduceRequest (v7, 162 bytes @ 0, CorrId 4)
+%7|1602078602.748|RECV|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Received ProduceResponse (v7, 54 bytes, CorrId 4, rtt 4.09ms)
+%7|1602078602.748|MSGSET|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: MessageSet with 1 message(s) (MsgId 0, BaseSeq -1) delivered
+Sent Key:{'key': 'driver-1'} Value:{'latitude': 47.60855272900047, 'longitude': -122.3351861842602}
+%7|1602078603.099|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (1 added from partition queue)
+%7|1602078603.105|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (0 added from partition queue)
+%7|1602078603.105|PRODUCE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: Produce MessageSet with 1 message(s) (105 bytes, ApiVersion 7, MsgVersion 2, MsgId 0, BaseSeq -1, PID{Invalid}, uncompressed)
+%7|1602078603.106|SEND|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Sent ProduceRequest (v7, 162 bytes @ 0, CorrId 5)
+%7|1602078603.110|RECV|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Received ProduceResponse (v7, 54 bytes, CorrId 5, rtt 3.97ms)
+%7|1602078603.110|MSGSET|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: MessageSet with 1 message(s) (MsgId 0, BaseSeq -1) delivered
+Sent Key:{'key': 'driver-1'} Value:{'latitude': 47.60857966448788, 'longitude': -122.3352112142356}
+%7|1602078604.102|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (1 added from partition queue)
+%7|1602078604.107|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (0 added from partition queue)
+%7|1602078604.107|PRODUCE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: Produce MessageSet with 1 message(s) (105 bytes, ApiVersion 7, MsgVersion 2, MsgId 0, BaseSeq -1, PID{Invalid}, uncompressed)
+%7|1602078604.107|SEND|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Sent ProduceRequest (v7, 162 bytes @ 0, CorrId 6)
+%7|1602078604.110|RECV|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Received ProduceResponse (v7, 54 bytes, CorrId 6, rtt 2.80ms)
+%7|1602078604.110|MSGSET|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: MessageSet with 1 message(s) (MsgId 0, BaseSeq -1) delivered
+Sent Key:{'key': 'driver-1'} Value:{'latitude': 47.6086171168696, 'longitude': -122.335245921525}
+%7|1602078605.104|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (1 added from partition queue)
+%7|1602078605.109|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (0 added from partition queue)
+%7|1602078605.109|PRODUCE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: Produce MessageSet with 1 message(s) (105 bytes, ApiVersion 7, MsgVersion 2, MsgId 0, BaseSeq -1, PID{Invalid}, uncompressed)
+%7|1602078605.109|SEND|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Sent ProduceRequest (v7, 162 bytes @ 0, CorrId 7)
+%7|1602078605.115|RECV|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Received ProduceResponse (v7, 54 bytes, CorrId 7, rtt 5.32ms)
+%7|1602078605.115|MSGSET|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: MessageSet with 1 message(s) (MsgId 0, BaseSeq -1) delivered
+Sent Key:{'key': 'driver-1'} Value:{'latitude': 47.60864062123478, 'longitude': -122.335267358756}
+%7|1602078606.109|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (1 added from partition queue)
+%7|1602078606.116|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (0 added from partition queue)
+%7|1602078606.116|PRODUCE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: Produce MessageSet with 1 message(s) (105 bytes, ApiVersion 7, MsgVersion 2, MsgId 0, BaseSeq -1, PID{Invalid}, uncompressed)
+%7|1602078606.116|SEND|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Sent ProduceRequest (v7, 162 bytes @ 0, CorrId 8)
+%7|1602078606.119|RECV|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Received ProduceResponse (v7, 54 bytes, CorrId 8, rtt 3.73ms)
+%7|1602078606.119|MSGSET|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: MessageSet with 1 message(s) (MsgId 0, BaseSeq -1) delivered
+Sent Key:{'key': 'driver-1'} Value:{'latitude': 47.60867273496408, 'longitude': -122.3352965444222}
+%7|1602078607.115|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (1 added from partition queue)
+%7|1602078607.121|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (0 added from partition queue)
+%7|1602078607.121|PRODUCE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: Produce MessageSet with 1 message(s) (105 bytes, ApiVersion 7, MsgVersion 2, MsgId 0, BaseSeq -1, PID{Invalid}, uncompressed)
+%7|1602078607.121|SEND|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Sent ProduceRequest (v7, 162 bytes @ 0, CorrId 9)
+%7|1602078607.124|RECV|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Received ProduceResponse (v7, 54 bytes, CorrId 9, rtt 2.62ms)
+%7|1602078607.124|MSGSET|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: MessageSet with 1 message(s) (MsgId 0, BaseSeq -1) delivered
+Sent Key:{'key': 'driver-1'} Value:{'latitude': 47.60870760627582, 'longitude': -122.3353303379085}
+%7|1602078608.117|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (1 added from partition queue)
+%7|1602078608.123|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (0 added from partition queue)
+%7|1602078608.123|PRODUCE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: Produce MessageSet with 1 message(s) (105 bytes, ApiVersion 7, MsgVersion 2, MsgId 0, BaseSeq -1, PID{Invalid}, uncompressed)
+%7|1602078608.123|SEND|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Sent ProduceRequest (v7, 162 bytes @ 0, CorrId 10)
+%7|1602078608.133|RECV|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Received ProduceResponse (v7, 54 bytes, CorrId 10, rtt 9.72ms)
+%7|1602078608.133|MSGSET|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: MessageSet with 1 message(s) (MsgId 0, BaseSeq -1) delivered
+Sent Key:{'key': 'driver-1'} Value:{'latitude': 47.60875830924499, 'longitude': -122.3353761321057}
+%7|1602078609.123|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (1 added from partition queue)
+%7|1602078609.127|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (0 added from partition queue)
+%7|1602078609.127|PRODUCE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: Produce MessageSet with 1 message(s) (105 bytes, ApiVersion 7, MsgVersion 2, MsgId 0, BaseSeq -1, PID{Invalid}, uncompressed)
+%7|1602078609.127|SEND|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Sent ProduceRequest (v7, 162 bytes @ 0, CorrId 11)
+%7|1602078609.130|RECV|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Received ProduceResponse (v7, 54 bytes, CorrId 11, rtt 3.40ms)
+%7|1602078609.130|MSGSET|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: MessageSet with 1 message(s) (MsgId 0, BaseSeq -1) delivered
+Sent Key:{'key': 'driver-1'} Value:{'latitude': 47.608798412752, 'longitude': -122.335409376113}
+%7|1602078610.125|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (1 added from partition queue)
+%7|1602078610.132|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (0 added from partition queue)
+%7|1602078610.132|PRODUCE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: Produce MessageSet with 1 message(s) (105 bytes, ApiVersion 7, MsgVersion 2, MsgId 0, BaseSeq -1, PID{Invalid}, uncompressed)
+%7|1602078610.132|SEND|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Sent ProduceRequest (v7, 162 bytes @ 0, CorrId 12)
+%7|1602078610.147|RECV|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: Received ProduceResponse (v7, 54 bytes, CorrId 12, rtt 15.43ms)
+%7|1602078610.147|MSGSET|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: MessageSet with 1 message(s) (MsgId 0, BaseSeq -1) delivered
+Sent Key:{'key': 'driver-1'} Value:{'latitude': 47.60883006522816, 'longitude': -122.3354393101568}
+%7|1602078611.131|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (1 added from partition queue)
+%7|1602078611.137|TOPPAR|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1] 1 message(s) in xmit queue (0 added from partition queue)
+%7|1602078611.137|PRODUCE|rdkafka#producer-1| [thrd:localhost:29092/bootstrap]: localhost:29092/101: topic_test [1]: Produce MessageSet with 1 message(s) (105 bytes, ApiVersion 7, MsgVersion 2, MsgId 0, BaseSeq -1, PID{Invalid}, uncompressed)
