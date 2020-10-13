@@ -136,7 +136,7 @@ Use Avro-Consumer to consume from broker->
 ```
 confluent-5.3.0/bin/kafka-avro-console-consumer \
   --bootstrap-server localhost:29092 \
-  --property schema.registry.url=http://localhost:18081 \
+  --property schema.registry.url=http://localhost:8081 \
   --topic pg-operators \
   --from-beginning \
   --property print.key=true
@@ -147,7 +147,7 @@ Get output data, fix avro error by this <a href="https://rmoff.net/2016/12/02/ka
 Connection error
 <img src="imgs/connect_error.png">
 Result ->
-<img src="">
+<img src="imgs/jdbc_connector.png">
 
 Clean up
 ```
@@ -155,4 +155,4 @@ docker-compose down -v
 ```
 
 Conclusion:
-Connection to endpoint will easily caused errors, so make sure connection is right.
+*Connection to endpoint will easily caused errors, so make sure connection is right.
