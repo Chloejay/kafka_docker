@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   zookeeper:
-    image: confluentinc/cp-zookeeper
+    image: confluentinc/cp-zookeeper:5.3.0
     restart: always 
     hostname: zookeeper
     networks:
@@ -12,7 +12,7 @@ services:
       ZOOKEEPER_SYNC_LIMIT: 2
 
   kafka:
-    image: confluentinc/cp-enterprise-kafka
+    image: confluentinc/cp-enterprise-kafka:5.3.0
     restart: always 
     hostname: kafka
     networks:
@@ -32,7 +32,7 @@ services:
       CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: "kafka:9092"
 
   schema-registry:
-    image: confluentinc/cp-schema-registry
+    image: confluentinc/cp-schema-registry:5.3.0
     restart: always
     hostname: schema-registry
     networks:
@@ -46,7 +46,7 @@ services:
       SCHEMA_REGISTRY_DEBUG: "true"
 
   kafka-rest:
-    image: confluentinc/cp-kafka-rest
+    image: confluentinc/cp-kafka-rest:5.3.0
     restart: always
     hostname: kafka-rest
     networks:
@@ -69,7 +69,7 @@ services:
     networks:
       - confluent
     environment:
-      CONNECT_BOOTSTRAP_SERVERS: kafka:9092
+      CONNECT_BOOTSTRAP_SERVERS: kafka:9092,localhost:29092
       CONNECT_REST_PORT: 8083
       CONNECT_GROUP_ID: "connect"
       CONNECT_CONFIG_STORAGE_TOPIC: "connect-config"

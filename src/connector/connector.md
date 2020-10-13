@@ -114,7 +114,7 @@ curl -s -X POST \
 "org.apache.kafka.connect.transforms.ExtractField$Key",
   "transforms.extractInt.field": "id"
   }
-  }' http://connect:8083/connectors | jq
+  }' http://localhost:8083/connectors | jq
 ```
 
 error:
@@ -124,10 +124,13 @@ error:
   "message": "Failed to find any class that implements Connector and which name matches io.confluent.connect.jdbc.JdbcSourceConnector, available connectors are: PluginDesc{klass=class org.apache.kafka.connect.file.FileStreamSinkConnector, name='org.apache.kafka.connect.file.FileStreamSinkConnector', version='6.0.0-ccs', encodedVersion=6.0.0-ccs, type=sink, typeName='sink', location='file:/usr/share/java/kafka/'}, PluginDesc{klass=class org.apache.kafka.connect.file.FileStreamSourceConnector, name='org.apache.kafka.connect.file.FileStreamSourceConnector', version='6.0.0-ccs', encodedVersion=6.0.0-ccs, type=source, typeName='source', location='file:/usr/share/java/kafka/'}, PluginDesc{klass=class org.apache.kafka.connect.mirror.MirrorCheckpointConnector, name='org.apache.kafka.connect.mirror.MirrorCheckpointConnector', version='1', encodedVersion=1, type=source, typeName='source', location='file:/usr/share/java/kafka/'}, PluginDesc{klass=class org.apache.kafka.connect.mirror.MirrorHeartbeatConnector, name='org.apache.kafka.connect.mirror.MirrorHeartbeatConnector', version='1', encodedVersion=1, type=source, typeName='source', location='file:/usr/share/java/kafka/'}, PluginDesc{klass=class org.apache.kafka.connect.mirror.MirrorSourceConnector, name='org.apache.kafka.connect.mirror.MirrorSourceConnector', version='1', encodedVersion=1, type=source, typeName='source', location='file:/usr/share/java/kafka/'}, PluginDesc{klass=class org.apache.kafka.connect.tools.MockConnector, name='org.apache.kafka.connect.tools.MockConnector', version='6.0.0-ccs', encodedVersion=6.0.0-ccs, type=connector, typeName='connector', location='file:/usr/share/java/acl/'}, PluginDesc{klass=class org.apache.kafka.connect.tools.MockSinkConnector, name='org.apache.kafka.connect.tools.MockSinkConnector', version='6.0.0-ccs', encodedVersion=6.0.0-ccs, type=sink, typeName='sink', location='file:/usr/share/java/acl/'}, PluginDesc{klass=class org.apache.kafka.connect.tools.MockSourceConnector, name='org.apache.kafka.connect.tools.MockSourceConnector', version='6.0.0-ccs', encodedVersion=6.0.0-ccs, type=source, typeName='source', location='file:/usr/share/java/acl/'}, PluginDesc{klass=class org.apache.kafka.connect.tools.SchemaSourceConnector, name='org.apache.kafka.connect.tools.SchemaSourceConnector', version='6.0.0-ccs', encodedVersion=6.0.0-ccs, type=source, typeName='source', location='file:/usr/share/java/acl/'}, PluginDesc{klass=class org.apache.kafka.connect.tools.VerifiableSinkConnector, name='org.apache.kafka.connect.tools.VerifiableSinkConnector', version='6.0.0-ccs', encodedVersion=6.0.0-ccs, type=source, typeName='source', location='file:/usr/share/java/acl/'}, PluginDesc{klass=class org.apache.kafka.connect.tools.VerifiableSourceConnector, name='org.apache.kafka.connect.tools.VerifiableSourceConnector', version='6.0.0-ccs', encodedVersion=6.0.0-ccs, type=source, typeName='source', location='file:/usr/share/java/acl/'}"
 }
 
-check Connector jar in kafka-conenct-jdbc.
+check Connector jar in kafka-conenct-jdbc and config connection endpoint.
 ```
 Get Return Output, which tell if works,  
 <img src="imgs/connect3.png" height="600" width="800">
+
+Check topics->
+<img src="imgs/connect_rest.png">
 
 Use Avro-Consumer to consume from broker->
 ```
@@ -137,9 +140,9 @@ confluent-5.3.0/bin/kafka-avro-console-consumer \
   --topic pg-operators \
   --from-beginning \
   --property print.key=true
-
 ```
-<img src="imgs/">
+Get output data, TODO-> fix avro error.
+<img src="imgs/connect4.png">
 
 Clean up
 ```
