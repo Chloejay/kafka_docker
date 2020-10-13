@@ -127,7 +127,7 @@ error:
 check Connector jar in kafka-conenct-jdbc and config connection endpoint.
 ```
 Get Return Output, which tell if works,  
-<img src="imgs/connect3.png" height="600" width="800">
+<img src="imgs/connect3.png">
 
 Check topics->
 <img src="imgs/connect_rest.png">
@@ -136,15 +136,23 @@ Use Avro-Consumer to consume from broker->
 ```
 confluent-5.3.0/bin/kafka-avro-console-consumer \
   --bootstrap-server localhost:29092 \
-  --property schema.registry.url=http://schema-registry:8081 \
+  --property schema.registry.url=http://localhost:18081 \
   --topic pg-operators \
   --from-beginning \
   --property print.key=true
 ```
-Get output data, TODO-> fix avro error.
+
+Get output data, fix avro error by this <a href="https://rmoff.net/2016/12/02/kafka-avro-console-producer-error-registering-avro-schema-/-io.confluent.kafka.schemaregistry.client.rest.exceptions.restclientexception/">solution</a>.
 <img src="imgs/connect4.png">
+Connection error
+<img src="imgs/connect_error.png">
+Result ->
+<img src="">
 
 Clean up
 ```
 docker-compose down -v
 ```
+
+Conclusion:
+Connection to endpoint will easily caused errors, so make sure connection is right.
