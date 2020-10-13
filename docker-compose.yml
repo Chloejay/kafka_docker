@@ -129,6 +129,24 @@ services:
       KSQL_CONSUMER_INTERCEPTOR_CLASSES: "io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor"
       KSQL_KSQL_SERVER_UI_ENABLED: "false"
 
+  mysql:
+    image: mysql
+    restart: always
+    hostname: mysql
+    networks:
+      - confluent
+    ports:
+      - 3306:3306
+
+  postgres:
+    image: postgres:11.2-alpine
+    restart: always
+    hostname: postgres
+    networks:
+      - confluent
+    ports:
+      - 5432:5432
+  
   tools:
     image: cnfltraining/training-tools:19.06
     hostname: tools
