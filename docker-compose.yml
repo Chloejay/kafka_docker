@@ -34,7 +34,8 @@ services:
   kafka-setup:
     image: confluentinc/cp-kafka:5.3.0
     hostname: kafka-setup
-    depends_on: kafka
+    depends_on: 
+      - kafka
     command: "bash -c 'echo Waiting for Kafka to be ready...&& \
     cub kafka-ready -z zookeeper:2181 1 30 && \
     kafka-topics --create --if-not-exists --zookeeper zookeeper:2181 --partitions 6 --replication-factor 1 --topic topic_test && \
