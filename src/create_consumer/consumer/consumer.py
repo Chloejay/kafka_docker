@@ -2,7 +2,7 @@ from main import *
 
 if __name__ == "__main__":
     BOOTSTRAP_SERVER ="localhost:29092"
-    GROUP_ID= "msg_more_consumer"
+    GROUP_ID= "more_consumers"
     SESS_TIMEOUT= 20000
     TOPIC= ["topic_test"]
     RETRIES= 5

@@ -1,7 +1,7 @@
 import confluent_kafka
 import pandas as pd 
 
-c = confluent_kafka.Consumer({"bootstrap.servers": "localhost:9092", "group.id":"msg+"})
+c = confluent_kafka.Consumer({"bootstrap.servers": "localhost:29092", "group.id":"msg+"})
 
 def on_assign (consumer, partitions):
     for p in partitions:
@@ -10,7 +10,7 @@ def on_assign (consumer, partitions):
     consumer.assign(partitions)
 
 def test():
-    c.subscribe(["topic_"], on_assign=on_assign)
+    c.subscribe(["topic_test"], on_assign=on_assign)
     try:
         payload_= list()
         partitions_= list()

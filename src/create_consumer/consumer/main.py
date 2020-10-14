@@ -39,7 +39,7 @@ class Base_Consumer:
                 "acks":1},                             #EOS
             "api.version.request": True,
             "session.timeout.ms":sess_timeout,         #heartbeat
-            "max.poll.interval.ms":40000,              #processing thread
+            "max.poll.interval.ms":20000,              #processing thread
             "enable.auto.commit": False,
             "auto.commit.interval.ms": 10000,
             "enable.auto.offset.store": True,
@@ -58,32 +58,34 @@ class Base_Consumer:
     def get_topics(self)-> str:
         return self.consumer.list_topics(self.topic)
 
-    def on_assign(self, consumer:dict, partitions:List[int])-> Text:
-        for p in partitions:
-            # consumer.seek(p)
-            p.offset= 200 # confluent_kafka.OFFSET_END
-        pprint(f"Assign: {partitions}")
-        consumer.assign(partitions)
-
-    
-    async def consume(self):
-        """Asynchronously consumes"""
+     async def consume(self):
+        """Asynchronously consuming"""
         while True:
             results = 1
             while results > 0:
                 results = self.receive_msgs()
-            await sleep(3)
-    
-    def receive_msgs(self)-> Union[Text, pd.DataFrame]:
+            await sleep(1)
+            
+    def on_assign(self, consumer, partitions: List[int])-> Text:
+        for p in partitions:
+            p.offset = 100
+        pprint(f"Assign: {partitions}")
+        consumer.assign(partitions)
+
+    def receive_msgs(self, func_assign: Callable)-> Union[Text, pd.DataFrame]:
         running = True
         c = self.consumer
         if self.need_assign_:
             try:
-                c.subscribe([self.topic], on_assign= self.on_assign)
+                c.subscribe(self.topic, on_assign = func_assign)
             except KafkaException as e:
                 pprint(e)
-        c.subscribe(self.topic)
-        
+        else:
+            try:
+                c.subscribe(self.topic)
+            except Exception as e:
+                pprint(e)
+            
         message_values= list()
         offsets= list()
         keys= list() 
@@ -139,6 +141,6 @@ class Consumer1(Base_Consumer):
 
 def main(topic: str, bootstrap_server: str, timeout:int, group: str, retries: int, assign: bool, file_path: str)-> str:
     c= Base_Consumer(topic, bootstrap_server, timeout, retries, group, assign)
-    c.receive_msgs().to_csv(file_path, index= False)
+    c.receive_msgs(c.on_assign).to_csv(file_path, index= False)
     run_time = count_run_time(c.receive_msgs)
     return f"Total cost time: {run_time}"
