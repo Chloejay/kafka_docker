@@ -31,6 +31,17 @@ services:
       KAFKA_METRIC_REPORTERS: "io.confluent.metrics.reporter.ConfluentMetricsReporter"
       CONFLUENT_METRICS_REPORTER_BOOTSTRAP_SERVERS: "kafka:9092"
 
+  kafka-setup:
+    image: confluentinc/cp-kafka:5.3.0
+    hostname: kafka-setup
+    depends_on: kafka
+    command: "bash -c 'echo Waiting for Kafka to be ready...&& \
+    cub kafka-ready -z zookeeper:2181 1 30 && \
+    kafka-topics --create --if-not-exists --zookeeper zookeeper:2181 --partitions 6 --replication-factor 1 --topic topic_test && \
+    kafka-topics --create --if-not-exists --zookeeper zookeeper:2181 --partitions 4 --replication-factor 1 --topic topic_test_2 && \
+    kafka-topics --create --if-not-exists --zookeeper zookeeper:2181 --partitions 2 --replication-factor 1 --topic to_producer_source_topic && \
+    kafka-topics --create --if-not-exists --zookeeper zookeeper:2181 --partitions 2 --replication-factor 1 --topic to_consumer_sink_topic'"
+
   schema-registry:
     image: confluentinc/cp-schema-registry:5.3.0
     restart: always
@@ -57,6 +68,7 @@ services:
       KAFKA_REST_LISTENERS: http://kafka-rest:8082
       KAFKA_REST_SCHEMA_REGISTRY_URL: http://schema-registry:8081
 
+  # TODO build multiple connectors
   connect:
     image: confluentinc/cp-kafka-connect:5.3.0
     hostname: connect
@@ -86,14 +98,14 @@ services:
       CONNECT_INTERNAL_KEY_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
       CONNECT_INTERNAL_VALUE_CONVERTER: "org.apache.kafka.connect.json.JsonConverter"
       CONNECT_REST_ADVERTISED_HOST_NAME: "connect"
-      CONNECT_PLUGIN_PATH: /usr/share/java
+      CONNECT_PLUGIN_PATH: /usr/share/java, /usr/share/confluent-hub-components
       CONNECT_LOG4J_ROOT_LOGLEVEL: INFO
       CONNECT_LOG4J_LOGGERS: org.reflections=ERROR
       CONNECT_PRODUCER_INTERCEPTOR_CLASSES: io.confluent.monitoring.clients.interceptor.MonitoringProducerInterceptor
       CONNECT_CONSUMER_INTERCEPTOR_CLASSES: io.confluent.monitoring.clients.interceptor.MonitoringConsumerInterceptor
 
   control-center:
-    image: confluentinc/cp-enterprise-control-center
+    image: confluentinc/cp-enterprise-control-center:5.3.0
     restart: always 
     hostname: control-center
     networks:

@@ -9,6 +9,7 @@ Based on blogs from Robin and training course notes for Kafka Connect session,
 - <a href="https://rmoff.net/2019/11/29/kafka-connect-request-timed-out/">Kafka Connect - Request timed out</a>
 - <a href="https://rmoff.net/2019/11/22/common-mistakes-made-when-configuring-multiple-kafka-connect-workers/">Common mistakes made when configuring multiple Kafka Connect workers</a>
 - <a href="https://rmoff.net/2019/10/15/skipping-bad-records-with-the-kafka-connect-jdbc-sink-connector/">Skipping bad records with the Kafka Connect JDBC sink connector</a>
+- <a href="https://blog.softwaremill.com/do-not-reinvent-the-wheel-use-kafka-connect-4bcabb143292">Do not reinvent the wheel — use Kafka Connect</a> explains why as well, from title obviously why need use Kafka Connect.
 
 https://docs.confluent.io/current/connect/index.html
 
