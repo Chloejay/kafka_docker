@@ -58,19 +58,20 @@ class Base_Consumer:
     def get_topics(self)-> str:
         return self.consumer.list_topics(self.topic)
 
-     async def consume(self):
+    # @staticmethod
+    def on_assign(self, consumer, partitions: List[int])-> Text:
+        for p in partitions:
+            p.offset = 100
+        pprint(f"Assign: {partitions}")
+        consumer.assign(partitions)
+
+    async def consume(self):
         """Asynchronously consuming"""
         while True:
             results = 1
             while results > 0:
                 results = self.receive_msgs()
             await sleep(1)
-            
-    def on_assign(self, consumer, partitions: List[int])-> Text:
-        for p in partitions:
-            p.offset = 100
-        pprint(f"Assign: {partitions}")
-        consumer.assign(partitions)
 
     def receive_msgs(self, func_assign: Callable)-> Union[Text, pd.DataFrame]:
         running = True
